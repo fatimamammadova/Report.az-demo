@@ -1,8 +1,13 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Montserrat } from "next/font/google";
 import Header from "./components/Header/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat(
+  { 
+    subsets: ["latin"],
+    weight: ['100','200','300','400','500','600','700','800','900'] ,
+    display: "swap"
+  }
+);
 
 export const metadata = {
   title: "Azərbaycanın aparıcı xəbər saytı | Report.az",
@@ -12,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <Header/>
         {children}
       </body>
