@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import "./_header.scss"
+import { getValutes } from '../../libs/data'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { 
         faFacebookF, 
@@ -16,7 +17,10 @@ import {
         faSun 
     } from "@fortawesome/free-solid-svg-icons"
 
-const Header = () => {
+const Header = async () => {
+
+    const valutes = await getValutes()
+    console.log(valutes)
 
     return (
         <header>
@@ -42,11 +46,9 @@ const Header = () => {
                             <div className="currency">
                                 <Image src="/images/currency.png" width={19} height={19}/>
                                 <ul className="currency-list">
-                                    <li>
-                                        <Link href="">
-                                            USD - 1.7000
-                                        </Link>
-                                    </li>
+                                    {Object.entries(valutes).map(([currency, rate]) => (
+                                        <li key={currency}>{currency}: {rate}</li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
