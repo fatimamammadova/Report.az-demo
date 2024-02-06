@@ -53,6 +53,8 @@ header {
             }
             .currency {
                 @include Flex($a-items:center,$j-con:center);
+                overflow: hidden;
+                height: 19px;
                 .currency-list {
                     li {
                         a {
