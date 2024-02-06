@@ -3,20 +3,38 @@
 @import "./partials/extend";
 @import "./partials/animation";
 
+:root {
+    --bg: #fefefe;
+    --text: #353535;
+}
+[data-theme='dark'] {
+    --bg: #000;
+    --text: #fff;
+}
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, 
 a, img, i, ol, ul, li, footer, header, nav, section, 
 video, * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  text-decoration: none;
-  box-sizing: border-box;
-  color: inherit;
-  font-weight: 500;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-weight: 500;
+    color: inherit;
 }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
 
 ul {
     list-style: none;
+}
+
+input:focus,textarea:focus {
+    outline: none;
 }
 
 .container {

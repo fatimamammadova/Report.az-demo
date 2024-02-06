@@ -23,6 +23,7 @@ const Header = () => {
 
     const [valute, setValute] = useState()
     const [currentValute, setCurrentValute] = useState(0)
+    const [theme,setTheme] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,8 +58,26 @@ const Header = () => {
     
         return () => clearInterval(intervalId)
     }, [currentValute, valute])
-    
 
+
+    useEffect(() => {
+        if(theme) {
+            document.documentElement.dataset.theme = 'light'
+            
+        } else {
+            document.documentElement.dataset.theme = 'dark'
+        }
+        
+        return () => {
+            document.documentElement.dataset.theme = 'light'
+        }
+    },[theme])
+
+
+    const changeTheme = () => {
+        setTheme((prevTheme) => !prevTheme)
+        console.log(theme)
+    };
 
     return (
         <header>
@@ -131,17 +150,16 @@ const Header = () => {
                             </ul>
 
                             <div className="theme-button">
-                                <button className="light-theme">
-                                    <FontAwesomeIcon icon={faSun} />
-                                </button>
-                                <button className="dark-theme">
-                                    <FontAwesomeIcon icon={faMoon} />
+                                <button onClick={changeTheme}>
+                                    {theme ? (<FontAwesomeIcon icon={faMoon} />) : (<FontAwesomeIcon icon={faSun} />)}
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </header>
     )
 }

@@ -102,9 +102,10 @@ header {
                 }
                 button {
                     background: none;
-                    &:first-child {
-                        display: none;
-                    }
+                    cursor: pointer;
+                    // &:first-child {
+                    //     display: none;
+                    // }
                     svg {
                         width: 19px;
                         height: 16px;
