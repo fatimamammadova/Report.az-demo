@@ -20,11 +20,12 @@ const Header = () => {
     const pathname = usePathname()
     const [isSearch,setIsSearch] = useState(false)
 
+
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getValutes()
+            const valutes = await getValutes()
             const langs = await getLang()
-            setValute(data)
+            setValute(valutes)
             setLang(langs)
         }
 
