@@ -1,24 +1,15 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import "./_header.scss"
-import { getValutes, getLang } from '../../libs/data'
+import Links from './Links/Links'
 import { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { 
-        faFacebookF, 
-        faInstagram, 
-        faTelegram, 
-        faTwitter,
-        faLinkedinIn,
-        faYoutube
-    } from "@fortawesome/free-brands-svg-icons";
-
-import { 
-        faMoon,
-        faSun 
-    } from "@fortawesome/free-solid-svg-icons"
 import { usePathname } from 'next/navigation'
+import { getValutes, getLang } from '../../libs/data'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFacebookF, faInstagram, faTelegram, faTwitter, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faMoon, faSun, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons"
+
+import "./_header.scss"
 
 const Header = () => {
 
@@ -27,6 +18,7 @@ const Header = () => {
     const [currentValute, setCurrentValute] = useState(0)
     const [theme,setTheme] = useState(true)
     const pathname = usePathname()
+    const [isSearch,setIsSearch] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -178,10 +170,29 @@ const Header = () => {
                             </Link>
                         </div>
                     </div>
+                    
+
+                    <div className="main-menu">
+                        {isSearch ? (
+                            <div className="search-block">
+                                <form>
+                                    <div className="form-input">
+                                        <input type="text" placeholder='Açar sözü daxil edin'/>
+                                    </div>
+                                </form>
+                            </div>
+                            ) : (<Links/>)
+                        }
+                        
+                        <button className="search" onClick={() => setIsSearch(prevAction => !prevAction) }>
+                            {isSearch ? ( <FontAwesomeIcon icon={faXmark} />) : (<FontAwesomeIcon icon={faSearch} />)}
+                        </button>
+                    </div>
                 </div>
             </div>
+
         </header>
     )
 }
 
-export default Header;
+export default Header

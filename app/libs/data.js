@@ -30,3 +30,56 @@ const langs = [
 export const getLang = async () => {
     return langs
 }
+
+
+const menuLinks = [
+    {
+        link: "Əsas xəbərlər",
+        path: "/"
+    },
+    {
+        link: "Son xəbərlər",
+        path: "/son-xəbərlər"
+    },
+    {
+        link: "Siyasət",
+        path: "/siyasət"
+    },
+    {
+        link: "İqtisadiyyat",
+        path: "/iqtisadiyyat"
+    },
+    {
+        link: "COP29",
+        path: "/cop29"
+    },
+    {
+        link: "Cəmiyyət",
+        path: "/cəmiyyət"
+    },
+    {
+        link: "İdman",
+        path: "/idman"
+    },
+    {
+        link: "Mədəniyyət",
+        path: "/mədəniyyət"
+    },
+    {
+        link: "Dünya",
+        path: "/dünya"
+    },
+    {
+        link: "Analitika",
+        path: "/analitika"
+    },
+    {
+        link: "Multimedia",
+        path: "/multimedia"
+    }
+]
+
+
+export const getMenuLink = async () => {
+    return menuLinks
+}

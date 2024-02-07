@@ -11,6 +11,7 @@
 [data-theme='dark'] {
     --bg: #000;
     --text: #fff;
+    --filter: brightness(0) invert(1);
 }
 
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, 
@@ -22,6 +23,7 @@ video, * {
     text-decoration: none;
     box-sizing: border-box;
     font-weight: 500;
+    font-family: inherit;
     color: inherit;
 }
 
@@ -34,8 +36,16 @@ ul {
     list-style: none;
 }
 
-input:focus,textarea:focus {
-    outline: none;
+input,textarea, button {
+    background-color: transparent;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+    cursor: pointer;
 }
 
 img {
