@@ -3,11 +3,23 @@
 
 
 header {
+    @media (max-width: 1200px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
     .header-top {
         font-size: 12px;
         padding: 8px 0 9px;
         background-color: $primary-color;
         color: $text-color;
+        display: none;
+        @media (min-width: 1200px){
+            display: block;
+        }
+        
         .ht-left {
             display: flex;
             .weather {
@@ -80,7 +92,10 @@ header {
                 margin-left: 15px;
                 li {
                     margin: 0 5px;
-                    a {
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    a { 
                         svg {
                             width: 19px;
                             height: 16px;
@@ -113,10 +128,17 @@ header {
 
     .header-bottom {
         .logo-langs {
-            text-align: center;
-            padding: 15px 0 20px;
+            @media (min-width: 1200px){
+                text-align: center;
+                padding: 15px 0 20px;
+            }
+            padding: 15px 0;
             .langs {
                 margin-bottom: 9px;
+                display: none;
+                @media (min-width: 1200px){
+                    display: block;
+                }
                 li {
                     margin: 0 5px;
                     display: inline-block;
@@ -137,9 +159,13 @@ header {
             .logo {
                 a {
                     img {
-                        max-width: 280px;
-                        height: 65px;
+                        width: 150px;
+                        height: 35px;
                         filter: var(--filter);
+                        @media (min-width: 1200px){
+                            width: 280px;
+                            height: 65px;
+                        }
                     }
                 }
             }
@@ -149,16 +175,26 @@ header {
         .main-menu {
             @include Flex($j-con:space-between);
             position: relative;
-            border-top: 1px solid $border;
-            border-bottom: 1px solid $border;
+            border-top: 1px solid var(--border) ;
+            border-bottom: 1px solid var(--border);
+            display: none;
+            @media (min-width: 1200px){
+                display: block;
+            }
             nav {
-                padding: 18px 0;
                 width: 100%;
+                padding: 18px 0;
                 max-width: calc(100% - 60px);
                 .navbar {
                     @include Flex($j-con:space-between);
                     li {
                         margin-right: 13px;
+                        &:last-child {
+                            margin: 0;
+                        }
+                        a {
+                            font-weight: 600;
+                        }
                     }
                 }
     
@@ -197,6 +233,7 @@ header {
                 svg {
                     width: 18px;
                     height: 18px;
+                    margin-right: 0.2em;
                 }
             }
         }

@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { getValutes, getLang } from '../../libs/data'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFacebookF, faInstagram, faTelegram, faTwitter, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faMoon, faSun, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faFacebookF, faInstagram, faTwitter, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faMoon, faSun, faSearch, faXmark, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 import "./_header.scss"
 
@@ -123,7 +123,7 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link href="javascript:void(0)">
-                                        <FontAwesomeIcon icon={faTelegram} />
+                                        <FontAwesomeIcon icon={faPaperPlane} />
                                     </Link>
                                 </li>
                                 <li>
