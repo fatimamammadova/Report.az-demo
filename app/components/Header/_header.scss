@@ -103,12 +103,43 @@ header {
                 button {
                     background: none;
                     cursor: pointer;
-                    // &:first-child {
-                    //     display: none;
-                    // }
                     svg {
                         width: 19px;
                         height: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-bottom {
+        .logo-langs {
+            text-align: center;
+            padding: 15px 0 20px;
+            .langs {
+                margin-bottom: 9px;
+                li {
+                    margin: 0 5px;
+                    display: inline-block;
+                    a {
+                        font-size: 12px;
+                        opacity: .5;
+                        &:hover {
+                            opacity: 1;
+                        }
+
+                        &.active {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .logo {
+                a {
+                    img {
+                        max-width: 280px;
+                        height: 65px;
                     }
                 }
             }

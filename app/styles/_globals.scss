@@ -7,10 +7,12 @@
     --bg: #fefefe;
     --text: #353535;
 }
+
 [data-theme='dark'] {
     --bg: #000;
     --text: #fff;
 }
+
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, 
 a, img, i, ol, ul, li, footer, header, nav, section, 
 video, * {
@@ -28,13 +30,17 @@ body {
     color: var(--text);
 }
 
-
 ul {
     list-style: none;
 }
 
 input:focus,textarea:focus {
     outline: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 .container {

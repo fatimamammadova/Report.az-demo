@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import "./_header.scss"
-import { getValutes } from '../../libs/data'
+import { getValutes, getLang } from '../../libs/data'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { 
@@ -18,17 +18,22 @@ import {
         faMoon,
         faSun 
     } from "@fortawesome/free-solid-svg-icons"
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
 
+    const [lang, setLang] =useState()
     const [valute, setValute] = useState()
     const [currentValute, setCurrentValute] = useState(0)
     const [theme,setTheme] = useState(true)
+    const pathname = usePathname()
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await getValutes()
+            const langs = await getLang()
             setValute(data)
+            setLang(langs)
         }
 
         fetchData()
@@ -40,7 +45,6 @@ const Header = () => {
           el.style.display = index === currentValute ? "block" : "none"
         })
     }, [valute])
-
     
     useEffect(() => {
         const currencies = document.querySelectorAll('.currency-list li')
@@ -59,7 +63,6 @@ const Header = () => {
         return () => clearInterval(intervalId)
     }, [currentValute, valute])
 
-
     useEffect(() => {
         if(theme) {
             document.documentElement.dataset.theme = 'light'
@@ -73,11 +76,10 @@ const Header = () => {
         }
     },[theme])
 
-
     const changeTheme = () => {
         setTheme((prevTheme) => !prevTheme)
         console.log(theme)
-    };
+    }
 
     return (
         <header>
@@ -115,7 +117,6 @@ const Header = () => {
                             <div className="about-link">
                                 <Link href='javascript:void(0)'>Haqqımızda</Link>
                             </div>
-
                             <ul className="socials">
                                 <li>
                                     <Link href="javascript:void(0)">
@@ -154,6 +155,27 @@ const Header = () => {
                                     {theme ? (<FontAwesomeIcon icon={faMoon} />) : (<FontAwesomeIcon icon={faSun} />)}
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="header-bottom">
+                <div className="container">
+                    <div className="logo-langs">
+                        <ul className="langs">
+                            {lang && lang.map((item) => (
+                                <li>
+                                    <Link href={item.path} className={`${item.path === pathname ? "active": ""}`}>
+                                        {item.lang}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="logo">
+                            <Link href="/">
+                                <Image src="/images/logo.webp" width={280} height={65}/>
+                            </Link>
                         </div>
                     </div>
                 </div>

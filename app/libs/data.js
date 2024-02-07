@@ -8,3 +8,25 @@ export const getValutes = async () => {
         console.error('Something went wrong!', err);
     }
 }
+
+const langs = [
+    {
+        id: 1,
+        lang: "Azərbaycanca",
+        path: "/"
+    },
+    {
+        id: 2,
+        lang: "Русский",
+        path: "/ru"
+    },
+    {
+        id: 3,
+        lang: "English",
+        path: "/en"
+    }
+]
+
+export const getLang = async () => {
+    return langs
+}
