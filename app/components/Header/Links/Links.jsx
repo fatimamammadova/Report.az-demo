@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getCategory } from '../../../libs/data'
 import Link from "next/link"
+import { getSlug } from '@/app/libs/function'
 
 const menuLinks = [
     {
@@ -25,7 +26,7 @@ const Links = () => {
             categories.forEach(element => {
                 menuLinks.push({
                     link: element.category,
-                    path: `/${element.category.toLowerCase().replace(/ə/g, "e").replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/--+/g, "-").trim()}/`
+                    path: getSlug(element.category)
                 })
             })
 
@@ -39,10 +40,7 @@ const Links = () => {
 
             setCategory(uniqueMenuLinks)
         }
-
         fetchData()
-
-
     },[])
 
     return (

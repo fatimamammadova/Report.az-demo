@@ -3,15 +3,14 @@
 
 
 header {
-    background: #fefefe;
+    background-color: var(--bg);
     z-index: 50;
     @media (max-width: 1200px) {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 50;
         width: 100%;
-        border-bottom: 1px solid rgba(0,0,0,.1);
+        border-bottom: 1px solid var(--border);
     }
     .header-top {
         font-size: 12px;
@@ -23,8 +22,7 @@ header {
             display: block;
         }
         .col-12 {
-            display: flex;
-            justify-content: space-between;
+            @include Flex($j-con:space-between);
             .ht-left {
                 display: flex;
                 .weather {
@@ -38,7 +36,7 @@ header {
                         bottom: -9px;
                         right: 0;
                         width: 1px;
-                        background-color: #ffffff33;
+                        background-color: $border;
                     }
                     ul {
                         @include Flex($a-items:center,$j-con:center);
@@ -51,8 +49,8 @@ header {
                                     content: '';
                                     position: absolute;
                                     top: 50%;
-                                    transform: translateY(-50%);
                                     right: -1px;
+                                    transform: translateY(-50%);
                                     width: 2px;
                                     height: 2px;
                                     background-color: $text-color;
@@ -119,7 +117,7 @@ header {
                         bottom: -9px;
                         left: 0;
                         width: 1px;
-                        background-color: #ffffff33;
+                        background-color: $border;
                     }
                     button {
                         svg {
@@ -219,7 +217,7 @@ header {
                         left: 0;
                         width: 100%;
                         height: 2px;
-                        background: $primary-color;
+                        background-color: var(--text);
                         border-radius: 2px;
                         transform: translateY(-50%);
                         transition: .2s ease;
@@ -300,8 +298,8 @@ header {
                 width: 290px;
                 height: calc(100vh - 65px);
                 padding: 20px 15px;
-                background: #fefefe;
-                border-top: 1px solid rgba(0,0,0,.1);
+                background-color: var(--bg);
+                border-top: 1px solid var(--border);
                 overflow-y: auto;
                 transition: .2s ease;
                 transform: translateX(-295px); 
@@ -318,7 +316,7 @@ header {
                             text-align: center;
                             li {
                                 padding: 13px 0;
-                                border-bottom: 1px solid rgba(0,0,0,.1);
+                                border-bottom: 1px solid var(--border);
                                 a {
                                     font-weight: 600;
                                     font-size: 16px;

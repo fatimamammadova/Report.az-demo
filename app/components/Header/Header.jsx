@@ -11,7 +11,7 @@ import { faMoon, faSun, faSearch, faXmark, faPaperPlane } from "@fortawesome/fre
 
 import "./_header.scss"
 
-const Header = () => {
+const Header = () => {  
 
     const [lang, setLang] =useState()
     const [valute, setValute] = useState()
@@ -237,7 +237,6 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-
             </header>
 
             <div className="content-overlay" style={{ display: `${open ? "block": "none"}` }}></div>
