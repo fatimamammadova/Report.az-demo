@@ -59,25 +59,34 @@ img {
 }
 
 .container {
-    width: 100%;
+    max-width: 1280px;
     padding: 0 15px;
     margin: 0 auto;
-    @media (min-width: 576px) {
-        max-width: 100%;
-    }
+    // @media (min-width: 576px) {
+    //     max-width: 100%;
+    // }
     // @media (min-width: 768px) {
     //     max-width: 720px;
     // }
     // @media (min-width: 992px) {
     //     max-width: 960px;
     // }
-    
     // @media (min-width: 1200px) {
-    //     max-width: 1280px;
     // }
 }
 
 .row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .col-12 {
+        display: flex;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 }
+
