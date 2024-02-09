@@ -1,12 +1,13 @@
 @import "./partials/variables";
 @import "./partials/mixin";
-@import "./partials/extend";
 @import "./partials/animation";
+@import "./partials/extend";
 
 :root {
   --bg: #fefefe;
   --text: #353535;
   --border: #0000001a;
+  --pagination: rgba(53,53,53,.4);
 }
 
 [data-theme="dark"] {
@@ -14,6 +15,7 @@
   --text: #fff;
   --border: #ffffff33;
   --filter: brightness(0) invert(1);
+  --pagination: rgba(255,255,255,.4);
 }
 
 html,
@@ -48,6 +50,7 @@ video,
   font-family: inherit;
   color: inherit;
 }
+
 html {
   overflow-y: scroll;
 }
@@ -87,6 +90,7 @@ main {
   }
 }
 
+
 .container {
   max-width: 1280px;
   padding: 0 15px;
@@ -99,6 +103,25 @@ main {
   margin-right: -15px;
   margin-left: -15px;
 
+  .col-lg-8 {
+    flex: 0 0 66.66667%;
+    @media (min-width: 992px) {
+      max-width: 66.66667%;
+    }
+  }
+  .col-lg-4 {
+    flex: 0 0 33.33333%;
+    @media (min-width: 992px) {
+      max-width: 33.33333%;
+    }
+  }
+
+  .col-12 {
+    display: flex;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   .col-4,
   .col-lg-4,
   .col-8,
@@ -107,20 +130,21 @@ main {
     width: 100%;
     padding: 0 15px;
   }
-
-  .col-lg-8 {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
-  }
-  .col-lg-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-
-  .col-12 {
-    display: flex;
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
 }
 
+.messageBox {
+  text-align: center;
+  margin: 30px auto 0 !important;
+  h1 {
+    font-size: 50px;
+    font-weight: 600;
+  }
+  p {
+    margin: 5px 0 20px;
+    font-size: 20px;
+  }
+  a {
+    display: block;
+    text-decoration: underline;
+  }
+}

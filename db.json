@@ -457,6 +457,20 @@
           "slug": "danisaq-layiyesinin-budefeki-qonagi-hepatoloq-zaur-orucov-alkoqol-olume-getirib-cixarirmi"
         }
     ],
+    "videoNews": [
+      {
+        "id": "1",
+        "src": "<iframe src=\"https://www.youtube-nocookie.com/embed/7dfKrPoIFlE\" title=\"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+      },
+      {
+        "id": "2",
+        "src": "<iframe src=\"https://www.youtube-nocookie.com/embed/ezNz5OoGdao\" title=\"Oxu.az 10 il !!!\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+      },
+      {
+        "id": "3",
+        "src": "<iframe src=\"https://www.youtube-nocookie.com/embed/so3X30HjxZc\" title=\"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+      }
+    ],
     "valutes": {
         "USD": "1.7000",
         "EUR": "1.8427",

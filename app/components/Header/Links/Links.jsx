@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCategory } from "../../../libs/data";
+import { getNews } from "../../../libs/data";
 import Link from "next/link";
 import { getSlug, uniqueData } from "@/app/libs/function";
 
@@ -19,9 +19,9 @@ const Links = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const categories = await getCategory();
+      const data = await getNews();
 
-      categories.forEach((element) => {
+      data.forEach((element) => {
         menuLinks.push({
           link: element.category,
           path: getSlug(element.category),

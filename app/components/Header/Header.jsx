@@ -20,7 +20,6 @@ import {
   faXmark,
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
-
 import "./_header.scss";
 
 const Header = () => {

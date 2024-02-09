@@ -1,4 +1,3 @@
-
 export const getValutes = async () => {
     try {
         const res = await fetch(`http://localhost:4000/valutes`)
@@ -33,11 +32,22 @@ export const getLang = async () => {
 }
 
 
-export async function getCategory() {
+export async function getNews() { 
     try {
         const res = await fetch('http://localhost:4000/news')
-        const data = res.json()
+        const data = await res.json()
+        
+        return data
+    }
+    catch(err) {
+        console.error("Data Fetch error!", err)
+    }
+}
 
+export async function getVideoNews() {
+    try {
+        const res = await fetch('http://localhost:4000/videoNews')
+        const data = await res.json()
         return data
     }
     catch(err) {
