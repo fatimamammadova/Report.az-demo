@@ -2,6 +2,7 @@
 import { formatDate, formatHours, sortedData, getSlug } from '@/app/libs/function'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 
@@ -27,7 +28,8 @@ export const MainSlider = () => {
                     <div className="slides">
                         {slide && slide.slice(0,5).map((item,index) => (
                             <div className="slide" key={index}>
-                                <div className="slide-bg" style={{backgroundImage: `url(${item.image})`}}>
+                                <div className="slide-bg">
+                                    <Image src={`${item.image}`} width={816} height={500} priority={true} alt='News Image'/>
                                 </div>
                                 <div className="slide-content">
                                     <Link className='news-category' href={`${getSlug(item.category)}`}>{`${item.category}`}</Link>
@@ -38,7 +40,9 @@ export const MainSlider = () => {
                                         <span>{`${formatHours(item.date)}`}</span>
                                     </div>
                                 </div>
-                                <div className="divider" style={{backgroundImage: `url(/images/divider-bg-light.svg)`}}></div>
+                                <div className="divider">
+                                    <Image src={`/images/divider-bg-light.svg`} width={100} height={100} priority={true} alt='Divider Image'/>
+                                </div>
                             </div>
                         ))}
                     </div>

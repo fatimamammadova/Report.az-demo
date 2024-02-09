@@ -1,4 +1,7 @@
-#mainSlider {
+@import "../../styles/globals";
+.mainSlider {
+    position: relative;
+    margin: 20px 0 15px;
     .slider {
         overflow: hidden;
         .slider-wrapper {
@@ -13,8 +16,9 @@
                     height: 625px;
                     margin-right: 10px;
                     .slide-bg {
-                        width: 100%;
-                        height: 100%;
+                        // width: 100%;
+                        // height: 100%;
+                        object-fit: contain;
                     }
                     .slide-content {
                         .news-category {
