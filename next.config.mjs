@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import path from 'path';
+
 const nextConfig = {
     images: {
         remotePatterns: [
@@ -7,7 +9,10 @@ const nextConfig = {
                 hostname: "static.report.az"
             }
         ]
-    }
+    },
+    sassOptions: {
+        includePaths: [path.join(new URL('.', import.meta.url).pathname, 'styles')],
+    },
 };
 
 export default nextConfig;

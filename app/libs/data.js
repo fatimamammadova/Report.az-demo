@@ -36,8 +36,11 @@ export async function getNews() {
     try {
         const res = await fetch('http://localhost:4000/news')
         const data = await res.json()
-        
-        return data
+        const sortedData = data.filter(item => item.date).sort((a, b) => {
+            return new Date(b.date).getTime() - new Date(a.date).getTime();
+        })
+
+        return sortedData
     }
     catch(err) {
         console.error("Data Fetch error!", err)

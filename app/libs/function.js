@@ -36,8 +36,8 @@ export function formatHours(time) {
 }
 
 
-export function sortedData(data) {
-  data.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  })
-}
+// export function sortedData(data) {
+//   data.sort((a, b) => {
+//     return new Date(b.date).getTime() - new Date(a.date).getTime();
+//   })
+// }
