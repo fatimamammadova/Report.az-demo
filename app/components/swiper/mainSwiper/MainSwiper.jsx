@@ -28,7 +28,7 @@ export const MainSwiper = ({ posts }) => {
           disableOnInteraction: false,
         }}
       >
-        {posts.slice(0, 5).map((item, index) => (
+        {posts.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="slide-bg">
               <Image
@@ -70,7 +70,7 @@ export const MainSwiper = ({ posts }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mainSwiper2"
       >
-        {posts.slice(0, 5).map((item, index) => (
+        {posts.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="thumbs-img">
               <Image

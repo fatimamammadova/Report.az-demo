@@ -1,3 +1,4 @@
+@import '../../../styles/partials/mixin';
 #main-swiper {
   margin: 0 -15px;
   @media (min-width: 576px) {
@@ -7,9 +8,7 @@
     position: relative;
     .swiper-wrapper {
       .swiper-slide {
-        display: flex;
-        justify-content: flex-end;
-        flex-flow: column;
+        @include Flex($j-con: flex-end, $f-dir: column);
         padding: 20px 25px;
         max-width: 100%;
         padding: 20px 25px;
@@ -23,16 +22,12 @@
           height: 625px;
         }
         .slide-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
+          @include Position($pos: absolute, $top: 0, $left: 0);
           width: 100%;
           height: 100%;
           &::after {
             content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+            @include Position($pos: absolute, $top: 0, $left: 0);
             width: 100%;
             height: 100%;
             background-image: linear-gradient(
@@ -43,16 +38,21 @@
           }
         }
         .slide-content {
-          display: flex;
-          flex-flow: column;
-          align-items: flex-start;
-          position: relative;
-          z-index: 2;
+          @include Flex($a-items: flex-start, $f-dir: column);
+          @include Position($pos: relative, $index: 2);
           max-width: 660px;
+          .news-date {
+            span {
+              &:first-child {
+                &::after {
+                  background-color: #fff;
+                }
+              }
+            }
+          }
         }
         .divider {
-          position: relative;
-          z-index: 10;
+          @include Position($pos: relative, $index: 10);
           height: 14px;
           width: 100%;
           margin: 15px 0 0;

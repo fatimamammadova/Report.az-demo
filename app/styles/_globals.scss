@@ -6,13 +6,17 @@
 :root {
   --bg: #fefefe;
   --text: #353535;
-  --border: #0000001a;
+  --border: rgba(0, 0, 0, 0.102);
   --pagination: rgba(53,53,53,.4);
   --story-link-bg: #fbfbfb;
   --urgent-pagination-bg: #f6f6f6;
   --urgent-pagination-text: #353535;
   --swiper-border: #eaeaea;
   --important-swiper-bg: #f5f5f5;
+  --page-link: #fbfbfb;
+  --page-link-bg-hover: #f6f6f6;
+  --scroll-bg: #efefef;
+  --scroll: hsla(0, 0%, 67%, 0.6);
 }
 
 [data-theme="dark"] {
@@ -26,6 +30,10 @@
   --urgent-pagination-text: #fff;
   --swiper-border: rgba(234,234,234,.2);
   --important-swiper-bg: rgba(255,255,255,.05);
+  --page-link-bg: #353535;
+  --page-link-bg-hover: #303030;
+  --scroll-bg: #efefef;
+  --scroll: hsla(0, 3%, 22%, 0.6);
 }
 
 html,

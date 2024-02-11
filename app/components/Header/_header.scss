@@ -1,13 +1,10 @@
-@import "../../styles/globals";
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
-
+@import "../../styles/partials/variables";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"); 
+@import "../../styles/partials/mixin";
 header {
   background-color: var(--bg);
-  z-index: 50;
   @media (max-width: 1200px) {
-    position: fixed;
-    top: 0;
-    left: 0;
+    @include Position($pos:fixed,$top:0,$left:0,$index:50);
     width: 100%;
     border-bottom: 1px solid var(--border);
   }
@@ -46,10 +43,7 @@ header {
                 margin-right: 7px;
                 &::after {
                   content: "";
-                  position: absolute;
-                  top: 50%;
-                  right: -1px;
-                  transform: translateY(-50%);
+                  @include Position($pos:absolute,$top:50%,$right:-1px,$index:null,$tranform:translateY(-50%));
                   width: 2px;
                   height: 2px;
                   background-color: $text-color;
@@ -110,10 +104,7 @@ header {
           margin-left: 15px;
           &::after {
             content: "";
-            position: absolute;
-            top: -10px;
-            bottom: -9px;
-            left: 0;
+            @include Position($pos:absolute,$top:-10px,$left:0,$bottom:-9px,$right:-1px);
             width: 1px;
             background-color: $border;
           }
@@ -210,14 +201,11 @@ header {
               top: 100%;
             }
             display: inline-block;
-            position: absolute;
-            top: 50%;
-            left: 0;
+            @include Position($pos:absolute,$top:50%,$left:0,$tranform:translateY(-50%));
             width: 100%;
             height: 2px;
             background-color: var(--text);
             border-radius: 2px;
-            transform: translateY(-50%);
             transition: 0.2s ease;
           }
         }
@@ -259,11 +247,8 @@ header {
                 font-family: "Font Awesome 6 Free";
                 font-weight: 600;
                 font-size: 18px;
-                position: absolute;
-                top: 50%;
-                left: 0;
                 opacity: 0.5;
-                transform: translateY(-50%);
+                @include Position($pos:absolute,$top:50%,$left:0,$tranform:translateY(-50%));
               }
               input {
                 font-size: 1rem;
@@ -275,10 +260,7 @@ header {
           }
         }
         .search {
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
+          @include Position($pos:absolute,$top:50%,$right:0,$tranform:translateY(-50%));
           svg {
             width: 18px;
             height: 18px;
@@ -288,9 +270,7 @@ header {
       }
 
       .sidebar {
-        position: absolute;
-        top: 100%;
-        left: 0;
+        @include Position($pos:absolute,$top:100%,$left:0,$tranform:translateX(-295px));
         width: 290px;
         height: calc(100vh - 65px);
         padding: 20px 15px;
@@ -298,7 +278,6 @@ header {
         border-top: 1px solid var(--border);
         overflow-y: auto;
         transition: 0.2s ease;
-        transform: translateX(-295px);
         @media (min-width: 1024px) {
           transform: translateX(-295px) !important;
         }
@@ -332,11 +311,8 @@ header {
                 font-family: "Font Awesome 6 Free";
                 font-weight: 600;
                 font-size: 16px;
-                position: absolute;
-                top: 50%;
-                right: 20px;
+                @include Position($pos:absolute,$top:50%,$right:20px,$tranform:translateY(-50%));
                 opacity: 0.5;
-                transform: translateY(-50%);
               }
               input {
                 width: 100%;
@@ -356,10 +332,7 @@ header {
 }
 
 .content-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 40;
+  @include Position($pos:fixed,$top:0,$left:0,$index:40);
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);

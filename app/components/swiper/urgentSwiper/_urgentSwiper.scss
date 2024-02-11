@@ -1,8 +1,7 @@
+@import "../../../styles/partials/_mixin.scss";
 .breaking-news-swiper {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  @include Flex($a-items: center, $f-wrap: wrap);
   padding: 10px;
   margin-bottom: 38px;
   width: 100%;
@@ -11,8 +10,7 @@
     flex-wrap: nowrap;
   }
   .label {
-    display: flex;
-    align-items: center;
+    @include Flex($a-items: center);
     margin-right: 14px;
     padding: 11px 15px;
     text-transform: uppercase;
@@ -45,9 +43,7 @@
           .news-item {
             width: calc(100% - 75px);
             height: 100%;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
+            @include Flex($a-items: center, $f-wrap: wrap);
             .news-heading {
               width: 95%;
               font-size: 15px;
@@ -61,21 +57,22 @@
       .swiper-controls {
         display: flex;
         align-items: center;
-        position: absolute;
-        top: 10px;
-        right: 0;
-        bottom: auto;
+        @include Flex($a-items: center);
+        @include Position(
+          $pos: absolute,
+          $top: 10px,
+          $right: 0,
+          $bottom: auto,
+          $index: 2
+        );
         padding-right: 10px;
-        z-index: 2;
         background-color: var(--bg);
         @media (min-width: 992px) {
           top: 0;
           bottom: 0;
         }
         button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include Flex($a-items: center, $j-con: center);
           margin-left: 10px;
           width: 32px;
           height: 32px;

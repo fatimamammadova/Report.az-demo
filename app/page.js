@@ -3,27 +3,29 @@ import Image from "next/image";
 import MainSwiper from "./components/swiper/mainSwiper/MainSwiper";
 import VideoSwiper from "./components/swiper/videoSwiper/VideoSwiper";
 import UrgentSwiper from "./components/swiper/urgentSwiper/UrgentSwiper";
-import { getNews, getVideoNews } from "./libs/data";
+import { getNews, getVideoNews, getCategory } from "./libs/data";
 import { formatDate, formatHours, getSlug } from "./libs/function";
 import "./_home.scss";
 import ImportantSwiper from "./components/swiper/importantSwiper/ImportantSwiper";
+import LatestNews from "./components/latestNews/LatestNews";
 
 export default async function Home() {
   const posts = await getNews();
   const videoNews = await getVideoNews();
+  const links = await getCategory();
   return (
     <main>
       <section id="main-news">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <MainSwiper posts={posts} />
+              <MainSwiper posts={posts.slice(0, 5)} />
               <div className="story-link">
                 <Link href="/">PREZİDENT SEÇKİLƏRİ - 2024</Link>
               </div>
               <UrgentSwiper posts={posts.slice(5, 15)} />
-              <div className="main-news">
-                <div className="main-news-container">
+              <div className="other-news">
+                <div className="other-news-container">
                   <div className="actual-news-blocks">
                     {posts.slice(7, 9).map((item, index) => (
                       <div className="actual-news-block" key={index}>
@@ -84,11 +86,20 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
-              <ImportantSwiper posts={posts.slice(30, 39)}/>
+              <ImportantSwiper posts={posts.slice(30, 39)} />
             </div>
             <div className="col-lg-4">
               <VideoSwiper videoNews={videoNews} />
+              <LatestNews posts={posts.slice(0, 20)} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="category-news">
+        <div className="container">
+          <div className="row">
+            
           </div>
         </div>
       </section>
