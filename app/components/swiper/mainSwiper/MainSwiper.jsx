@@ -7,12 +7,12 @@ import {
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Thumbs, Navigation, FreeMode } from "swiper/modules";
-import "./_mainSwiper.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import Image from "next/image";
 import Link from "next/link";
+import "./_mainSwiper.scss";
 
 export const MainSwiper = ({ posts }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);

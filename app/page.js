@@ -6,6 +6,7 @@ import UrgentSwiper from "./components/swiper/urgentSwiper/UrgentSwiper";
 import { getNews, getVideoNews } from "./libs/data";
 import { formatDate, formatHours, getSlug } from "./libs/function";
 import "./_home.scss";
+import ImportantSwiper from "./components/swiper/importantSwiper/ImportantSwiper";
 
 export default async function Home() {
   const posts = await getNews();
@@ -16,21 +17,17 @@ export default async function Home() {
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              
               <MainSwiper posts={posts} />
-
               <div className="story-link">
                 <Link href="/">PREZİDENT SEÇKİLƏRİ - 2024</Link>
               </div>
-
               <UrgentSwiper posts={posts.slice(5, 15)} />
-
               <div className="main-news">
                 <div className="main-news-container">
                   <div className="actual-news-blocks">
                     {posts.slice(7, 9).map((item, index) => (
                       <div className="actual-news-block" key={index}>
-                        <div className="news-img">
+                        <div className="img-container">
                           <Image
                             src={`${item.image}`}
                             fill
@@ -58,9 +55,36 @@ export default async function Home() {
                       </div>
                     ))}
                   </div>
+                  <div className="news-card-blocks">
+                    {posts.slice(12, 24).map((item, index) => (
+                      <div className="news-card-block" key={index}>
+                        <div className="img">
+                          <Link href={`${item.slug}`}>
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              width="0"
+                              height="0"
+                              sizes="100vw"
+                              style={{ width: "100%", height: "auto" }}
+                            />
+                          </Link>
+                        </div>
+                        <div className="news-info">
+                          <Link className="title" href={item.slug}>
+                            {`${item.title.slice(0, 63)}`}...
+                          </Link>
+                          <div className="news-date">
+                            <span>{`${formatDate(item.date)}`}</span>
+                            <span>{`${formatHours(item.date)}`}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-
+              <ImportantSwiper posts={posts.slice(30, 39)}/>
             </div>
             <div className="col-lg-4">
               <VideoSwiper videoNews={videoNews} />

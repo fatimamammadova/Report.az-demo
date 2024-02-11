@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import Header from "./components/Header/Header";
+import './styles/_globals.scss'
 
 const montserrat = Montserrat(
   { 

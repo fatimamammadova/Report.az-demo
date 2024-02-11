@@ -30,16 +30,9 @@
         height: 325px;
         margin-bottom: 15px;
         position: relative;
-        .news-img {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
         .news-info {
           @include Flex($a-items: flex-start, $j-con: flex-end, $f-dir: column);
-          position: absolute;
-          top: 0;
-          left: 0;
+          @include Position($pos: absolute, $top: 0, $left: 0);
           width: 100%;
           height: 100%;
           padding: 20px;
@@ -48,33 +41,33 @@
           @media (min-width: 768px) {
             padding: 50px;
           }
-          &::before {
+          &::before,
+          &::after {
             content: "";
             display: none;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
             border: 1px dashed #fff;
             opacity: 0.6;
             @media (min-width: 768px) {
               display: block;
             }
           }
+          &::before {
+            @include Position(
+              $pos: absolute,
+              $top: 20px,
+              $left: 20px,
+              $bottom: 20px,
+              $right: 20px
+            );
+          }
           &::after {
-            content: "";
-            display: none;
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 1px dashed #fff;
-            opacity: 0.6;
-            @media (min-width: 768px) {
-              display: block;
-            }
+            @include Position(
+              $pos: absolute,
+              $top: 15px,
+              $left: 15px,
+              $bottom: 15px,
+              $right: 15px
+            );
           }
           .news-category {
             font-size: 10px;
@@ -92,6 +85,42 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+    .news-card-blocks {
+      margin: 0 -5px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      height: 100%;
+      @media (min-width: 576px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .news-card-block {
+        font-size: 80%;
+        font-weight: 400;
+        margin: 10px 5px 15px;
+        .img {
+          position: relative;
+          a {
+            display: block;
+          }
+        }
+        .news-info {
+          .title {
+            display: block;
+            font-size: 14px;
+            margin: 10px 0;
+            height: 72px;
+            overflow: hidden;
+            font-weight: 600;
+          }
+          .news-date {
+            font-size: 10px;
           }
         }
       }
