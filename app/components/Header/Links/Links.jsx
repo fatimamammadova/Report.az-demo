@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Link from "next/link";
 // import { getNews } from "../../../libs/data";
 // import { getSlug, uniqueData } from "@/app/libs/function";
 
-const menuLinks = [
-  {link: "Əsas xəbərlər", path: "/"},
-  {link: "Son xəbərlər", path: "/son-xeberler"},
-  {link: 'Siyasət', path: '/siyaset/'},
-  {link: 'İqtisadiyyat', path: '/iqtisadiyyat/'},
-  {link: 'COP29', path: '/cop29/'},
-  {link: 'Cəmiyyət', path: '/cemiyyet/'},
-  {link: 'İdman', path: '/idman/'},
-  {link: 'Mədəniyyət', path: '/medeniyyet/'},
-  {link: 'Dünya', path: '/dunya/'},
-  {link: 'Analitika', path: '/analitika/'},
-  {link: 'Multimedia', path: '/multimedia/'}
-];
+// const menuLinks = [
+//   { link: "Əsas xəbərlər", path: "/" },
+//   { link: "Son xəbərlər", path: "/son-xeberler" },
+//   { link: "Siyasət", path: "/siyaset/" },
+//   { link: "İqtisadiyyat", path: "/iqtisadiyyat/" },
+//   { link: "COP29", path: "/cop29/" },
+//   { link: "Cəmiyyət", path: "/cemiyyet/" },
+//   { link: "İdman", path: "/idman/" },
+//   { link: "Mədəniyyət", path: "/medeniyyet/" },
+//   { link: "Dünya", path: "/dunya/" },
+//   { link: "Analitika", path: "/analitika/" },
+//   { link: "Multimedia", path: "/multimedia/" },
+// ];
 
-
-const Links = () => {
+const Links = ({ posts }) => {
   // const [category, setCategory] = useState();
 
   // useEffect(() => {
@@ -51,10 +50,10 @@ const Links = () => {
   return (
     <nav>
       <ul className="navbar">
-        {menuLinks &&
-          menuLinks.map((item,index) => (
+        {posts &&
+          posts.map((item, index) => (
             <li key={index}>
-              <Link href={item.path}>{item.link}</Link>
+              <Link href={`/${item.url}/`}>{item.title}</Link>
             </li>
           ))}
       </ul>

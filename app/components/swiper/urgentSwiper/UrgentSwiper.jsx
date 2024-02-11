@@ -9,7 +9,7 @@ import {
   faChevronLeft,
   faBolt,
 } from "@fortawesome/free-solid-svg-icons";
-import { formatDate, formatHours } from "@/app/libs/function";
+import { formatDate, formatHours, getSlug } from "@/app/libs/function";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./_urgentSwiper.scss";
@@ -40,7 +40,9 @@ export const UrgentSwiper = async ({ posts }) => {
               <div className="news-item">
                 <Link
                   className="news-heading"
-                  href={item.slug}
+                  href={`/${getSlug(item.category)}/${getSlug(
+                    item.sub_category
+                  )}/${item.slug}`}
                 >{`${item.title}`}</Link>
 
                 <div className="news-date">

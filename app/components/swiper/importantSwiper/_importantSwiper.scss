@@ -1,5 +1,85 @@
 .important-swiper {
-    padding: 50px 15px 30px;
-    margin-bottom: 15px;
-    background-color: var(--important-swiper-bg);
+  position: relative;
+  padding: 50px 15px 30px;
+  margin-bottom: 15px;
+  background-color: var(--important-swiper-bg);
+  .importantSwiper {
+    position: static !important;
+    .swiper-wrapper {
+      .swiper-slide {
+        .counted-news {
+          .info {
+            .num-title {
+              margin: 10px 0;
+              display: flex;
+              flex-wrap: wrap;
+              height: 90px;
+              .news-number {
+                display: grid;
+                place-items: center;
+                width: 52px;
+                height: 52px;
+                border: 1px solid var(--text);
+                span {
+                  font-weight: 900;
+                }
+              }
+              .title {
+                font-size: 14px;
+                font-weight: 600;
+                display: block;
+                width: calc(100% - 52px);
+                padding-left: 10px;
+              }
+            }
+            .category-date {
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              justify-content: space-between;
+              align-items: center;
+              margin-top: 15px;
+              .category {
+                margin-right: 5px;
+                font-size: 12px;
+                text-transform: uppercase;
+                opacity: 0.5;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+    .swiper-controls {
+      position: absolute;
+      top: 50px;
+      right: 15px;
+      padding-right: 10px;
+      z-index: 2;
+      display: none;
+      @media (min-width: 576px) {
+        display: flex;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.6;
+        border: 1px solid var(--text);
+        transition: 0.2s ease;
+        &:hover {
+          opacity: 1;
+        }
+        svg {
+          color: var(--urgent-pagination-text);
+          width: 7px;
+          height: 20px;
+        }
+      }
+    }
+  }
 }

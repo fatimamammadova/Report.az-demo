@@ -4,7 +4,7 @@ import Link from "next/link";
 import Links from "./Links/Links";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { getValutes, getLang } from "../../libs/data";
+import { getValutes, getLang, getCategory } from "../../libs/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -31,6 +31,7 @@ const Header = () => {
   const [isSearch, setIsSearch] = useState(false);
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState();
+  const [category, setCategory] = useState();
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -45,10 +46,11 @@ const Header = () => {
     const fetchData = async () => {
       const valutes = await getValutes();
       const langs = await getLang();
+      const category = await getCategory();
       setValute(valutes);
       setLang(langs);
+      setCategory(category);
     };
-
     fetchData();
   }, []);
 
@@ -187,7 +189,7 @@ const Header = () => {
                 <div className="logo-langs">
                   <ul className="langs">
                     {lang &&
-                      lang.map((item,index) => (
+                      lang.map((item, index) => (
                         <li key={index}>
                           <Link
                             href={item.path}
@@ -237,7 +239,7 @@ const Header = () => {
                       </form>
                     </div>
                   ) : (
-                    <Links />
+                    <Links posts={category} />
                   )}
 
                   <button
@@ -254,7 +256,7 @@ const Header = () => {
 
                 <div className={`sidebar ${open ? "open" : ""}`}>
                   <div className="sidebar-menu">
-                    <Links />
+                    <Links posts={category} />
                     <div className="search-block">
                       <form>
                         <div className="form-input">

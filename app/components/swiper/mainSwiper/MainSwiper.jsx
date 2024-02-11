@@ -1,9 +1,5 @@
 "use client";
-import {
-  formatDate,
-  formatHours,
-  getSlug,
-} from "@/app/libs/function";
+import { formatDate, formatHours, getSlug } from "@/app/libs/function";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Thumbs, Navigation, FreeMode } from "swiper/modules";
@@ -36,22 +32,23 @@ export const MainSwiper = ({ posts }) => {
           <SwiperSlide key={index}>
             <div className="slide-bg">
               <Image
-                src={`${item.image}`}
-                fill
-                priority={true}
-                sizes="cover"
-                alt="News Image"
-                style={{ objectFit: "cover" }}
+                src={item.image}
+                alt={item.title}
+                title={item.title}
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
               />
             </div>
             <div className="slide-content">
               <Link
                 className="news-category"
-                href={`${getSlug(item.category)}`}
-              >{`${item.category}`}</Link>
+                href={`/${getSlug(item.category)}/${item.sub_category}`}
+              >{`${item.sub_category}`}</Link>
               <Link
                 className="news-title"
-                href={item.slug}
+                href={`/${getSlug(item.category)}/${getSlug(item.sub_category)}/${item.slug}`}
               >{`${item.title}`}</Link>
 
               <div className="news-date">

@@ -2,25 +2,36 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Autoplay } from "swiper/modules";
+import { FreeMode, Autoplay, Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { formatDate, formatHours } from "@/app/libs/function";
+import { formatDate, formatHours, getSlug } from "@/app/libs/function";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import './_importantSwiper.scss'
+import "./_importantSwiper.scss";
 
 export const ImportantSwiper = ({ posts }) => {
   return (
     <div className="important-swiper">
       <h2 className="swiper-title">Ən vacib xəbərlər</h2>
       <Swiper
-        modules={[FreeMode, Autoplay]}
-        slidesPerView={3}
+        modules={[Navigation, FreeMode, Autoplay]}
+        breakpoints={{
+          576: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+        }}
         spaceBetween={30}
         freeMode={true}
         autoplay={{
@@ -30,16 +41,21 @@ export const ImportantSwiper = ({ posts }) => {
           nextEl: ".swiper-controls .next-button",
           prevEl: ".swiper-controls .prev-button",
         }}
-        className="mySwiper"
+        className="importantSwiper"
       >
         {posts.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="news-card-block" key={index}>
+            <div className="counted-news" key={index}>
               <div className="img">
-                <Link href={`${item.slug}`}>
+                <Link
+                  href={`/${getSlug(item.category)}/${getSlug(
+                    item.sub_category
+                  )}/${item.slug}`}
+                >
                   <Image
                     src={item.image}
                     alt={item.title}
+                    title={item.title}
                     width="0"
                     height="0"
                     sizes="100vw"
@@ -47,13 +63,31 @@ export const ImportantSwiper = ({ posts }) => {
                   />
                 </Link>
               </div>
-              <div className="news-info">
-                <Link className="title" href={item.slug}>
-                  {`${item.title.slice(0, 63)}`}...
-                </Link>
-                <div className="news-date">
-                  <span>{`${formatDate(item.date)}`}</span>
-                  <span>{`${formatHours(item.date)}`}</span>
+              <div className="info">
+                <div className="num-title">
+                  <div className="news-number">
+                    <span>{`0${index + 1}.`}</span>
+                  </div>
+                  <Link
+                    className="title"
+                    href={`/${getSlug(item.category)}/${getSlug(
+                      item.sub_category
+                    )}/${item.slug}`}
+                  >
+                    {`${item.title.slice(0, 70)}`}...
+                  </Link>
+                </div>
+                <div className="category-date">
+                  <Link
+                    href={`/${getSlug(item.category)}/`}
+                    className="category"
+                  >
+                    <span>{`${item.category}`}</span>
+                  </Link>
+                  <div className="news-date">
+                    <span>{`${formatDate(item.date)}`}</span>
+                    <span>{`${formatHours(item.date)}`}</span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -57,3 +57,14 @@ export async function getVideoNews() {
         console.error("Data Fetch error!", err)
     }
 }
+
+export async function getCategory() {
+    try {
+        const res = await fetch('http://localhost:4000/links')
+        const data = await res.json()
+        return data
+    }
+    catch(err) {
+        console.error("Data Fetch error!", err)
+    }
+}
