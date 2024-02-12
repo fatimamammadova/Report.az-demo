@@ -15,7 +15,7 @@ export const LatestNews = async ({ posts }) => {
       <div className="news-container">
         <div className="latest-news-blocks">
           {posts.map((item, index) => (
-            <div className="latest-news-block" key={index}>
+            <div className={`latest-news-block ${item.important && 'highlighted'}`} key={index}>
               <div className="news-time">
                 <span>{`${formatHours(item.date)}`}</span>
               </div>

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Autoplay, Navigation } from "swiper/modules";
+import { FreeMode, Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -19,7 +19,7 @@ export const ImportantSwiper = ({ posts }) => {
     <div className="important-swiper">
       <h2 className="main-title">Ən vacib xəbərlər</h2>
       <Swiper
-        modules={[Navigation, FreeMode, Autoplay]}
+        modules={[Navigation, FreeMode]}
         breakpoints={{
           576: {
             slidesPerView: 1,
@@ -34,9 +34,6 @@ export const ImportantSwiper = ({ posts }) => {
         }}
         spaceBetween={30}
         freeMode={true}
-        autoplay={{
-          delay: 5000,
-        }}
         navigation={{
           nextEl: ".swiper-controls .next-button",
           prevEl: ".swiper-controls .prev-button",

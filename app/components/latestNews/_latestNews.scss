@@ -1,8 +1,5 @@
 @import "../../styles/partials/mixin";
 .latest-news {
-  a {
-    display: block;
-  }
   .news-container {
     .latest-news-blocks {
       overflow: hidden;
@@ -28,6 +25,9 @@
         padding: 15px 10px;
         border-bottom: 1px solid #f2f2f2;
         @include Flex($a-items: center);
+        &.highlighted {
+          background-color: var( --important-news-bg);
+        }
         .news-time {
           font-size: 16px;
           width: 60px;

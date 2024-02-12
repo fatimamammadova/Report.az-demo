@@ -1,6 +1,5 @@
 @import "styles/_globals.scss";
 
-
 #main-news {
   .story-link {
     margin: 0 15px 15px;
@@ -22,7 +21,7 @@
       }
     }
   }
-  
+
   .other-news {
     .other-news-container {
       .actual-news-blocks {
@@ -33,7 +32,11 @@
           height: 325px;
           margin-bottom: 15px;
           .news-info {
-            @include Flex($a-items: flex-start, $j-con: flex-end, $f-dir: column);
+            @include Flex(
+              $a-items: flex-start,
+              $j-con: flex-end,
+              $f-dir: column
+            );
             @include Position($pos: absolute, $top: 0, $left: 0);
             width: 100%;
             height: 100%;
@@ -82,7 +85,7 @@
           }
         }
       }
-      .news-card-blocks {
+      .small-news-blocks {
         margin: 0 -5px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -93,31 +96,58 @@
         @media (min-width: 768px) {
           grid-template-columns: repeat(4, 1fr);
         }
-        .news-card-block {
-          font-size: 80%;
-          font-weight: 400;
-          margin: 10px 5px 15px;
-          .img {
-            position: relative;
-            a {
-              display: block;
-            }
-          }
-          .news-info {
-            .title {
-              display: block;
-              font-size: 14px;
-              margin: 10px 0;
-              height: 72px;
-              overflow: hidden;
-              font-weight: 600;
-            }
-            .news-date {
-              font-size: 10px;
-            }
+      }
+    }
+  }
+}
+
+#category-news {
+  padding-top: 45px;
+  .col-md-6 {
+    margin: 0 0 45px;
+    .news-block {
+      .news-info {
+        .title {
+          display: block;
+          font-size: 16px;
+          font-weight: 600;
+          margin: 12px 0;
+          height: 80px;
+          @media (min-width: 992px) {
+            height: 65px;
           }
         }
       }
+    }
+    .small-news-blocks {
+      padding: 20px 0 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.small-news-block {
+  font-size: 80%;
+  font-weight: 400;
+  margin: 10px 5px 15px;
+  .img {
+    position: relative;
+    a {
+      display: block;
+    }
+  }
+  .news-info {
+    .title {
+      display: block;
+      font-size: 14px;
+      margin: 10px 0;
+      height: 72px;
+      overflow: hidden;
+      font-weight: 600;
+    }
+    .news-date {
+      font-size: 10px;
     }
   }
 }

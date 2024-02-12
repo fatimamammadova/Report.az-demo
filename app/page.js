@@ -5,9 +5,9 @@ import VideoSwiper from "./components/swiper/videoSwiper/VideoSwiper";
 import UrgentSwiper from "./components/swiper/urgentSwiper/UrgentSwiper";
 import { getNews, getVideoNews, getCategory } from "./libs/data";
 import { formatDate, formatHours, getSlug } from "./libs/function";
-import "./_home.scss";
 import ImportantSwiper from "./components/swiper/importantSwiper/ImportantSwiper";
 import LatestNews from "./components/latestNews/LatestNews";
+import "./_home.scss";
 
 export default async function Home() {
   const posts = await getNews();
@@ -57,9 +57,9 @@ export default async function Home() {
                       </div>
                     ))}
                   </div>
-                  <div className="news-card-blocks">
+                  <div className="small-news-blocks">
                     {posts.slice(12, 24).map((item, index) => (
-                      <div className="news-card-block" key={index}>
+                      <div className="small-news-block" key={index}>
                         <div className="img">
                           <Link href={`${item.slug}`}>
                             <Image
@@ -96,10 +96,71 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="category-news">
+      <section id="category-news">
         <div className="container">
           <div className="row">
-            
+            {links.slice(2, 8).map((link) => (
+              <div className="col-sm-12 col-lg-4 col-md-6" key={link.id}>
+                <div className="category-news">
+                  <Link className="main-title" href={`/${link.url}`}>
+                    {link.title}
+                  </Link>
+                  {posts.filter((element) => element.category === link.title).slice(0,1).map((item) => (
+                    <div className="news-block" key={item.id}>
+                        <div className="img">
+                          <Link href={`${item.slug}`}>
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              width="0"
+                              height="0"
+                              sizes="100vw"
+                              style={{ width: "100%", height: "auto" }}
+                            />
+                          </Link>
+                        </div>
+                        <div className="news-info">
+                          <Link className="title" href={item.slug}>
+                            {`${item.title}`}
+                          </Link>
+                          <div className="news-date">
+                            <span>{`${formatDate(item.date)}`}</span>
+                            <span>{`${formatHours(item.date)}`}</span>
+                          </div>
+                        </div>
+                    </div>
+                  ))}
+                   <div className="small-news-blocks">
+                    {posts.filter((element) => element.category === link.title).slice(1, 3).map((item) => (
+                      <div className="small-news-block" key={item.id}>
+                        <div className="img">
+                          <Link href={`${item.slug}`}>
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              width="0"
+                              height="0"
+                              sizes="100vw"
+                              style={{ width: "100%", height: "auto" }}
+                            />
+                          </Link>
+                        </div>
+                        <div className="news-info">
+                          <Link className="title" href={item.slug}>
+                            {`${item.title.slice(0, 63)}`}...
+                          </Link>
+                          <div className="news-date">
+                            <span>{`${formatDate(item.date)}`}</span>
+                            <span>{`${formatHours(item.date)}`}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
