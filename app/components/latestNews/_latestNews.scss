@@ -38,12 +38,18 @@
           .title {
             display: block;
             margin-bottom: 7px;
+            &:hover {
+              text-decoration: underline;
+            }
           }
           .category {
             font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
             opacity: 0.5;
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }

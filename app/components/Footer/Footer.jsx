@@ -26,7 +26,7 @@ export const Footer = async () => {
       <div className="footer-top">
         <div className="container">
           <div className="row">
-            <div className="col-12">
+            <div className="col-12" style={{ flexWrap: "wrap" }}>
               <div className="logo">
                 <Link href="/">
                   <Image
@@ -72,19 +72,51 @@ export const Footer = async () => {
                 </div>
                 <ul className="socials">
                   {[
-                    { icon: faMobileScreenButton },
-                    { icon: faFacebookF },
-                    { icon: faInstagram },
-                    { icon: faPaperPlane },
-                    { icon: faTwitter },
-                    { icon: faLinkedinIn },
-                    { icon: faYoutube },
-                    { icon: faRss },
-                    { icon: faPodcast },
-                    { icon: faSlack },
+                    { icon: faMobileScreenButton, url: "/", bg: true },
+                    {
+                      icon: faFacebookF,
+                      url: "https://www.facebook.com/www.report.az/",
+                      bg: true,
+                    },
+                    {
+                      icon: faInstagram,
+                      url: "https://www.instagram.com/report.az/",
+                      bg: true,
+                    },
+                    {
+                      icon: faPaperPlane,
+                      url: "https://t.me/reportnewsaz",
+                      bg: false,
+                    },
+                    {
+                      icon: faTwitter,
+                      url: "https://twitter.com/reportaznews",
+                      bg: false,
+                    },
+                    {
+                      icon: faLinkedinIn,
+                      url: "https://linkedin.com/company/report-news-agency",
+                      bg: false,
+                    },
+                    {
+                      icon: faYoutube,
+                      url: "https://www.youtube.com/channel/UCPSpgPJwGhr5uB0Uui8Lj8g",
+                      bg: false,
+                    },
+                    { icon: faRss, url: "/rss", bg: false },
+                    {
+                      icon: faPodcast,
+                      url: "https://podcasts.apple.com/az/podcast/report-news-agency/id1537561865",
+                      bg: false,
+                    },
+                    {
+                      icon: faSlack,
+                      url: "https://podcasts.google.com/feed/aHR0cHM6Ly9yZXBvcnQuYXovcnNzL3BvZGNhc3QtZ29vZ2xlLw?sa=X&amp;ved=0CBAQ27cFahcKEwjw_rLFvNzsAhUAAAAAHQAAAAAQIw",
+                      bg: false,
+                    },
                   ].map((social, index) => (
-                    <li key={index}>
-                      <Link href="/">
+                    <li key={index} className={social.bg ? "bg-color" : ""}>
+                      <Link href={social.url}>
                         <FontAwesomeIcon icon={social.icon} />
                       </Link>
                     </li>
