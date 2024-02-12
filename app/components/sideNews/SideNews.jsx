@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faArrowRightLong
 } from "@fortawesome/free-solid-svg-icons";
-import "./_latestNews.scss";
+import "./_sideNews.scss";
 
-export const LatestNews = async ({ posts }) => {
+export const SideNews = async ({ posts }) => {
   return (
     <div className="latest-news">
-      <Link className="main-title" href="/">
+      <Link className="main-title" href="/son-xeberler">
         Son xəbərlər
       </Link>
       <div className="news-container">
@@ -46,4 +46,4 @@ export const LatestNews = async ({ posts }) => {
   );
 };
 
-export default LatestNews;
+export default SideNews;

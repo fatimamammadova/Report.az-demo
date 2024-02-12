@@ -1,17 +1,25 @@
-@mixin Flex($a-items:null,$j-con:null,$f-dir:null,$f-wrap:null) {
-    display: flex;
-    align-items: $a-items;
-    justify-content: $j-con;
-    flex-direction: $f-dir;
-    flex-wrap: $f-wrap;
+@mixin Flex($a-items: null, $j-con: null, $f-dir: null, $f-wrap: null) {
+  display: flex;
+  align-items: $a-items;
+  justify-content: $j-con;
+  flex-direction: $f-dir;
+  flex-wrap: $f-wrap;
 }
 
-@mixin Position($pos:null,$top:null,$left:null,$bottom:null,$right:null,$index:null,$tranform:null) {
-    position: $pos;
-    top: $top;
-    left: $left;
-    bottom: $bottom;
-    right: $right;
-    z-index: $index;
-    transform: $tranform;
+@mixin Position(
+  $pos: null,
+  $top: null,
+  $left: null,
+  $bottom: null,
+  $right: null,
+  $index: null,
+  $tranform: null
+) {
+  position: $pos;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+  z-index: $index;
+  transform: $tranform;
 }

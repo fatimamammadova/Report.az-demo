@@ -76,11 +76,15 @@
             }
             .news-category {
               font-size: 10px;
+              position: relative;
+              z-index: 10;
             }
             .news-title {
               font-size: 17px;
               letter-spacing: 0.6px;
               margin: 12px 0;
+              position: relative;
+              z-index: 10;
             }
           }
         }

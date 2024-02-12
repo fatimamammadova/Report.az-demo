@@ -21,7 +21,10 @@
   --footer-bg: #fbfbfb;
   --social-bg-1: #353535;
   --social-bg-2: #0000000d;
-
+  --button-bg: #353535;
+  --button-text: #fff;
+  --sub-btn-bg: #fefefe;
+  --sub-btn-border: #a4a4a4;
 }
 
 [data-theme="dark"] {
@@ -43,6 +46,10 @@
   --footer-bg: rgba(255, 255, 255, 0.05);
   --social-bg-1: #fff;
   --social-bg-2: rgba(255,255,255,.1);
+  --button-bg: #fff;
+  --button-text: #353535;
+  --sub-btn-bg: #1a1a1a;
+  --sub-btn-border: #1a1a1a;
 }
 
 html,

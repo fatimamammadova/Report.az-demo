@@ -1,0 +1,11 @@
+@import "../styles/partials/mixin";
+#latestNews {
+  padding-top: 20px;
+  .page-title {
+    .add-news-btn {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+    }
+  }
+}

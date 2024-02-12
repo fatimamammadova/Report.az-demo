@@ -4,6 +4,8 @@ footer {
   .footer-top {
     padding: 50px 0 35px;
     background-color: var(--footer-bg);
+    font-size: 14px;
+    font-weight: 500;
     .logo {
       img {
         filter: var(--filter);
@@ -26,13 +28,15 @@ footer {
         li {
           width: 33.33333%;
           margin-bottom: 6px;
+          a {
+            font-size: 14px;
+            font-weight: 600;
+          }
         }
         &:first-child {
-          font-size: 14px;
           text-align: center;
           @media (min-width: 992px) {
             text-align: left;
-            font-size: 16px;
             width: 33.33333%;
           }
           li {

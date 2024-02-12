@@ -6,7 +6,7 @@ import UrgentSwiper from "./components/swiper/urgentSwiper/UrgentSwiper";
 import { getNews, getVideoNews, getCategory } from "./libs/data";
 import { formatDate, formatHours, getSlug } from "./libs/function";
 import ImportantSwiper from "./components/swiper/importantSwiper/ImportantSwiper";
-import LatestNews from "./components/latestNews/LatestNews";
+import SideNews from "./components/sideNews/SideNews";
 import "./_home.scss";
 
 export default async function Home() {
@@ -90,7 +90,7 @@ export default async function Home() {
             </div>
             <div className="col-lg-4">
               <VideoSwiper videoNews={videoNews} />
-              <LatestNews posts={posts.slice(0, 20)} />
+              <SideNews posts={posts.slice(0, 20)} />
             </div>
           </div>
         </div>
