@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getCategory } from "@/app/libs/data";
+import { getCategory } from "@/app/lib/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,

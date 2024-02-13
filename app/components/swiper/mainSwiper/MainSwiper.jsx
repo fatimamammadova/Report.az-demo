@@ -1,5 +1,5 @@
 "use client";
-import { formatDate, formatHours, getSlug } from "@/app/libs/function";
+import { formatDate, formatHours, getSlug } from "@/app/lib/function";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Thumbs, Navigation, FreeMode } from "swiper/modules";

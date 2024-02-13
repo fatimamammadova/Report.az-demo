@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatHours, getSlug } from "../../libs/function";
+import { formatHours, getSlug } from "../../lib/function";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faArrowRightLong

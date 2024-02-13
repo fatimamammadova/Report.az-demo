@@ -4,7 +4,7 @@ import Link from "next/link";
 import Links from "./Links/Links";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { getValutes, getLang, getCategory } from "../../libs/data";
+import { getValutes, getLang, getCategory } from "../../lib/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,

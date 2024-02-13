@@ -8,7 +8,7 @@ import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { formatDate, formatHours, getSlug } from "@/app/libs/function";
+import { formatDate, formatHours, getSlug } from "@/app/lib/function";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
