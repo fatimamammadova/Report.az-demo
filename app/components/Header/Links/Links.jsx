@@ -53,7 +53,7 @@ const Links = ({ posts }) => {
         {posts &&
           posts.map((item, index) => (
             <li key={index}>
-              <Link href={`/${item.url}/`}>{item.title}</Link>
+              <Link href={`/${item.url}`}>{item.title}</Link>
             </li>
           ))}
       </ul>

@@ -75,7 +75,38 @@
   }
 }
 
+.filter-date {
+  width: 100%;
+  margin: 0 0 25px;
+  text-transform: uppercase;
+  padding: 0 0 10px;
+  overflow: hidden;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      background-color: var(--scroll-bg);
+      height: 5px;
+      &-thumb {
+        background-color: var(--scroll);
+        border-radius: 6px;
+      }
+    }
+    li {
+      flex-grow: 1;
+      margin: 0 15px 0 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
 .sub-category-btn {
+  @include Flex($a-items: center, $j-con: center);
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 1px;
@@ -83,5 +114,14 @@
   height: 50px;
   padding: 5px 30px;
   border: 1px solid var(--sub-btn-border);
+  background-color: var(--sub-btn-bg);
   transition: 0.2s ease;
+  @media (max-width: 992px) {
+    height: 42px;
+    font-size: 12px;
+  }
+  &:hover {
+    color: var(--button-text);
+    background: var(--button-bg);
+  }
 }

@@ -45,7 +45,7 @@
   --important-news-bg: #1a1a1a;
   --footer-bg: rgba(255, 255, 255, 0.05);
   --social-bg-1: #fff;
-  --social-bg-2: rgba(255,255,255,.1);
+  --social-bg-2: rgba(255, 255, 255, 0.1);
   --button-bg: #fff;
   --button-text: #353535;
   --sub-btn-bg: #1a1a1a;
@@ -204,4 +204,13 @@ main {
 
 a.main-title {
   display: block;
+}
+
+.wrapping {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.highlighted {
+  background-color: var(--important-news-bg);
 }

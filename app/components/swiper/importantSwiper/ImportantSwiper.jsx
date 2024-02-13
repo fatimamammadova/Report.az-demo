@@ -45,7 +45,7 @@ export const ImportantSwiper = ({ posts }) => {
             <div className="counted-news" key={index}>
               <div className="img">
                 <Link
-                  href={`/${getSlug(item.category)}/${getSlug(
+                  href={`${getSlug(item.category)}${getSlug(
                     item.sub_category
                   )}/${item.slug}`}
                 >
@@ -67,7 +67,7 @@ export const ImportantSwiper = ({ posts }) => {
                   </div>
                   <Link
                     className="title"
-                    href={`/${getSlug(item.category)}/${getSlug(
+                    href={`${getSlug(item.category)}${getSlug(
                       item.sub_category
                     )}/${item.slug}`}
                   >
@@ -76,7 +76,7 @@ export const ImportantSwiper = ({ posts }) => {
                 </div>
                 <div className="category-date">
                   <Link
-                    href={`/${getSlug(item.category)}/`}
+                    href={`${getSlug(item.category)}`}
                     className="category"
                   >
                     <span>{`${item.category}`}</span>

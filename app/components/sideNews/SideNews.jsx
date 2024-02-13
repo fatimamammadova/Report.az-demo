@@ -22,14 +22,14 @@ export const SideNews = async ({ posts }) => {
               <div className="news-info">
                 <div className="title-subcategory">
                   <Link
-                    href={`/${getSlug(item.category)}/${getSlug(
+                    href={`${getSlug(item.category)}/${getSlug(
                       item.sub_category
                     )}/${item.slug}`}
                     className="title"
                   >
                     <span>{`${item.title}`}</span>
                   </Link>
-                  <Link href={getSlug(item.sub_category)} className="category">
+                  <Link href={`${getSlug(item.sub_category)}/`} className="category">
                     {item.sub_category}
                   </Link>
                 </div>
@@ -38,7 +38,7 @@ export const SideNews = async ({ posts }) => {
           ))}
         </div>
         <div className="go-to-page">
-          <Link href="/son-xeberler/">Bütün xəbər lenti</Link>
+          <Link href="/son-xeberler">Bütün xəbər lenti</Link>
           <FontAwesomeIcon icon={faArrowRightLong} />
         </div>
       </div>

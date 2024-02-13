@@ -35,7 +35,7 @@ export default async function Home() {
                             fill
                             priority={true}
                             sizes="cover"
-                            alt="News Image"
+                            alt={item.title}
                             style={{ objectFit: "cover" }}
                           />
                         </div>
@@ -46,7 +46,7 @@ export default async function Home() {
                           >{`${item.category}`}</Link>
                           <Link
                             className="news-title"
-                            href={item.slug}
+                            href={`${getSlug(item.sub_category)}/${item.slug}`}
                           >{`${item.title}`}</Link>
 
                           <div className="news-date">
@@ -61,7 +61,7 @@ export default async function Home() {
                     {posts.slice(12, 24).map((item, index) => (
                       <div className="small-news-block" key={index}>
                         <div className="img">
-                          <Link href={`${item.slug}`}>
+                          <Link href={`${getSlug(item.sub_category)}/${item.slug}`}>
                             <Image
                               src={item.image}
                               alt={item.title}
@@ -73,7 +73,7 @@ export default async function Home() {
                           </Link>
                         </div>
                         <div className="news-info">
-                          <Link className="title" href={item.slug}>
+                          <Link className="title" href={`${getSlug(item.sub_category)}/${item.slug}`}>
                             {`${item.title.slice(0, 63)}`}...
                           </Link>
                           <div className="news-date">
@@ -108,7 +108,7 @@ export default async function Home() {
                   {posts.filter((element) => element.category === link.title).slice(0,1).map((item) => (
                     <div className="news-block" key={item.id}>
                         <div className="img">
-                          <Link href={`${item.slug}`}>
+                          <Link href={`${getSlug(item.sub_category)}/${item.slug}`}>
                             <Image
                               src={item.image}
                               alt={item.title}
@@ -120,7 +120,7 @@ export default async function Home() {
                           </Link>
                         </div>
                         <div className="news-info">
-                          <Link className="title" href={item.slug}>
+                          <Link className="title" href={`${getSlug(item.sub_category)}/${item.slug}`}>
                             {`${item.title}`}
                           </Link>
                           <div className="news-date">
@@ -134,7 +134,7 @@ export default async function Home() {
                     {posts.filter((element) => element.category === link.title).slice(1, 3).map((item) => (
                       <div className="small-news-block" key={item.id}>
                         <div className="img">
-                          <Link href={`${item.slug}`}>
+                          <Link href={`${getSlug(item.sub_category)}/${item.slug}`}>
                             <Image
                               src={item.image}
                               alt={item.title}
@@ -146,7 +146,7 @@ export default async function Home() {
                           </Link>
                         </div>
                         <div className="news-info">
-                          <Link className="title" href={item.slug}>
+                          <Link className="title" href={`${getSlug(item.sub_category)}/${item.slug}`}>
                             {`${item.title.slice(0, 63)}`}...
                           </Link>
                           <div className="news-date">

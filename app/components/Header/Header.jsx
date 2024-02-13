@@ -148,7 +148,7 @@ const Header = () => {
                 </div>
                 <div className="ht-right">
                   <div className="about-link">
-                    <Link href="/">Haqqımızda</Link>
+                    <Link href="/haqqimizda">Haqqımızda</Link>
                   </div>
                   <ul className="socials">
                     {[
