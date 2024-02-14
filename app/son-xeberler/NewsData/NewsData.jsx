@@ -4,8 +4,10 @@ import Image from "next/image";
 import { formatDate, formatHours, getSlug } from "../../lib/function";
 import "../_latestNews.scss";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export const NewsData = ({ posts }) => {
+  const path = usePathname()
   const [scroll, setScroll] = useState();
   const [lastData, setLastData] = useState(15);
   const [open, setOpen] = useState(false);
@@ -59,7 +61,7 @@ export const NewsData = ({ posts }) => {
                       { title: "Keçən ay", url: "/son-xeberler/prev_month" },
                     ].map((item, index) => (
                       <li key={index}>
-                        <Link href={`${item.url}`} className="sub-category-btn">
+                        <Link href={`${item.url}`} className={`sub-category-btn ${path === item.url && "active"} `}>
                           {item.title}
                         </Link>
                       </li>

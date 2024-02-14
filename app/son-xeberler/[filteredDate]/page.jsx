@@ -38,19 +38,12 @@ export const FilterDateNews = ({ params: { filteredDate } }) => {
           let CurrentWeekDay = currentDate.getDay(); // Get the day of the week for the current week date
           const currentWeek = [];
           currentDate.setDate(currentDate.getDate() + 1); // Move to Monday
-          if (CurrentWeekDay === 1) {
-            for (let i = 0; i < 7; i++) {
-              const date = new Date(currentDate);
-              date.setDate(date.getDate() + i);
-              currentWeek.push(date);
-            }
-          } else {
-            for (let i = 0; i < 7; i++) {
-              const date = new Date(currentDate);
-              date.setDate(date.getDate() - CurrentWeekDay);
-              date.setDate(date.getDate() + i);
-              currentWeek.push(date);
-            }
+
+          for (let i = 0; i < 7; i++) {
+            const date = new Date(currentDate);
+            date.setDate(date.getDate() - CurrentWeekDay);
+            date.setDate(date.getDate() + i);
+            currentWeek.push(date);
           }
 
           filteredPosts = posts.filter((item) => {
@@ -74,19 +67,12 @@ export const FilterDateNews = ({ params: { filteredDate } }) => {
           let prevWeekDay = currentDate.getDay(); // Get the day of the week for the week ago date
           const previousWeek = [];
           currentDate.setDate(currentDate.getDate() + 1); // Move to Monday
-          if (prevWeekDay === 1) {
-            for (let i = 0; i < 7; i++) {
-              const date = new Date(currentDate);
-              date.setDate(date.getDate() + i);
-              previousWeek.push(date);
-            }
-          } else {
-            for (let i = 0; i < 7; i++) {
-              const date = new Date(currentDate);
-              date.setDate(date.getDate() - prevWeekDay);
-              date.setDate(date.getDate() + i);
-              previousWeek.push(date);
-            }
+
+          for (let i = 0; i < 7; i++) {
+            const date = new Date(currentDate);
+            date.setDate(date.getDate() - prevWeekDay);
+            date.setDate(date.getDate() + i);
+            previousWeek.push(date);
           }
           filteredPosts = posts.filter((item) => {
             const itemDate = new Date(item.date);

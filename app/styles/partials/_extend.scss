@@ -124,4 +124,9 @@
     color: var(--button-text);
     background: var(--button-bg);
   }
+  &.active {
+    color: var(--button-text);
+    background: var(--button-bg);
+  }
 }
+
