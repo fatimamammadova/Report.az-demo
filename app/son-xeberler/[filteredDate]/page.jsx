@@ -35,7 +35,6 @@ export const FilterDateNews = ({ params: { filteredDate } }) => {
           });
           break;
         case "this_week":
-          currentDate.setDate(currentDate.getDate()); // Set the date to current week
           let CurrentWeekDay = currentDate.getDay(); // Get the day of the week for the current week date
           const currentWeek = [];
           currentDate.setDate(currentDate.getDate() + 1); // Move to Monday
