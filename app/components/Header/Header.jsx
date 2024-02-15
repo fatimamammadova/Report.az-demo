@@ -115,7 +115,6 @@ const Header = () => {
                             priority={true}
                             loading="eager"
                             quality={100}
-                           
                           />
                           Bakı 13° C
                         </Link>
@@ -196,7 +195,7 @@ const Header = () => {
                             href={item.path}
                             className={`${
                               item.path === pathname ? "active" : ""
-                            }`}
+                            } ${index===0 ? 'active' : ''}`}
                           >
                             {item.lang}
                           </Link>
