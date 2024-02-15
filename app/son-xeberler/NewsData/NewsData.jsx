@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 
 export const NewsData = ({ posts }) => {
   const path = usePathname()
-  const [scroll, setScroll] = useState();
-  const [lastData, setLastData] = useState(15);
   const [open, setOpen] = useState(false);
+  const [lastData, setLastData] = useState(15);
+  const [scroll, setScroll] = useState();
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.innerHeight + window.scrollY);

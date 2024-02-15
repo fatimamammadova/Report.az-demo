@@ -1,0 +1,17 @@
+#categoryNews {
+  padding-top: 20px;
+  .news-blocks {
+    width: 100%;
+    .news-block {
+      margin-bottom: 50px;
+      .news-info {
+        .title {
+          display: block;
+          font-weight: 600;
+          font-size: 16px;
+          margin: 12px 0;
+        }
+      }
+    }
+  }
+}

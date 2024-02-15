@@ -115,6 +115,7 @@ const Header = () => {
                             priority={true}
                             loading="eager"
                             quality={100}
+                           
                           />
                           Bakı 13° C
                         </Link>
