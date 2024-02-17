@@ -44,11 +44,11 @@ export const MainSwiper = ({ posts }) => {
             <div className="slide-content">
               <Link
                 className="news-category"
-                href={`${getSlug(item.category)}/${item.sub_category}`}
+                href={`${getSlug(item.sub_category)}`}
               >{`${item.sub_category}`}</Link>
               <Link
                 className="news-title"
-                href={`${getSlug(item.category)}${getSlug(item.sub_category)}/${item.slug}`}
+                href={`${getSlug(item.sub_category)}/${item.slug}`}
               >{`${item.title}`}</Link>
 
               <div className="news-date">

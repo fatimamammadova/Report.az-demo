@@ -44,11 +44,7 @@ export const ImportantSwiper = ({ posts }) => {
           <SwiperSlide key={index}>
             <div className="counted-news" key={index}>
               <div className="img">
-                <Link
-                  href={`${getSlug(item.category)}${getSlug(
-                    item.sub_category
-                  )}/${item.slug}`}
-                >
+                <Link href={`${getSlug(item.sub_category)}/${item.slug}`}>
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -67,18 +63,13 @@ export const ImportantSwiper = ({ posts }) => {
                   </div>
                   <Link
                     className="title"
-                    href={`${getSlug(item.category)}${getSlug(
-                      item.sub_category
-                    )}/${item.slug}`}
+                    href={`${getSlug(item.sub_category)}/${item.slug}`}
                   >
                     {`${item.title.slice(0, 70)}`}...
                   </Link>
                 </div>
                 <div className="category-date">
-                  <Link
-                    href={`${getSlug(item.category)}`}
-                    className="category"
-                  >
+                  <Link href={`${getSlug(item.category)}`} className="category">
                     <span>{`${item.category}`}</span>
                   </Link>
                   <div className="news-date">

@@ -40,7 +40,7 @@ export const UrgentSwiper = async ({ posts }) => {
               <div className="news-item">
                 <Link
                   className="news-heading"
-                  href={`${getSlug(item.category)}${getSlug(
+                  href={`${getSlug(
                     item.sub_category
                   )}/${item.slug}`}
                 >{`${item.title}`}</Link>

@@ -65,3 +65,12 @@ export async function getCategory() {
     console.error("Data Fetch error!", err);
   }
 }
+
+export const getPost = async (slug) => {
+  try {
+    const res = await fetch(`http://localhost:4000/news?slug=${slug}`);
+    return res.json();
+  } catch (err) {
+    console.log("Failed to fetch post!", err);
+  }
+};
