@@ -1,19 +1,15 @@
-"use client";
 import { getNews } from "../lib/data";
 import "./_latestNews.scss";
-import { useEffect, useState } from "react";
 import NewsData from "./NewsData/NewsData";
 
-export const LatestNews = () => {
-  const [posts, setPosts] = useState();
- 
-  useEffect(() => {
-    const fetchData = async () => {
-      const post = await getNews();
-      setPosts(post);
-    };
-    fetchData();
-  }, []);
+export const generateMetadata = async () => {
+  return {
+    title: 'Son Xəbərlər',
+  }
+}
+
+export const LatestNews = async () => {
+  const posts = await getNews();
 
   return (
     <>
