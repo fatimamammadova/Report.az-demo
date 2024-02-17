@@ -1,6 +1,12 @@
 import Link from "next/link";
 import "./_contact.scss";
 
+export const generateMetadata = () => {
+  return {
+    title: "Bizimlə əlaqə",
+  };
+};
+
 export const Contact = () => {
   return (
     <main>
