@@ -36,7 +36,7 @@ export const NewsData = ({ posts }) => {
   return (
     <>
       <main>
-        <section id="latestNews">
+        <section id="latestNews" className="page-section">
           <div className="container">
             <div className="row">
               <div className="col-12 wrapping">

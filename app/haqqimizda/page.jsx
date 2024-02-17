@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "./_about.scss";
 
 export const generateMetadata = () => {
   return {
@@ -10,7 +9,7 @@ export const generateMetadata = () => {
 export const About = () => {
   return (
     <main>
-      <section id="about">
+      <section id="about" className="page-section">
         <div className="container">
           <div className="row">
             <div className="col-12 wrapping">

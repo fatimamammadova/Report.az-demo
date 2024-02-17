@@ -10,7 +10,7 @@ export const generateMetadata = () => {
 export const Vacancies = () => {
   return (
     <main>
-      <section id="vacancies">
+      <section id="vacancies" className="page-section">
         <div className="container">
           <div className="row">
             <div className="col-12 wrapping">

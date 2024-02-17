@@ -46,7 +46,7 @@ export const SingleCategory = ({ params: { category } }) => {
 
   return (
     <main>
-      <section id="categoryNews">
+      <section id="categoryNews" className="page-section">
         <div className="container">
           <div className="row">
             <div className="col-12 wrapping">
