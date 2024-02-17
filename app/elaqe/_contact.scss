@@ -1,0 +1,78 @@
+#contact {
+  .page-content {
+    width: 100%;
+    .content {
+      margin-bottom: 15px;
+      padding-bottom: 30px;
+      h4 {
+        font-size: 24px;
+        margin-bottom: 19px;
+      }
+      p {
+        b {
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+  #map {
+    width: 100%;
+  }
+  .contact-info {
+    margin: 45px 0 80px;
+    .title {
+      font-size: 20px;
+      letter-spacing: 0.4px;
+      margin: 0 0 20px;
+      font-weight: bolder;
+    }
+    .chief-editor {
+      flex-flow: column;
+      align-items: center;
+      text-align: center;
+      padding: 25px 15px 30px;
+      background-color: var(--important-news-bg);
+      .name {
+        font-weight: 700;
+        font-size: 18px;
+        margin: 15px 0 5px;
+        display: block;
+      }
+      a {
+        display: block;
+        text-decoration: underline;
+      }
+    }
+    .departments {
+      @media (min-width: 992px) {
+        padding: 0 0 0 30px;
+      }
+      .title {
+        margin: 25px 0 30px;
+      }
+      .department {
+        margin: 0 0 30px;
+        a {
+          text-decoration: underline;
+        }
+        .name {
+          font-weight: 600;
+          font-size: 18px;
+          margin: 0 0 20px;
+        }
+        li {
+          margin: 0 0 15px;
+          strong {
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+    @media (min-width: 576px) {
+      .title {
+        font-size: 26px;
+        letter-spacing: 0.7px;
+      }
+    }
+  }
+}
