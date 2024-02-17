@@ -26,7 +26,9 @@ const Header = () => {
   const [lang, setLang] = useState();
   const [valute, setValute] = useState();
   const [currentValute, setCurrentValute] = useState(0);
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") === "light" ? true : false;
+  });
   const pathname = usePathname();
   const [isSearch, setIsSearch] = useState(false);
   const [open, setOpen] = useState(false);
@@ -81,19 +83,28 @@ const Header = () => {
   useEffect(() => {
     if (theme) {
       document.documentElement.dataset.theme = "light";
+      localStorage.setItem("theme", "light");
     } else {
       document.documentElement.dataset.theme = "dark";
+      localStorage.setItem("theme", "dark");
     }
-
-    return () => {
-      document.documentElement.dataset.theme = "light";
-    };
   }, [theme]);
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") == "dark") {
+      document.documentElement.dataset.theme = "dark";
+    }
+  }, []);
 
   const changeTheme = () => {
     setTheme((prevTheme) => !prevTheme);
-    console.log(theme);
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") == "dark") {
+      document.documentElement.dataset.theme = "dark";
+    }
+  });
 
   return (
     <>
@@ -195,7 +206,7 @@ const Header = () => {
                             href={item.path}
                             className={`${
                               item.path === pathname ? "active" : ""
-                            } ${index===0 ? 'active' : ''}`}
+                            } ${index === 0 ? "active" : ""}`}
                           >
                             {item.lang}
                           </Link>
