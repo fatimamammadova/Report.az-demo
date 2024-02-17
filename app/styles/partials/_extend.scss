@@ -111,6 +111,7 @@
 }
 
 .news-list {
+  width: 100%;
   .news-item {
     @include Flex($a-items: flex-start, $j-con: flex-start);
     width: 100%;

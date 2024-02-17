@@ -73,7 +73,7 @@ export const NewsData = ({ posts }) => {
                     posts.slice(0, lastData).map((item) => (
                       <div
                         className={`news-item ${
-                          item.important && "highlighted"
+                          item.important ? "highlighted" : ''
                         }`}
                         key={item.id}
                       >

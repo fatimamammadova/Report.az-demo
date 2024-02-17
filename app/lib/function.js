@@ -1,5 +1,17 @@
 export function getSlug(title) {
-    return `/${title.toLowerCase().replace(/ə/g, "e").replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/--+/g, "-").trim()}`
+  return `/${title
+      .toLowerCase()
+      .replace(/ü/g, "u")
+      .replace(/ğ/g, "g")
+      .replace(/ı/g, "i")
+      .replace(/ö/g, "o")
+      .replace(/ç/g, "c")
+      .replace(/ş/g, "s")
+      .replace(/ə/g, "e")
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/--+/g, "-")
+      .trim()}`;
 }
 
 
