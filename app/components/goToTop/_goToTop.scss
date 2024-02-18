@@ -1,0 +1,12 @@
+@import "../../styles/partials/mixin";
+.top-button {
+  @include Position($pos: fixed, $bottom: 40px, $right: -80px, $index: 45);
+  @include Flex($a-items: center, $j-con: center);
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  font-size: 26px;
+  color: #fff;
+  background-color: #353535;
+  transition: 0.3s ease;
+}
