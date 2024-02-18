@@ -1,48 +1,62 @@
-"use client";
 import { getCategory, getNews } from "../lib/data";
 import { getSlug } from "../lib/function";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import CategoryNews from "./categoryNews/CategoryNews";
 
-export const SingleCategory = ({ params: { category } }) => {
-  const [singleCategory, setSingleCategory] = useState([]);
-  const [categoryNews, setCategoryNews] = useState([]);
-  const [subCategory, setSubCategory] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const categories = await getCategory();
-      const posts = await getNews();
-      let categoryArr = [];
-      let categoryNewsArr = [];
-      const Category = categories.find((item) => item.url === category);
-      if (Category) {
-        categoryArr.push(Category);
-        categoryArr.forEach((item) => {
-          setSubCategory(item.sub_categories);
-        });
-        categoryNewsArr = posts.filter(
-          (item) => getSlug(item.category).slice(1) === category
-        );
-      } else {
-        categoryNewsArr = posts.filter(
-          (item) => getSlug(item.sub_category).slice(1) === category
-        );
-        categories.forEach((cat) => {
-          const SubCategory = cat.sub_categories.find(
-            (sub) => sub.url === category
-          );
-          if (SubCategory) {
-            categoryArr.push(SubCategory);
-          }
-        });
+export const generateMetadata = async ({ params: { category } }) => {
+  const categories = await getCategory();
+  const Category = categories.find((item) => item.url === category);
+  let title;
+  if (Category) {
+    title = `${Category.title} Xəbərləri`;
+  } else {
+    categories.forEach((cat) => {
+      const SubCategory = cat.sub_categories.find(
+        (sub) => sub.url === category
+      );
+      if (SubCategory) {
+        title = SubCategory.title;
       }
-      setSingleCategory(categoryArr);
-      setCategoryNews(categoryNewsArr);
+    });
+  }
+
+  if (title) {
+    return {
+      title: title,
     };
-    fetchData();
-  }, [category]);
+  } else {
+    return {
+      title: "Səhifə Tapılmadı!",
+    };
+  }
+};
+
+export const SingleCategory = async ({ params: { category } }) => {
+  let categoryArr;
+  let categoryNewsArr;
+  let subCategoryArr = [];
+  const categories = await getCategory();
+  const posts = await getNews();
+  const Category = categories.find((item) => item.url === category);
+  if (Category) {
+    categoryArr = [Category];
+    subCategoryArr = categoryArr[0].sub_categories;
+    categoryNewsArr = posts.filter(
+      (item) => getSlug(item.category).slice(1) === category
+    );
+  } else {
+    categoryNewsArr = posts.filter(
+      (item) => getSlug(item.sub_category).slice(1) === category
+    );
+    categories.forEach((cat) => {
+      const SubCategory = cat.sub_categories.find(
+        (sub) => sub.url === category
+      );
+      if (SubCategory) {
+        categoryArr = [SubCategory];
+      }
+    });
+  }
 
   return (
     <main>
@@ -51,18 +65,18 @@ export const SingleCategory = ({ params: { category } }) => {
           <div className="row">
             <div className="col-12 wrapping">
               <div className="page-title">
-                {singleCategory &&
-                  singleCategory.map((item, index) => (
+                {categoryArr &&
+                  categoryArr.map((item, index) => (
                     <p key={index}>{item.title}</p>
                   ))}
               </div>
               <div
                 className={`filter-date ${
-                  subCategory.length > 0 ? "" : "hidden"
+                  subCategoryArr.length > 0 ? "" : "hidden"
                 }`}
               >
                 <ul>
-                  {subCategory.map((subItem, index) => (
+                  {subCategoryArr.map((subItem, index) => (
                     <li key={index}>
                       <Link href={subItem.url} className="sub-category-btn">
                         {subItem.title}
@@ -71,7 +85,7 @@ export const SingleCategory = ({ params: { category } }) => {
                   ))}
                 </ul>
               </div>
-              <CategoryNews posts={categoryNews} />
+              <CategoryNews posts={categoryNewsArr} />
             </div>
           </div>
         </div>

@@ -1,21 +1,11 @@
-"use client";
-import { getNews } from "@/app/lib/data";
-import { useEffect, useState } from "react";
+import { getPost } from "@/app/lib/data";
 
-export const SingleNews = ({ params: { slug } }) => {
-  const [news, setNews] = useState(null);
+export const SingleNews = async ({ params }) => {
+  const { slug } = params;
+  const post = await getPost(slug);
+  const [item] = post;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const post = await getNews();
-      const singleNews = post.find((item) => item.slug === slug);
-      setNews(singleNews);
-      console.log(singleNews);
-    };
-    fetchData();
-  }, [slug]);
-
-  return <>{news && <span key={news.id}>{news.category}</span>}</>;
+  return <>{item && <span key={item.id}>{item.category}</span>}</>;
 };
 
 export default SingleNews;

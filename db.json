@@ -12,7 +12,6 @@
       "image": "https://static.report.az/photo/9fce7e74-92a5-327d-bb26-ea3b5c04f468_850.jpeg",
       "slug": "metamorfik-bağlar-70-30-sergisinin-acilisi-bas-tutub"
     },
-
     {
       "id": "65bcd24df1e5999380b13c8d",
       "userId": "65bd4808f1e5999380b13c97",
@@ -289,7 +288,6 @@
       "image": "https://static.report.az/photo/cced5cbc-ea5e-3fba-96a0-94c83ca5c951_850.jpg",
       "slug": "milli-meclisin-sedri"
     },
-
     {
       "id": "65bbfc6b63d992fd725c9c12",
       "userId": "65bd4808f1e5999380b13c97",
@@ -302,7 +300,6 @@
       "image": "https://static.report.az/photo/aa326fde-b781-3242-976c-391e8d3dcf76_850.jpg",
       "slug": "marketa-pekarova-adamova"
     },
-
     {
       "id": "65bbfd1463d992fd725c9c14",
       "userId": "65bd4871f1e5999380b13c98",
@@ -411,7 +408,6 @@
       "image": "https://static.report.az/photo/ddbfe453-eed9-3040-8a71-35ec047e5775_850.jpg",
       "slug": "gencede-yasayis-binasinda-yangin-olub-10-nefer-texliye-olunub-zehrlenen-var"
     },
-
     {
       "id": "65bcd7e1f1e5999380b13c90",
       "userId": "65bd4cc7f1e5999380b13c9b",
@@ -424,7 +420,6 @@
       "image": "https://static.report.az/photo/d1e94eb2-4c97-31b5-a298-16adf4a62d7b_850.jpg",
       "slug": "kanada-xin-bascisi-kiyevde-ukraynali-hemkari-ile-gorusub"
     },
-
     {
       "id": "65bccd4cf1e5999380b13c87",
       "userId": "65bd4e11f1e5999380b13ca5",
@@ -437,7 +432,6 @@
       "image": "https://static.report.az/photo/9407c784-6e4b-3c68-91e9-b6593d7b5382_850.jpg",
       "slug": "neftcinin-yeni-bas-mesqcisi-teklif-menim-ucun-gozlenilmez-oldu"
     },
-
     {
       "id": "65bcd338f1e5999380b13c8f",
       "userId": "65bd4cc7f1e5999380b13c9b",
@@ -462,7 +456,6 @@
       "image": "https://static.report.az/photo/dd5089e9-fe50-32db-8c05-0ba579c4642b_850.jpg",
       "slug": "yeni-konstitusiya-ermenistanin-nicati-xilasi-sehr"
     },
-
     {
       "id": "65bcdb70f1e5999380b13c61",
       "userId": "65c54c2785ab1deeea5ccfb8",
@@ -607,7 +600,6 @@
       "image": "https://static.report.az/photo/78d42c72-cd70-3540-97e2-3bfe022b50c9_850.jpg",
       "slug": "ilham-aliyev-turkpa-nin-bas-katibini-ve-beynelxalq-secki-musahide-missiyasinin-rehberini-qebul-edib-yenilenib"
     },
-
     {
       "id": "65bcdb70f1e5999380b13c63",
       "userId": "65bd4808f1e5999380b13c97",
@@ -632,10 +624,9 @@
       "image": "https://static.report.az/photo/623676b3-0e3a-3688-8255-1a06ada3bc5d_850.jpg",
       "slug": "memmed-abbasbayli-azerbaycanda-qlobal-texnologiya-sirketleri-reqabet-pozuntularina-yol-verir"
     },
-
     {
       "id": "65bcdb70f1e5999380b13c67",
-      "userId": "65c54c2785ab1deeea5ccfb9", 
+      "userId": "65c54c2785ab1deeea5ccfb9",
       "category": "Dünya",
       "sub_category": "Region",
       "title": "Ermənistan XİN-in saytından “Dağlıq Qarabağ problemi” bölməsi silinib",
@@ -644,6 +635,102 @@
       "important": false,
       "image": "https://static.report.az/photo/9161cb10-a2e4-3e0f-b598-0d25916d7dd9_850.png",
       "slug": "ermenistan-xin-in-saytindan-dagliq-qarabag-problemi-bolmesi-silinib"
+    },
+    {
+      "id": "31d3",
+      "title": "Azərbaycan paracüdoçusu reytinq xarakterli turnirdə gümüş medal qazanıb",
+      "text": "<div>\n<p>\nAlmaniyanın Heydelberq şəhərində keçirilən reytinq xarakterli turnirdə Azərbaycan paracüdoçusu Vüqar Şirinli gümüş medal qazanıb.\n\nQran-pridə 60 kq çəki dərəcəsində J2 kateqoriyasında mübarizə aparan idmançı ikinci yeri tutub.\n\nQeyd edək ki, Vüqar Şirinli Tokio-2020 XVI Yay Paralimpiya Oyunlarının qalibidir.</p></div>",
+      "image": "https://static.report.az/photo/44d39ba8-9558-330c-8640-dbc007a0f097_850.jpg",
+      "category": "İdman",
+      "sub_category": "Fərdi",
+      "important": false,
+      "date": "2024-02-17T18:09:45.626Z",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "azerbaycan-paracudocusu-reytinq-xarakterli-turnirde-gumus-medal-qazanib"
+    },
+    {
+      "id": "301a",
+      "title": "Qərbi Azərbaycan Xronikası: Xıdır Nəbi bayramının qəribə adətləri, mətbəxi və inancları",
+      "text": "<div>\n<p>Qərbi Azərbaycan Xronikası layihəsi çərçivəsində növbəti süjet hazırlanıb.</p><p><a href=\"#\">“Report”</a> xəbər verir ki, “Türk dünyasında geniş yayılan Xıdır Elləz bayramı” adlı süjetdə xalqımızın minilliklərlə tarixi olan Novruz adət-ənənələri barədə söhbət açılıb, tarixi torpaqlarımız olan Qərbi Azərbaycanın hər mahalında, hər kəndində qeyd olunan Xıdır İlyas, Xıdır Elləz və ya Xıdır Nəbi adlanan bayramın necə keçirildiyi xatırladılır.</p><p></p><p>Bildirilir ki, Xıdır Elləz qədim tarixə malikdir və el arasında geniş yayılıb: “Bütün türk dünyasında bu mərasim qeyd olunur. Xıdır Nəbi “suyun, külək və havanın” himayəçisi” kimi təqdim edilir və Xızır Peyğəmbərlə eyniləşdirilir. Xıdır əski türk mifoloji təsəvvürlərində ölüb-dirilən, zülmət dünyasından əbədi həyat bəxş edən dirilik suyunu tapıb içən və ölməzlik qazanan bir obrazı simvolizə edir. Türk mifik qaynaqlarında Xızır yer, su, umay kimi bir Vəli (övliya), yaxud hami ruh statusuna malik varlıq kimi səciyyələndirilir”.</p><p></p><p>Qeyd olunur ki, inanclara görə, əgər hər hansı bir evdə həmin gün süfrə açılmazsa, Xıdır küsüb gedəcək, baharın gəlişini yubadacaq. “Xızır” türkdilli xalqların sözüdür və yazın istisini, hərarətini, gətirən kişi, qəhrəman deməkdir.</p><p></p><p>Xatırladaq ki, Qərbi Azərbaycan Xronikası layihəsinin məqsədi tarixi qədim torpaqlarımızın adının yaşadılması, tanıdılması, həmçinin azərbaycanlıların ermənilər tərəfindən deportasiyaya məruz qoyulmasından, həmin ərazilərdə mövcud olmuş, lakin adı silinən toponimlərin, saysız-hesabsız yeraltı və yerüstü maddi mədəniyyət nümunələri – qədim yaşayış məskənləri, nekropollar, kurqanlar, qala, saray və istehkam qalıqları, karvansaralar, körpülər, qəbirüstü sənduqələr, xaçdaşlar, at-qoç heykəlləri, məbəd, kilsə, məscid, pir və ocaqların üzə çıxarılması, həmin ərazinin təmiz oğuz-türk məskənləri olduğunu təsdiq edən faktların dünya ictimaiyyətinə çatdırılmasıdır.</p><p></p><p>Həmçinin Prezident İlham Əliyevin Qərbi Azərbaycanla bağlı dediyi “XX əsrin əvvəllərinə təsadüf edən xəritə bir daha onu göstərir ki, Qərbi Azərbaycan tarixi Azərbaycan diyarıdır, şəhərlərin, kəndlərin adları Azərbaycan mənşəlidir və biz yaxşı bilirik ki, indiki Ermənistan ərazisində tarix boyu Azərbaycan xalqı yaşayıb. İndi əsas vəzifə ondan ibarətdir ki, dünya ictimaiyyəti də bunu bilsin”, – fikrini əsas tutaraq Qərbi Azərbaycan İcmasının hazırladığı Qayıdış Konsepsiyasında irəli gələn vəzifələrin təbliğidir.</p><p></p><p>Bundan əlavə, Qərbi Azərbaycanla bağlı tarixçilərin, araşdırmaçıların düşüncələrini, deportasiyaya məruz qalmış şəxslərin həyat hekayəsini işıqlandırmaqdır.</p></div>",
+      "image": "https://static.report.az/photo/5ce55a33-ce20-38d9-aa5f-aca298a12d3c_850.jpg",
+      "category": "Mədəniyyət",
+      "sub_category": "Mədəniyyət siyasəti",
+      "important": false,
+      "date": "2024-02-17T18:25:50.651Z",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "qerbi-azerbaycan-xronikasi-xidir-nebi-bayraminin-qeribe-adetleri-metbexi-ve-inanclari"
+    },
+    {
+      "id": "da0d",
+      "title": "İngiltərə Premyer Liqası: “Arsenal” 5 cavabsız qol vurub, “Tottenhem” uduzub",
+      "text": "<div>\n<p>İngiltərə Premyer Liqasının 25-ci turu çərçivəsində “Börnli” “Arsenal”ı, “Tottenhem” isə “Vulverhempton”u qəbul edib.</p><p></p><p><a href=\"#\">“Report”</a> xəbər verir ki, oyunlarda “topçular” böyükhesablı qələbə qazanıb, “Tottenhem” isə yenilib.</p><p></p><p>“Arsenal” səfərdə “Börnli”yə beş cavabsız qol vurub. Mikel Artetanın komandasında Bukayo Saka dubla imza atıb (biri penalti). Martin Edeqor, Leandro Trossard və Kay Haverts hərəyə bir qol vurub. Həmçinin Yakub Kivörlə Martin Edeqor aktivlərinə məhsuldar ötürmə əlavə ediblər.</p><p></p><p>“Tottenhem” isə bu mövsüm ikinci dəfə “qurdlar”a məğlub olub. 42-ci dəqiqədə Joao Qomes Pablo Sarabiyanın dəqiq ötürməsindən sonra topu tora göndərib. İkinci hissənin ilk saniyələrində “mahmızlar”ın futbolçusu Deyan Kuluşevski status-kvonu bərpa edib. Bununla belə, Qomes dubl edərək komandasını hesabda irəli çıxarıb və yekun hesabı müəyyənləşdirib – 1:2.</p><p></p><p>Qeyd edək ki, “Arsenal”ın 25 oyundan sonra 55 xalı var və ikinci pillədə qərarlaşıb. Onu lider “Liverpul”dan iki xal ayırır. “Topçular”ın ən yaxın təqibçisi isə üç xal fərqlə “Mançester Siti”dir, “şəhərlilər”in ehtiyatında iki oyun var. “Börnli” isə turnir cədvəlinin 19-cu pilləsində yer alıb, komandanın mövsümün sonunda liqanı tərk edəcəyi ehtimalı yüksəkdir.</p><p></p><p>“Tottenhem” isə bu məğlubiyyətdən sonra 47 xalla beşinci yerdə qalıb. Onu yenmiş “Vulverhempton” isə “Çelsi”ni ötərək 10-cu pilləyə yüksəlib.</p></div>",
+      "image": "https://static.report.az/photo/44f40506-b3f9-359d-9bf4-e58ec0d9edfa_850.jpg",
+      "category": "İdman",
+      "sub_category": "Futbol",
+      "important": false,
+      "date": "2024-02-17T18:42:55.404Z",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "ingiltere-premyer-liqasi-arsenal-5-cavabsiz-qol-vurub-tottenhem-uduzub"
+    },
+    {
+      "id": "9959",
+      "title": "Türkiyə və Almaniya XİN başçıları Qəzzadakı vəziyyəti müzakirə ediblər",
+      "text": "<div>\n<p>Türkiyə və Almaniyanın xarici işlər nazirləri Hakan Fidanla Annalena Berbok Qəzzadakı vəziyyəti müzakirə ediblər.</p><p></p><p><a href=\"#\">“Report”</a> TRT-yə istinadən xəbər verir ki, görüşdə H.Fidan həmkarına bildirib ki, Qəzzada davam edən qırğınların dərhal dayandırılması üçün tədbirlər görülməlidir.</p><p></p><p>Görüş zamanı hər iki tərəf Qəzzaya humanitar yardımın çatdırılması üçün daha çox səy göstərilməsi ilə bağlı razılığa gəlib.</p><p></p><p>NATO çərçivəsində əlaqələrin də müzakirə olunduğu görüşdə Fidan Almaniya ilə enerji sahəsində əməkdaşlığa önəm verildiyini vurğulayıb.</p><p></p><p>Ötən il Türkiyə ilə Almaniya arasında ikitərəfli ticarət həcmi təxminən 50 milyard dollar olub, tərəflər bu rəqəmi 60 milyard dollara çatdırmağı hədəfləyir.</p></div>",
+      "image": "https://static.report.az/photo/c8ee1437-432e-3579-8c4d-580e69a45d72_850.jpg",
+      "category": "Dünya",
+      "sub_category": "Region",
+      "important": false,
+      "date": "2024-02-17T18:58:05.666Z",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "turkiye-ve-almaniya-xin-bascilari-qezzadaki-veziyyeti-muzakire-edibler"
+    },
+    {
+      "id": "7ce6",
+      "title": "Şoyqu Putinə Avdiivkanın tam nəzarətə götürülməsi barədə məruzə edib",
+      "text": "<div>\n<p>Rusiyanın müdafiə naziri Sergey Şoyqu Prezident Vladimir Putinə Donetsk yaxınlığındakı Avdiivka şəhərinin tam nəzarətə götürülməsi barədə məruzə edib.</p><p></p><p><a href=\"#\">“Report”</a> xəbər verir ki, bu barədə Rusiya Müdafiə Nazirliyi məlumat yayıb.</p><p></p><p>Şoyqu dövlət başçısını Avdiivkanın general-polkovnik Mordviçevin komandanlığı altındakı Mərkəz qoşun qruplaşmasının tam nəzarətinə keçdiyi barədə məlumatlandırıb.</p></div>",
+      "image": "https://static.report.az/photo/7f4486be-272f-3f13-82e0-83e2f3bd348c_850.jpg",
+      "category": "Dünya",
+      "sub_category": "Region",
+      "important": false,
+      "date": "2024-02-17T20:22:39.579Z",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "soyqu-putine-avdiivkanin-tam-nezarete-goturulmesi-barede-meruze-edib"
+    },
+    {
+      "id": "a8a0",
+      "title": "Prezident İlham Əliyevin “The Rockefeller Foundation”ın baş vitse-prezidenti ilə görüşü olub - YENİLƏNİB",
+      "text": "<div>\n<p>Fevralın 17-də Münxendə Azərbaycan Respublikasının Prezidenti İlham Əliyev ilə qarşı tərəfin müraciətinə əsasən “The Rockefeller Foundation”ın strateji kommunikasiyalar, siyasət və təbliğat üzrə baş vitse-prezidenti xanım Eylin Okonnorun görüşü olub.</p><p></p><p><a href=\"#\">“Report”</a> xəbər verir ki, COP29-un ölkəmizdə keçirilməsi münasibətilə təbriklərini çatdıran Eylin Okonnor “The Rockefeller Foundation”ın dünyada iqlim dəyişikliyi və onun qarşısının alınmasının maliyyələşdirilməsi sahəsində aktiv fəaliyyət göstərdiyini, bu istiqamətdə bir sıra dövlətlərlə, özəl sektorla və vətəndaş cəmiyyəti ilə çalışdığını qeyd etdi. O, bu xüsusda Azərbaycanla əməkdaşlığa hazır olduqlarını bildirdi.</p><p></p><p>Təbriklərə görə minnətdarlığını bildirən dövlətimizin başçısı qeyd etdi ki, COP29-la əlaqədar inklüzivliyin tərəfdarıdır və Azərbaycan bu istiqamətdə beynəlxalq ictimaiyyətlə yaxından işləyir.</p><p></p><p>Ölkəmizin “The Rockefeller Foundation”la da əməkdaşlığa hazır olduğunu vurğulayan Prezident İlham Əliyev Fondun nümayəndə heyətini Azərbaycana səfərə dəvət etdi.</p></div>",
+      "image": "https://static.report.az/photo/523a6669-e038-390c-ad58-35ea9aad9215_850.jpg",
+      "category": "Siyasət",
+      "sub_category": "Xarici siyasət",
+      "important": true,
+      "date": "2024-02-17T21:09:00",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "prezident-ilham-eliyevin-the-rockefeller-foundationin-bas-vitse-prezidenti-ile-gorusu-olub-yenilenib"
+    },
+    {
+      "id": "dd13",
+      "title": "La Liqa: \"Barselona\" \"Selta\"nı minimal fərqlə yenib",
+      "text": "<div>\n<p>İspaniya La Liqasında XXV tura start verilib.</p><p></p><p><a href=\"#\">“Report”</a> xəbər verir ki, ilk oyun günündə dörd matç keçirilib.</p><p></p><p>\"Barselona\" səfərdə \"Selta\"nı 2:1 hesabı ilə məğlub edib. Hesabı 45-ci dəqiqədə Robert Levandovski açıb. Meydan sahiblərindən 47-ci dəqiqədə İaqo Aspasla tablodakı rəqəmləri bərabərləşdirib. Polşalı hücumçu Robert Levandovski 90+7-ci dəqiqədə penaltidən fərqlənərək komandasına qələbə qazandırıb.</p><p></p><p>Turun digər oyunlarında \"Atletiko\" (Madrid) \"Las Palmas\"a 5:0, \"Osasuna\" isə \"Kadis\"ə 2:0 hesabı ilə qalib gəlib. \"Vilyarreal\" - \"Xetafe\" matçı isə qollu bərabərliklə yekunlaşıb - 1:1.</p><p></p><p>Turnir cədvəlinə 61 xalla \"Real Madrid\" rəhbərlik edir. \"Jirona\" 56 xalla 2-ci, rəqibindən 2 xal geri qalan \"Barselona\" 3-cüdür.</p></div>",
+      "image": "https://static.report.az/photo/25ae4582-98a7-3c6d-b5c5-131445a0586a_850.jpg",
+      "category": "İdman",
+      "sub_category": "Futbol",
+      "important": false,
+      "date": "2024-02-17T20:53:48.525Z",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "la-liqa-barselona-seltani-minimal-ferqle-yenib"
+    },
+    {
+      "id": "831d",
+      "title": "Azərbaycan Prezidenti ilə BƏƏ-nin sənaye və qabaqcıl texnologiyalar nazirinin görüşü olub - YENİLƏNİB",
+      "text": "<div>\n<p>Fevralın 17-də Münxendə Azərbaycan Respublikasının Prezidenti İlham Əliyev ilə qarşı tərəfin müraciətinə əsasən Birləşmiş Ərəb Əmirliklərinin (BƏƏ) sənaye və qabaqcıl texnologiyalar naziri Sultan Əhməd Əl-Cabirin görüşü olub.</p><p></p><p><a href=\"#\">“Report”</a> xəbər verir ki, Sultan Əhməd Əl-Cabir Birləşmiş Ərəb Əmirliklərinin Prezidenti Şeyx Məhəmməd bin Zayed Əl Nəhyanın salamlarını və ən xoş arzularını, həmçinin prezident seçkilərində qələbəsi münasibətilə İlham Əliyevə, Azərbaycan dövlətinə və xalqına səmimi təbriklərini çatdırdı.</p><p></p><p>Dövlətimizin başçısı təbriklərə və xoş sözlərə görə təşəkkürünü bildirdi, onun da salamlarını BƏƏ Prezidentinə çatdırmağı xahiş etdi.</p><p></p><p>Prezident İlham Əliyev bu yaxınlarda Prezident Şeyx Məhəmməd bin Zayed Əl Nəhyanla telefon danışığını və onun Azərbaycana səfərini məmnunluqla xatırladı. Qeyd etdi ki, bu, tarixi səfər idi. Belə ki, BƏƏ Prezidenti ilk dəfə Azərbaycana rəsmi səfər edirdi.</p><p></p><p>COP29-un ölkəmizdə keçirilməsi ilə bağlı Azərbaycanı təbrik edən nazir Prezident Şeyx Məhəmməd bin Zayed Əl Nəhyanın tapşırığına əsasən BƏƏ-nin COP heyətinin hazırda Azərbaycan nümayəndə heyəti ilə yaxından işlədiyini diqqətə çatdırdı. O, COP29-un COP-un tarixində ən uğurlu sessiyalardan biri olacağına əminliyini ifadə etdi.</p><p></p><p>Azərbaycan Prezidenti COP çərçivəsində Birləşmiş Ərəb Əmirliklərinin ölkəmizə göstərdiyi dəstəyin və aparılan təcrübə mübadiləsinin çox əhəmiyyətli olduğunu bildirdi. Dövlətimizin başçısı BƏƏ, Azərbaycan və Braziliya arasında COP çərçivəsində yaradılan Üçlük mexanizminin çox uğurlu addım olduğunu diqqətə çatdırdı.</p><p></p><p>Görüşdə Azərbaycanla BƏƏ arasında müxtəlif sahələrdə, o cümlədən ölkəmizdə bərpaolunan enerji sahəsində əməkdaşlıq xüsusi vurğulandı. “Masdar” şirkətinin Azərbaycandakı uğurlu fəaliyyəti və ölkəmizin qeyri-neft sənayesinə yatırdığı investisiyalar məmnunluqla qeyd edildi, bu sahədə əməkdaşlığın genişləndirilməsi ilə bağlı fikir mübadiləsi aparıldı.</p></div>",
+      "image": "https://static.report.az/photo/66920902-cf86-36b4-b5ee-41b062faba67_850.jpg",
+      "category": "Siyasət",
+      "sub_category": "Xarici siyasət",
+      "important": true,
+      "date": "2024-02-17T20:26:00",
+      "userId": "65bd4808f1e5999380b13c97",
+      "slug": "azerbaycan-prezidenti-ile-bee-nin-senaye-ve-qabaqcil-texnologiyalar-nazirinin-gorusu-olub-yenilenib"
     }
   ],
   "videoNews": [
@@ -667,95 +754,209 @@
     "BRENT": "78.91"
   },
   "links": [
-    { "title": "Əsas xəbərlər", "url": "/", "sub_categories": [] },
+    {
+      "title": "Əsas xəbərlər",
+      "url": "/",
+      "sub_categories": [],
+      "id": "0765"
+    },
     {
       "title": "Son xəbərlər",
       "url": "son-xeberler",
-      "sub_categories": []
+      "sub_categories": [],
+      "id": "4990"
     },
     {
       "title": "Siyasət",
       "url": "siyaset",
       "sub_categories": [
-        { "title": "Milli Məclis", "url": "milli-meclis" },
-        { "title": "Daxili siyasət", "url": "daxili-siyaset" },
-        { "title": "Qarabağ", "url": "qarabag" },
-        { "title": "Xarici siyasət", "url": "xarici-siyaset" },
-        { "title": "Hərbi", "url": "herbi" },
-        { "title": "Diaspor", "url": "diaspor" }
-      ]
+        {
+          "title": "Milli Məclis",
+          "url": "milli-meclis"
+        },
+        {
+          "title": "Daxili siyasət",
+          "url": "daxili-siyaset"
+        },
+        {
+          "title": "Qarabağ",
+          "url": "qarabag"
+        },
+        {
+          "title": "Xarici siyasət",
+          "url": "xarici-siyaset"
+        },
+        {
+          "title": "Hərbi",
+          "url": "herbi"
+        },
+        {
+          "title": "Diaspor",
+          "url": "diaspor"
+        }
+      ],
+      "id": "2fc1"
     },
     {
       "title": "İqtisadiyyat",
       "url": "iqtisadiyyat",
       "sub_categories": [
-        { "title": "Energetika", "url": "energetika" },
-        { "title": "Sənaye", "url": "senaye" },
-        { "title": "Maliyyə", "url": "maliyye" },
-        { "title": "İKT", "url": "ikt" },
-        { "title": "İnfrastruktur", "url": "infrastruktur" },
-        { "title": "ASK", "url": "ask" },
-        { "title": "Biznes", "url": "biznes" },
-        { "title": "Turizm", "url": "turizm" }
-      ]
+        {
+          "title": "Energetika",
+          "url": "energetika"
+        },
+        {
+          "title": "Sənaye",
+          "url": "senaye"
+        },
+        {
+          "title": "Maliyyə",
+          "url": "maliyye"
+        },
+        {
+          "title": "İKT",
+          "url": "ikt"
+        },
+        {
+          "title": "İnfrastruktur",
+          "url": "infrastruktur"
+        },
+        {
+          "title": "ASK",
+          "url": "ask"
+        },
+        {
+          "title": "Biznes",
+          "url": "biznes"
+        },
+        {
+          "title": "Turizm",
+          "url": "turizm"
+        }
+      ],
+      "id": "a4c4"
     },
     {
       "title": "COP29",
       "url": "cop29",
-      "sub_categories": []
+      "sub_categories": [],
+      "id": "63b6"
     },
     {
       "title": "Cəmiyyət",
       "url": "cemiyyet",
       "sub_categories": [
-        { "title": "Sosial müdafiə", "url": "sosial-mudafie" },
-        { "title": "Hadisə", "url": "hadise" },
-        { "title": "Elm və təhsil", "url": "elm-ve-tehsil" },
-        { "title": "Sağlamlıq", "url": "saglamliq" },
-        { "title": "Sərgilər", "url": "sergiler" },
-        { "title": "Din", "url": "din" },
-        { "title": "Ekologiya", "url": "ekologiya" },
-        { "title": "Media", "url": "media" }
-      ]
+        {
+          "title": "Sosial müdafiə",
+          "url": "sosial-mudafie"
+        },
+        {
+          "title": "Hadisə",
+          "url": "hadise"
+        },
+        {
+          "title": "Elm və təhsil",
+          "url": "elm-ve-tehsil"
+        },
+        {
+          "title": "Sağlamlıq",
+          "url": "saglamliq"
+        },
+        {
+          "title": "Sərgilər",
+          "url": "sergiler"
+        },
+        {
+          "title": "Din",
+          "url": "din"
+        },
+        {
+          "title": "Ekologiya",
+          "url": "ekologiya"
+        },
+        {
+          "title": "Media",
+          "url": "media"
+        }
+      ],
+      "id": "10e9"
     },
     {
       "title": "İdman",
       "url": "idman",
       "sub_categories": [
-        { "title": "Futbol", "url": "futbol" },
-        { "title": "Fərdi", "url": "ferdi" },
-        { "title": "Komanda", "url": "komanda" },
-        { "title": "Formula 1", "url": "formula-1" }
-      ]
+        {
+          "title": "Futbol",
+          "url": "futbol"
+        },
+        {
+          "title": "Fərdi",
+          "url": "ferdi"
+        },
+        {
+          "title": "Komanda",
+          "url": "komanda"
+        },
+        {
+          "title": "Formula 1",
+          "url": "formula1"
+        }
+      ],
+      "id": "bfb7"
     },
     {
       "title": "Mədəniyyət",
       "url": "medeniyyet",
       "sub_categories": [
-        { "title": "Mədəniyyət siyasəti", "url": "medeniyyet-siyaseti" },
-        { "title": "İncəsənət", "url": "incesenet" },
-        { "title": "Ədəbiyyat", "url": "edebiyyat" },
-        { "title": "Şou-biznes", "url": "sou-biznes" }
-      ]
+        {
+          "title": "Mədəniyyət siyasəti",
+          "url": "medeniyyet-siyaseti"
+        },
+        {
+          "title": "İncəsənət",
+          "url": "incesenet"
+        },
+        {
+          "title": "Ədəbiyyat",
+          "url": "edebiyyat"
+        },
+        {
+          "title": "Şou-biznes",
+          "url": "sou-biznes"
+        }
+      ],
+      "id": "5675"
     },
     {
       "title": "Dünya",
       "url": "dunya",
       "sub_categories": [
-        { "title": "Region", "url": "region" },
-        { "title": "Digər ölkələr", "url": "diger-olkeler" },
-        { "title": "Maraqlı", "url": "maraqli" }
-      ]
+        {
+          "title": "Region",
+          "url": "region"
+        },
+        {
+          "title": "Digər ölkələr",
+          "url": "diger-olkeler"
+        },
+        {
+          "title": "Maraqlı",
+          "url": "maraqli"
+        }
+      ],
+      "id": "3379"
     },
     {
       "title": "Analitika",
       "url": "analitika",
-      "sub_categories": []
+      "sub_categories": [],
+      "id": "1a36"
     },
     {
       "title": "Multimedia",
       "url": "multimedia",
-      "sub_categories": []
+      "sub_categories": [],
+      "id": "3c1c"
     }
   ],
   "users": [
@@ -764,7 +965,6 @@
       "image": "https://static.report.az/photo/a31389f3-bdb0-3954-982a-8378f2e91c2d_50.jpg",
       "username": "Xəbərlər Şöbəsi"
     },
-
     {
       "id": "65bd4871f1e5999380b13c98",
       "image": "https://static.report.az/photo/03f578ce-929b-37b0-a55d-08ec7079964a_85.jpeg",

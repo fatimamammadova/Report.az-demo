@@ -1,3 +1,4 @@
+"use client"
 import { getSlug, formatDate, formatHours } from "../../lib/function";
 import Link from "next/link";
 import Image from "next/image";

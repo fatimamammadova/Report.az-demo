@@ -26,14 +26,19 @@ const Header = () => {
   const [lang, setLang] = useState();
   const [valute, setValute] = useState();
   const [currentValute, setCurrentValute] = useState(0);
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") === "light" ? true : false;
-  });
   const pathname = usePathname();
   const [isSearch, setIsSearch] = useState(false);
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState();
   const [category, setCategory] = useState();
+  const [windSpeed, setWindSpeed] = useState();
+  const [celsius, setCelsius] = useState();
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem("theme") === "light" ? true : false;
+    }
+    return true; 
+  });
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -106,6 +111,22 @@ const Header = () => {
     }
   });
 
+  useEffect(() => {
+    async function getWeather() {
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=baku&appid=daf23bcd6e2a7097959c3849d264e8be&units=metric`,
+        {
+          next: { revalidate: 300 },
+        }
+      );
+      const data = await res.json();
+      setCelsius(Math.round(data.main.temp));
+      setWindSpeed(Math.round(data.wind.speed));
+    }
+
+    getWeather();
+  });
+
   return (
     <>
       <header>
@@ -127,11 +148,11 @@ const Header = () => {
                             loading="eager"
                             quality={100}
                           />
-                          Bakı 13° C
+                          Bakı {celsius}° C
                         </Link>
                       </li>
                       <li>
-                        <Link href="/">13 m/s</Link>
+                        <Link href="/">{windSpeed} m/s</Link>
                       </li>
                     </ul>
                   </div>
