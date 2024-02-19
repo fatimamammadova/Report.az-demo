@@ -24,7 +24,7 @@ footer {
         width: calc(100% - 280px);
       }
       ul {
-        @include Flex($f-wrap: wrap);
+        @include Flex($a-items: center, $j-con: center, $f-wrap: wrap);
         li {
           width: 33.33333%;
           margin-bottom: 6px;
@@ -34,13 +34,13 @@ footer {
           }
         }
         &:first-child {
-          text-align: center;
           @media (min-width: 992px) {
             text-align: left;
             width: 33.33333%;
           }
           li {
-            width: 25%;
+            width: auto;
+            margin-right: 10px;
             text-align: center;
             @media (min-width: 768px) {
               text-align: left;

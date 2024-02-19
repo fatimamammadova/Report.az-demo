@@ -1,5 +1,11 @@
 "use client"
 
+export const generateMetadata = () => {
+    return {
+      title: "Yalnışlıq baş vermişdir",
+    };
+  };
+
 const Error = () => {
     return (
         <main>

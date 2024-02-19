@@ -1,5 +1,11 @@
 import Link from "next/link"
 
+export const generateMetadata = () => {
+    return {
+      title: "Nəticə tapılmadı",
+    };
+  };
+
 const NotFound = () => {
     return (
         <main>
