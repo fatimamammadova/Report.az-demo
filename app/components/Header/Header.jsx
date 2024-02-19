@@ -23,6 +23,7 @@ import {
 import "./_header.scss";
 
 const Header = () => {
+  
   const [lang, setLang] = useState();
   const [valute, setValute] = useState();
   const [currentValute, setCurrentValute] = useState(0);
