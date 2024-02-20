@@ -9,7 +9,7 @@ export const notFound = () => {
     <main>
       <div className="container messageBox">
         <h1>Axtarış nəticəsi tapılmadı!</h1>
-        <Link href="/">Əsas Səhifə</Link>
+        <Link href="/">Əsas səhifəyə qayıt</Link>
       </div>
     </main>
   );
