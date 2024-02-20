@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Links from "./Links/Links";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { getValutes, getLang, getCategory } from "../../lib/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,9 +21,12 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import "./_header.scss";
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
-  
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState('');
   const [lang, setLang] = useState();
   const [valute, setValute] = useState();
   const [currentValute, setCurrentValute] = useState(0);
@@ -40,6 +43,19 @@ const Header = () => {
     }
     return true; 
   });
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim() !== '') {
+      router.push(`/search?query=${encodeURIComponent(query)}`);
+    }
+    setQuery('')
+    setIsSearch(false)
+  };
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -262,11 +278,12 @@ const Header = () => {
                 <div className="main-menu">
                   {isSearch ? (
                     <div className="search-block">
-                      <form>
-                        <div className="form-input">
+                      <form onSubmit={handleSubmit}>
+                        <div className="form-input" >
                           <input
                             type="text"
                             placeholder="Açar sözü daxil edin"
+                            value={query} onChange={handleInputChange}
                           />
                         </div>
                       </form>
@@ -291,11 +308,12 @@ const Header = () => {
                   <div className="sidebar-menu">
                     <Links posts={category} />
                     <div className="search-block">
-                      <form>
-                        <div className="form-input">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-input" >
                           <input
                             type="text"
                             placeholder="Açar sözü daxil edin"
+                            value={query} onChange={handleInputChange}
                           />
                         </div>
                       </form>

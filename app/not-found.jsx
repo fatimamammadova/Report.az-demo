@@ -1,21 +1,21 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export const generateMetadata = () => {
-    return {
-      title: "Nəticə tapılmadı",
-    };
+  return {
+    title: "Nəticə tapılmadı",
   };
+};
 
 const NotFound = () => {
-    return (
-        <main>
-            <div className="container messageBox">
-                <h1>Not Found</h1>
-                <p>Sorry, the page you are looking for does not exist.</p>
-                <Link href='/'>Return Home</Link>
-            </div>
-        </main>
-    )
-}
+  return (
+    <main>
+      <div className="container messageBox">
+        <h1>Səhifə tapılmadı!</h1>
+        <p>Bağışlayın, bu səhifə mövcud deyil.</p>
+        <Link href="/">Əsas Səhifə</Link>
+      </div>
+    </main>
+  );
+};
 
-export default NotFound
+export default NotFound;
