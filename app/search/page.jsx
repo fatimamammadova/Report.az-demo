@@ -1,4 +1,8 @@
 import { getNews } from "../lib/data";
+import { formatDate, formatHours, getSlug } from "../lib/function";
+import Link from "next/link";
+import Image from "next/image";
+import "./_search.scss";
 
 export const generateMetadata = ({ searchParams: { query } }) => {
   return {
@@ -9,7 +13,8 @@ export const generateMetadata = ({ searchParams: { query } }) => {
 export const Search = async ({ searchParams: { query } }) => {
   const posts = await getNews();
 
-  //split
+
+
 
   return (
     <main>
@@ -19,6 +24,47 @@ export const Search = async ({ searchParams: { query } }) => {
             <div className="col-12 wrapping">
               <div className="page-title">
                 <p>Açar sözü: {query}</p>
+              </div>
+
+              <div className="news-list">
+                {posts &&
+                  posts.map((item) => (
+                    <div className="news-item" key={item.index}>
+                      <div className="img">
+                        <Link
+                          href={`${getSlug(item.sub_category)}/${item.slug}`}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width="0"
+                            height="0"
+                            sizes="100vw"
+                            priority={true}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </Link>
+                      </div>
+                      <div className="news-info">
+                        <Link
+                          className="title"
+                          href={`${getSlug(item.sub_category)}/${item.slug}`}
+                        >
+                          {item.title}
+                        </Link>
+
+                        <div className="description">
+                          <p>{item.text.split(".").slice(0, 1)}</p>
+                        </div>
+
+                
+                        <div className="news-date">
+                          <span>{`${formatDate(item.date)}`}</span>
+                          <span>{`${formatHours(item.date)}`}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
