@@ -25,6 +25,7 @@
   --button-text: #fff;
   --sub-btn-bg: #fefefe;
   --sub-btn-border: #a4a4a4;
+  --highlighted: #fff700;
 }
 
 [data-theme="dark"] {
@@ -50,6 +51,8 @@
   --button-text: #353535;
   --sub-btn-bg: #1a1a1a;
   --sub-btn-border: #1a1a1a;
+  --highlighted: #fff;
+  --highlighted-text: #353535; 
 }
 
 html,

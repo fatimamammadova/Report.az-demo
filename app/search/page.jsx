@@ -1,5 +1,10 @@
 import { getNews } from "../lib/data";
-import { formatDate, formatHours, getSlug } from "../lib/function";
+import {
+  formatDate,
+  formatHours,
+  getSlug,
+  getHighlightedWord,
+} from "../lib/function";
 import Link from "next/link";
 import Image from "next/image";
 import "./_search.scss";
@@ -12,9 +17,6 @@ export const generateMetadata = ({ searchParams: { query } }) => {
 
 export const Search = async ({ searchParams: { query } }) => {
   const posts = await getNews();
-
-
-
 
   return (
     <main>
@@ -29,7 +31,7 @@ export const Search = async ({ searchParams: { query } }) => {
               <div className="news-list">
                 {posts &&
                   posts.map((item) => (
-                    <div className="news-item" key={item.index}>
+                    <div className="news-item" key={item.id}>
                       <div className="img">
                         <Link
                           href={`${getSlug(item.sub_category)}/${item.slug}`}
@@ -50,14 +52,16 @@ export const Search = async ({ searchParams: { query } }) => {
                           className="title"
                           href={`${getSlug(item.sub_category)}/${item.slug}`}
                         >
-                          {item.title}
+                          <div
+                            dangerouslySetInnerHTML={{ __html:  getHighlightedWord(item.title, query) }}
+                          />
+                         
                         </Link>
 
                         <div className="description">
-                          <p>{item.text.split(".").slice(0, 1)}</p>
+                          <p>{item.text.split(".").slice(0, 1)}.</p>
                         </div>
 
-                
                         <div className="news-date">
                           <span>{`${formatDate(item.date)}`}</span>
                           <span>{`${formatHours(item.date)}`}</span>
