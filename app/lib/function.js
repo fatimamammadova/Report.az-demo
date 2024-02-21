@@ -50,25 +50,20 @@ export function formatHours(time) {
 
 export function getHighlightedWord(title, query) {
   const words = title.split(" ");
-
   const letterNum = query.length;
-
   const handleWords = [];
 
   words.forEach((item) => {
     const word = getSlug(item).slice(0);
     const querySlugFormat = getSlug(query).slice(0);
-
-    if (word === querySlugFormat) {
-      const index = item.indexOf(query);
-      if (index !== -1) {
-        const firstPart = item.slice(0, index);
-        const highlightedPart = item.slice(index, index + letterNum);
-        const lastPart = item.slice(index + letterNum);
-        handleWords.push(
-          `${firstPart}<span class="highlighted">${highlightedPart}</span>${lastPart}`
-        );
-      }
+    const index = word.indexOf(querySlugFormat);
+    if (index !== -1) {
+      const firstPart = item.slice(0, index);
+      const highlightedPart = item.slice(index, index + letterNum);
+      const lastPart = item.slice(index + letterNum);
+      handleWords.push(
+        `${firstPart}<span class="highlighted">${highlightedPart}</span>${lastPart}`
+      );
     } else {
       handleWords.push(item);
     }
@@ -76,6 +71,7 @@ export function getHighlightedWord(title, query) {
 
   return handleWords.join(" ");
 }
+
 
 // export function sortedData(data) {
 //   data.sort((a, b) => {
