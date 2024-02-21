@@ -61,7 +61,6 @@ export function getHighlightedWord(title, query) {
 
     if (word === querySlugFormat) {
       const index = item.indexOf(query);
-
       if (index !== -1) {
         const firstPart = item.slice(0, index);
         const highlightedPart = item.slice(index, index + letterNum);
