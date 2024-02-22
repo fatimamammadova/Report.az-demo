@@ -4,6 +4,7 @@ import {
   formatHours,
   getSlug,
   getHighlightedWord,
+  isHighlightedWord,
 } from "../lib/function";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,8 +30,13 @@ export const Search = async ({ searchParams: { query } }) => {
               </div>
 
               <div className="news-list">
-                {posts &&
-                  posts.map((item) => (
+                {posts
+                  .filter(
+                    (element) =>
+                      isHighlightedWord( `${element.text.split(".").slice(0, 1)}.`, query) ||
+                      isHighlightedWord(element.title, query)
+                  )
+                  .map((item) => (
                     <div className="news-item" key={item.id}>
                       <div className="img">
                         <Link
@@ -53,13 +59,21 @@ export const Search = async ({ searchParams: { query } }) => {
                           href={`${getSlug(item.sub_category)}/${item.slug}`}
                         >
                           <div
-                            dangerouslySetInnerHTML={{ __html:  getHighlightedWord(item.title, query) }}
+                            dangerouslySetInnerHTML={{
+                              __html: getHighlightedWord(item.title, query),
+                            }}
                           />
-                         
                         </Link>
 
                         <div className="description">
-                          <p>{item.text.split(".").slice(0, 1)}.</p>
+                          <p
+                            dangerouslySetInnerHTML={{
+                              __html: getHighlightedWord(
+                                `${item.text.split(".").slice(0, 1)}.`,
+                                query
+                              ),
+                            }}
+                          ></p>
                         </div>
 
                         <div className="news-date">

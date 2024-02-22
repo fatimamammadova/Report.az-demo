@@ -5,11 +5,9 @@
       margin: 0 0 15px;
     }
     .news-info {
-      .title {
-        .highlighted {
-          background-color: var(--highlighted);
-          color: var(--highlighted-text);
-        }
+      .highlight {
+        background-color: var(--highlighted);
+        color: var(--highlighted-text);
       }
       .title {
         @media (max-width: 768px) {
