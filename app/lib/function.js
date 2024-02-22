@@ -99,12 +99,6 @@ export function isHighlightedWord(text, query) {
   return false;
 }
 
-const title =
-  "Birləşmiş Millətlər Təşkilatının İqlim Dəyişmələri üzrə Çərçivə Konvensiyasının Tərəflər Konfransının 29-cu sessiyasının (COP29), Kioto Protokolunun Tərəflər Görüşünün 19-cu sessiyasının və Paris Sazişinin Tərəflər Görüşünün 6-cı sessiyasının 2024-cü ildə Azərbaycan Respublikasında təşkili ilə əlaqədar həyata keçiriləcək layihələr üçün sahibkarlara kredit təşkilatlarından manatla aldıqları kreditlər üzrə faiz subsidiyalarının verilməsi qaydası müəyyənləşib.";
-const query = "salam";
-console.log(isHighlightedWord(title, query));
-
-
 // export function sortedData(data) {
 //   data.sort((a, b) => {
 //     return new Date(b.date).getTime() - new Date(a.date).getTime();
