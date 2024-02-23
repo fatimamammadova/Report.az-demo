@@ -35,6 +35,8 @@ export const SingleCategory = async ({ params: { category } }) => {
   let categoryArr;
   let categoryNewsArr;
   let subCategoryArr = [];
+
+  
   const categories = await getCategory();
   const posts = await getNews();
   const Category = categories.find((item) => item.url === category);
