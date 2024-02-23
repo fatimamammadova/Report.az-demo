@@ -33,8 +33,10 @@ export const Search = async ({ searchParams: { query } }) => {
                 {posts
                   .filter(
                     (element) =>
-                      isHighlightedWord( `${element.text.split(".").slice(0, 1)}.`, query) ||
-                      isHighlightedWord(element.title, query)
+                      isHighlightedWord(
+                        `${element.text.split(".").slice(0, 1)}.`,
+                        query
+                      ) || isHighlightedWord(element.title, query)
                   )
                   .map((item) => (
                     <div className="news-item" key={item.id}>

@@ -21,12 +21,12 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import "./_header.scss";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [lang, setLang] = useState();
   const [valute, setValute] = useState();
   const [currentValute, setCurrentValute] = useState(0);
@@ -38,10 +38,10 @@ const Header = () => {
   const [windSpeed, setWindSpeed] = useState();
   const [celsius, setCelsius] = useState();
   const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       return localStorage.getItem("theme") === "light" ? true : false;
     }
-    return true; 
+    return true;
   });
 
   const handleInputChange = (e) => {
@@ -50,11 +50,11 @@ const Header = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (query.trim() !== '') {
+    if (query.trim() !== "") {
       router.push(`/search?query=${encodeURIComponent(query)}`);
     }
-    setQuery('')
-    setIsSearch(false)
+    setQuery("");
+    setIsSearch(false);
   };
 
   useEffect(() => {
@@ -137,6 +137,7 @@ const Header = () => {
         }
       );
       const data = await res.json();
+      
       setCelsius(Math.round(data.main.temp));
       setWindSpeed(Math.round(data.wind.speed));
     }
@@ -279,11 +280,12 @@ const Header = () => {
                   {isSearch ? (
                     <div className="search-block">
                       <form onSubmit={handleSubmit}>
-                        <div className="form-input" >
+                        <div className="form-input">
                           <input
                             type="text"
                             placeholder="Açar sözü daxil edin"
-                            value={query} onChange={handleInputChange}
+                            value={query}
+                            onChange={handleInputChange}
                           />
                         </div>
                       </form>
@@ -308,12 +310,13 @@ const Header = () => {
                   <div className="sidebar-menu">
                     <Links posts={category} />
                     <div className="search-block">
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-input" >
+                      <form onSubmit={handleSubmit}>
+                        <div className="form-input">
                           <input
                             type="text"
                             placeholder="Açar sözü daxil edin"
-                            value={query} onChange={handleInputChange}
+                            value={query}
+                            onChange={handleInputChange}
                           />
                         </div>
                       </form>

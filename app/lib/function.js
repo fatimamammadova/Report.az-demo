@@ -99,8 +99,19 @@ export function isHighlightedWord(text, query) {
   return false;
 }
 
-// export function sortedData(data) {
-//   data.sort((a, b) => {
-//     return new Date(b.date).getTime() - new Date(a.date).getTime();
-//   })
-// }
+export function setTextHtml(text) {
+  const paragraphs = text.split("\n");
+  let html = "";
+
+  for (let item of paragraphs) {
+    html += `<p>${item}</p>`;
+  }
+  const mainLink = html.indexOf("Report") - 1;
+
+  html =
+    html.slice(0, mainLink) +
+    `<a href="http://localhost:3000/" style="color: #3a86ff">${html.slice(mainLink, mainLink + 8)}</a>` +
+    html.slice(mainLink + 8);
+
+  return html;
+}
