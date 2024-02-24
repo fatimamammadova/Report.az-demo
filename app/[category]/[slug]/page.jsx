@@ -21,6 +21,21 @@ import {
   setTextHtml,
 } from "@/app/lib/function";
 
+export const generateMetadata = async ({ params: { slug } }) => {
+  const posts = await getPost(slug);
+
+  let title = `${posts[0].title}`
+  if (title) {
+    return {
+      title: title,
+    };
+  } else {
+    return {
+      title: "Səhifə Tapılmadı!",
+    };
+  }
+};
+
 const SingleNews = async ({ params: { slug } }) => {
   const posts = await getPost(slug);
   const news = await getNews();
