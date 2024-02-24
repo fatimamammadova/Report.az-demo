@@ -74,3 +74,13 @@ export async function getPost(slug) {
     console.log("Data Fetch error!", err);
   }
 };
+
+
+export async function getUser(userId) {
+  try {
+    const res = await fetch(`http://localhost:4000/users?id=${userId}`);
+    return res.json();
+  } catch (err) {
+    console.log("Data Fetch error!", err);
+  }
+};

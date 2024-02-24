@@ -25,7 +25,6 @@ import { useRouter } from "next/navigation";
 
 const Header = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
   const [lang, setLang] = useState();
   const [valute, setValute] = useState();

@@ -1,6 +1,9 @@
+@import "../../styles/partials/mixin";
+@import "../../styles/partials/variables";
 #single-news {
-  padding-bottom: 40px;
+  padding-bottom: 70px;
   .single-news {
+    margin-bottom: 70px;
     .news-heading {
       p {
         font-size: 20px;
@@ -12,7 +15,6 @@
         }
       }
     }
-
     .category-date {
       justify-content: space-between;
       align-items: center;
@@ -24,10 +26,108 @@
         width: 13px;
         height: 14px;
       }
-    }
 
+      .news-category {
+        border: 1px solid var(--text);
+      }
+      .date {
+        @media (max-width: 576px) {
+          margin-top: 15px;
+          width: 100%;
+        }
+      }
+    }
     .img {
       margin-bottom: 25px;
+    }
+
+    .about-content {
+      padding: 0 0 15px;
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    .socials-author {
+      ul {
+        @include Flex($a-items: center, $j-con: center);
+        margin: 0 10px 0 0;
+        li {
+          position: relative;
+          margin: 0 10px 5px 0;
+          a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 2px;
+            svg {
+              width: 17px;
+            }
+            i {
+              font-size: 16px;
+            }
+          }
+        }
+
+        &.socials {
+          li {
+            color: #fff;
+            &:first-child {
+              a {
+                background-color: $facebook;
+              }
+            }
+            &:nth-child(2) {
+              a {
+                background-color: $whatsapp;
+              }
+            }
+            &:nth-child(3) {
+              a {
+                background-color: $telegram;
+              }
+            }
+            &:last-child {
+              a {
+                background-color: $twitter;
+              }
+            }
+          }
+        }
+
+        &.other-actions {
+          li {
+            a {
+              background-color: var(--important-news-bg);
+            }
+          }
+        }
+      }
+      .author {
+        @include Flex($a-items: center, $j-con: center);
+        margin-left: auto;
+
+        @media (max-width: 576px) {
+          margin-top: 15px;
+          width: 100%;
+        }
+        .author-img {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          overflow: hidden;
+          object-fit: cover;
+        }
+
+        .author-name {
+          width: calc(100% - 40px);
+          padding-left: 7px;
+          span {
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
     }
   }
   .latest-news {
@@ -36,7 +136,7 @@
         overflow: hidden;
         margin: 0 0 20px;
         @media (min-width: 992px) {
-          max-height: 1400px;
+          max-height: 1700px;
           overflow-y: scroll;
         }
       }
