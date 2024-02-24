@@ -62,40 +62,76 @@ export function formatHours(time) {
 }
 
 export function getHighlightedWord(title, query) {
-  const words = title.split(" ");
-  const letterNum = query.length;
+  let words = title.split(" ");
+  let queryWords = query.split(" ");
   const handleWords = [];
 
-  words.forEach((item) => {
-    const word = getSlugWithoutSymbols(item);
+  if (queryWords.length > 1) {
     const querySlugFormat = getSlugWithoutSymbols(query);
-    const index = word.indexOf(querySlugFormat);
+    const index = getSlugWithoutSymbols(title).indexOf(querySlugFormat);
     if (index !== -1) {
-      const firstPart = item.slice(0, index);
-      const highlightedPart = item.slice(index, index + letterNum);
-      const lastPart = item.slice(index + letterNum);
-
       handleWords.push(
-        `${firstPart}<span class="highlight">${highlightedPart}</span>${lastPart}`
+        `${title.slice(0, index)}<span class="highlight">${title.slice(
+          index,
+          index + querySlugFormat.length
+        )}</span>${title.slice(index + querySlugFormat.length)}`
       );
     } else {
-      handleWords.push(item);
+      handleWords.push(title);
     }
-  });
+  } else {
+    words.forEach((item) => {
+      const word = getSlugWithoutSymbols(item);
+      let matchFound = false;
+      for (const queryWord of queryWords) {
+        const querySlugFormat = getSlugWithoutSymbols(queryWord);
+        const index = word.indexOf(querySlugFormat);
+        if (index !== -1) {
+          const firstPart = item.slice(0, index);
+          const highlightedPart = item.slice(index, index + queryWord.length);
+          const lastPart = item.slice(index + queryWord.length);
+
+          handleWords.push(
+            `${firstPart}<span class="highlight">${highlightedPart}</span>${lastPart}`
+          );
+
+          matchFound = true;
+          break;
+        }
+      }
+
+      if (!matchFound) {
+        handleWords.push(item);
+      }
+    });
+  }
 
   return handleWords.join(" ");
 }
 
 export function isHighlightedWord(text, query) {
   const words = text.split(" ");
-  for (let item of words) {
-    const word = getSlugWithoutSymbols(item);
+  const queryWords = query.split(" ");
+
+  if (queryWords.length > 0) {
     const querySlugFormat = getSlugWithoutSymbols(query);
-    const index = word.indexOf(querySlugFormat);
+    const index = getSlugWithoutSymbols(text).indexOf(querySlugFormat);
     if (index !== -1) {
       return true;
     }
+  } else {
+    for (let item of words) {
+      const word = getSlugWithoutSymbols(item);
+      for (const queryWord of queryWords) {
+        const querySlugFormat = getSlugWithoutSymbols(queryWord);
+        const index = word.indexOf(querySlugFormat);
+        if (index !== -1) {
+          return true;
+        }
+      }
+    }
   }
+
   return false;
 }
 
@@ -110,7 +146,10 @@ export function setTextHtml(text) {
 
   html =
     html.slice(0, mainLink) +
-    `<a href="http://localhost:3000/" style="color: #3a86ff">${html.slice(mainLink, mainLink + 8)}</a>` +
+    `<a href="http://localhost:3000/" style="color: #3a86ff">${html.slice(
+      mainLink,
+      mainLink + 8
+    )}</a>` +
     html.slice(mainLink + 8);
 
   return html;
