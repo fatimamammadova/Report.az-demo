@@ -1,0 +1,68 @@
+@import "../../styles/partials/mixin";
+#latestNews {
+  padding-bottom: 50px;
+  .page-title {
+    .add-news-btn {
+      text-transform: uppercase;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: 1px solid var(--sub-btn-border);
+      &:hover {
+        color: var(--button-bg);
+        background: var(--button-text);
+      }
+    }
+  }
+
+  .edit-delete {
+    position: relative;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+    .edit-delete-btn {
+      width: 100%;
+      .icon-container {
+        font-size: 20px;
+      }
+    }
+
+    .selectbox {
+      box-shadow: var(--pagination) 0px 3px 8px;
+      padding: 5px;
+      border-radius: 5px;
+      @include Position(
+        $pos: absolute,
+        $top: 0,
+        $right: 0,
+        $index: 10,
+        $tranform: scale(0)
+      );
+      transform: scale(0);
+      opacity: 0;
+      visibility: hidden;
+      background-color: var(--bg);
+      transition: all 0.2s cubic-bezier(1, 0, 0, 1);
+      &.open {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .select-btn {
+        width: 120px;
+        text-align: left;
+        padding: 6px 2px;
+        .icon-container {
+          font-size: 18px;
+          margin-right: 5px;
+        }
+        &:first-child {
+          border-bottom: 1px solid #f2f2f2;
+          .icon-container {
+            margin-right: 7px;
+          }
+        }
+      }
+    }
+  }
+}

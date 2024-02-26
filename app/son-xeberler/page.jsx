@@ -1,5 +1,4 @@
 import { getNews } from "../lib/data";
-import "./_latestNews.scss";
 import NewsData from "./NewsData/NewsData";
 
 export const generateMetadata = async () => {
