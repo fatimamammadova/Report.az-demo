@@ -263,3 +263,12 @@ a.main-title {
 .highlighted {
   background-color: var(--important-news-bg);
 }
+
+.data-modal {
+  opacity: 0;
+  visibility: hidden;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}

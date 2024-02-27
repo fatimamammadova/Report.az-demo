@@ -14,7 +14,8 @@ import {
 
 export const NewsData = ({ posts }) => {
   const path = usePathname();
-  const [open, setOpen] = useState(false);
+  const [addOpen, setAddOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
   const [lastData, setLastData] = useState(15);
   const [scroll, setScroll] = useState();
 
@@ -86,7 +87,6 @@ export const NewsData = ({ posts }) => {
     };
   }, []);
 
-
   return (
     <>
       <main>
@@ -99,7 +99,7 @@ export const NewsData = ({ posts }) => {
                   <button
                     type="button"
                     className="add-news-btn sub-category-btn"
-                    onClick={() => setOpen((prev) => !prev)}
+                    onClick={() => setAddOpen((prev) => !prev)}
                   >
                     Xəbər əlavə et
                   </button>
@@ -170,7 +170,10 @@ export const NewsData = ({ posts }) => {
                           </button>
 
                           <div className="selectbox">
-                            <button className="delete select-btn">
+                            <button
+                              className="delete select-btn"
+                              onClick={() => setDeleteOpen((prev) => !prev)}
+                            >
                               <span className="icon-container">
                                 <FontAwesomeIcon icon={faTrashCan} />
                               </span>
@@ -193,7 +196,20 @@ export const NewsData = ({ posts }) => {
           </div>
         </section>
       </main>
-      <div className={`add-news-modal ${open ? "show" : ""}`}>
+
+      <div className={`delete-modal data-modal ${deleteOpen ? "show" : ""}`}>
+        <div className="modal">
+          <div className="modal-inner">
+            <h2 className="modal-title">Xəbəri silmək istəyirsiniz?</h2>
+            <div className="buttons">
+              <button className="yes-btn" onClick={() => setDeleteOpen((prev) => !prev)}>Bəli</button>
+              <button className="no-btn" onClick={() => setDeleteOpen((prev) => !prev)}>Xeyr</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`add-modal data-modal ${addOpen ? "show" : ""}`}>
         <div className="modal">
           <div className="modal-inner"></div>
         </div>
