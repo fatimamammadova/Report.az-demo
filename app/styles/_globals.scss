@@ -52,7 +52,7 @@
   --sub-btn-bg: #1a1a1a;
   --sub-btn-border: #1a1a1a;
   --highlighted: #fff;
-  --highlighted-text: #353535; 
+  --highlighted-text: #353535;
 }
 
 html,
@@ -211,7 +211,6 @@ main {
       max-width: 75%;
     }
   }
- 
 
   .col-lg-3,
   .col-4,
@@ -262,13 +261,4 @@ a.main-title {
 
 .highlighted {
   background-color: var(--important-news-bg);
-}
-
-.data-modal {
-  opacity: 0;
-  visibility: hidden;
-  &.show {
-    opacity: 1;
-    visibility: visible;
-  }
 }
