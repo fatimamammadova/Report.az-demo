@@ -309,17 +309,28 @@ export const NewsData = ({ posts, category }) => {
                         defaultValue={item.url}
                         onChange={(e) => {
                           const newCategory = e.target.value;
-                          console.log(newCategory)
                           const selectedCategory = category.find(
                             (cat) => cat.url === newCategory
                           );
-                          const selectedSubCategory =
-                            selectedCategory.sub_categories[0];
-                          setUpdateNews({
-                            ...updateNews,
-                            category: selectedCategory.title,
-                            sub_category: selectedSubCategory.title,
-                          });
+
+                          if (selectedCategory) {
+                            console.log(selectedCategory.title);
+                            if (selectedCategory.sub_categories.length > 0) {
+                              const selectedSubCategory =
+                                selectedCategory.sub_categories[0];
+                              setUpdateNews({
+                                ...updateNews,
+                                category: selectedCategory.title,
+                                sub_category: selectedSubCategory.title,
+                              });
+                            } else {
+                              setUpdateNews({
+                                ...updateNews,
+                                category: selectedCategory.title,
+                                sub_category: "",
+                              });
+                            }
+                          }
                         }}
                       >
                         <option value={item.url}>{item.category}</option>
@@ -345,6 +356,11 @@ export const NewsData = ({ posts, category }) => {
                         defaultValue={item.url}
                         onChange={(e) => {
                           const newSubCategory = e.target.value;
+                          const newCategory = document.getElementById('category').value
+                          console.log(newCategory)
+                          const selectedCategory = category.find(
+                            (cat) => cat.url === newCategory
+                          );
                           setUpdateNews({
                             ...updateNews,
                             sub_category: newSubCategory,
