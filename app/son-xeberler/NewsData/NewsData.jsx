@@ -12,7 +12,7 @@ import {
   faPenToSquare,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
-import { getCategory, getDelete, getUpdate } from "@/app/lib/data";
+import { getDelete, getUpdate } from "@/app/lib/data";
 
 export const NewsData = ({ posts, category }) => {
   const path = usePathname();
@@ -21,9 +21,53 @@ export const NewsData = ({ posts, category }) => {
   const [updateOpen, setUpdateOpen] = useState(false);
   const [newsId, setNewsId] = useState("");
   const [updateNews, setUpdateNews] = useState({});
+  const [subCategory, setSubCategory] = useState([]);
 
   const [lastData, setLastData] = useState(15);
   const [scroll, setScroll] = useState();
+
+  const [selected, setSelected] = useState({});
+
+  const handleChange = (e) => {
+    const defaultNewsSubCategory = e.target.value;
+    const subCategoryArr = posts.filter(
+      (element) => element.sub_category === defaultNewsSubCategory
+    );
+    setSelected(subCategoryArr)
+  };
+
+  const handleSubCategory = (e) => {
+    const newsCategory = e.target.value;
+    if (newsCategory) {
+      const categoryArr = category.filter(
+        (element) => element.title === newsCategory
+      )[0];
+      setSubCategory(categoryArr.sub_categories);
+    }
+  };
+
+  useEffect(() => {
+    const defaultNewsCategory = document.getElementById("category");
+    const defaultNewsSubCategory = document.getElementById("subCategories");
+
+    if (defaultNewsCategory && defaultNewsSubCategory) {
+      const defaultCategoryValue = defaultNewsCategory.value;
+      const defaultSubCategoryValue = defaultNewsSubCategory.value;
+
+      if (defaultCategoryValue) {
+        const categoryArr = category.filter(
+          (element) => element.title === defaultCategoryValue
+        )[0];
+        setSubCategory(categoryArr.sub_categories);
+      }
+
+      const subCategoryArr = posts.filter(
+        (element) => element.sub_category === defaultSubCategoryValue
+      );
+      setSelected(subCategoryArr)
+    }
+  }, [newsId]);
+
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.innerHeight + window.scrollY);
@@ -35,7 +79,6 @@ export const NewsData = ({ posts, category }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   useEffect(() => {
     const interval = setInterval(() => {
       if (scroll > document.documentElement.offsetHeight - 1000) {
@@ -306,43 +349,15 @@ export const NewsData = ({ posts, category }) => {
                       <select
                         name="categories"
                         id="category"
-                        defaultValue={item.url}
-                        onChange={(e) => {
-                          const newCategory = e.target.value;
-                          const selectedCategory = category.find(
-                            (cat) => cat.url === newCategory
-                          );
-
-                          if (selectedCategory) {
-                            console.log(selectedCategory.title);
-                            if (selectedCategory.sub_categories.length > 0) {
-                              const selectedSubCategory =
-                                selectedCategory.sub_categories[0];
-                              setUpdateNews({
-                                ...updateNews,
-                                category: selectedCategory.title,
-                                sub_category: selectedSubCategory.title,
-                              });
-                            } else {
-                              setUpdateNews({
-                                ...updateNews,
-                                category: selectedCategory.title,
-                                sub_category: "",
-                              });
-                            }
-                          }
-                        }}
+                        defaultValue={item.category}
+                        onChange={handleSubCategory}
                       >
-                        <option value={item.url}>{item.category}</option>
                         {category &&
-                          category
-                            .slice(2)
-                            .filter((el) => el.title !== item.category)
-                            .map((item) => (
-                              <option key={item.url} value={item.url}>
-                                {item.title}
-                              </option>
-                            ))}
+                          category.slice(2).map((cat) => (
+                            <option key={cat.url} value={cat.title}>
+                              {cat.title}
+                            </option>
+                          ))}
                       </select>
                     </div>
 
@@ -352,39 +367,14 @@ export const NewsData = ({ posts, category }) => {
                       </label>
                       <select
                         name="sub-categories"
-                        id="subCategory"
-                        defaultValue={item.url}
-                        onChange={(e) => {
-                          const newSubCategory = e.target.value;
-                          const newCategory = document.getElementById('category').value
-                          console.log(newCategory)
-                          const selectedCategory = category.find(
-                            (cat) => cat.url === newCategory
-                          );
-                          setUpdateNews({
-                            ...updateNews,
-                            sub_category: newSubCategory,
-                          });
-                        }}
+                        id="subCategories"
+                        defaultValue={item.sub_category}
                       >
-                        <option value={item.url}>{item.sub_category}</option>
-                        {category &&
-                          category
-                            .slice(2)
-                            .filter((cat) =>
-                              cat.sub_categories.find(
-                                (subCat) => subCat.title === item.sub_category
-                              )
-                            )
-                            .map((el) =>
-                              el.sub_categories
-                                .filter((el) => el.title !== item.sub_category)
-                                .map((subCat) => (
-                                  <option key={subCat.url} value={item.url}>
-                                    {subCat.title}
-                                  </option>
-                                ))
-                            )}
+                        {subCategory.map((subCat) => (
+                          <option key={subCat.url} value={subCat.title}>
+                            {subCat.title}
+                          </option>
+                        ))}
                       </select>
                     </div>
 

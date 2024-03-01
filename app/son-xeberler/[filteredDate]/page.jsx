@@ -18,7 +18,6 @@ export const FilterDateNews = ({ params: { filteredDate } }) => {
   useEffect(() => {
     if (filteredDate && Array.isArray(posts) && posts.length > 0) {
       const currentDate = new Date();
-      currentDate;
       let filteredPosts = [];
       switch (filteredDate) {
         case "today":
@@ -56,10 +55,11 @@ export const FilterDateNews = ({ params: { filteredDate } }) => {
           });
           break;
         case "this_month":
-          currentDate.setDate(currentDate.getMonth());
+          const currentMonth = currentDate.getMonth(); 
           filteredPosts = posts.filter((item) => {
             const itemDate = new Date(item.date);
-            return itemDate.getMonth() === currentDate.getMonth();
+            const itemMonth = itemDate.getMonth();
+            return itemMonth === currentMonth;
           });
           break;
         case "prev_week":
@@ -84,11 +84,11 @@ export const FilterDateNews = ({ params: { filteredDate } }) => {
           });
           break;
         case "prev_month":
-          currentDate.setDate(currentDate.getMonth() - 1);
+          const prevMonth = currentDate.getMonth() - 1; 
           filteredPosts = posts.filter((item) => {
             const itemDate = new Date(item.date);
-            itemDate;
-            return itemDate.getMonth() === currentDate.getMonth();
+            const itemMonth = itemDate.getMonth();
+            return itemMonth === prevMonth;
           });
           break;
         default:

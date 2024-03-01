@@ -154,3 +154,4 @@ export function setTextHtml(text) {
 
   return html;
 }
+
