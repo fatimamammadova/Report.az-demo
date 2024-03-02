@@ -1,6 +1,5 @@
 import { getCategory, getNews } from "../lib/data";
 import NewsData from "./NewsData/NewsData";
-// import { unstable_noStore as noStore } from "next/cache";
 
 export const generateMetadata = async () => {
   return {
@@ -9,13 +8,12 @@ export const generateMetadata = async () => {
 };
 
 export const LatestNews = async () => {
-  // noStore();
   const posts = await getNews();
-  const category = await getCategory()
+  const categories = await getCategory()
 
   return (
     <>
-      <NewsData posts={posts} category={category} />
+      <NewsData posts={posts} categories={categories} />
     </>
   );
 };

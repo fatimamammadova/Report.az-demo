@@ -194,10 +194,6 @@
   }
 }
 
-.page-section {
-  padding-top: 20px;
-}
-
 .data-modal {
   @include Position($pos: fixed, $top: 0, $left: 0, $index: 70);
   width: 100%;
@@ -244,85 +240,6 @@
           }
           &.no-btn {
             background-color: #dc3545;
-          }
-        }
-      }
-
-      form {
-        @include Flex(
-          $a-items: null,
-          $j-con: null,
-          $f-dir: column,
-          $f-wrap: null
-        );
-        .form-scroll {
-          overflow-y: scroll;
-          height: 70vh;
-          padding: 0 8px;
-          &::-webkit-scrollbar {
-            background-color: var(--scroll-bg);
-            width: 5px;
-            &-thumb {
-              background-color: var(--scroll);
-              border-radius: 6px;
-            }
-          }
-          .form-input {
-            margin-bottom: 20px;
-            label,
-            p {
-              display: inline-block;
-              margin-bottom: 8px;
-              font-weight: 600;
-              font-size: 18px;
-            }
-            input:not([type="radio"]),
-            select,
-            textarea {
-              border: 1px solid var(--pagination);
-              background-color: transparent;
-              border-radius: 3px;
-              width: 100%;
-              padding: 8px 13px;
-              font-size: 17px;
-            }
-
-            textarea {
-              resize: none;
-              &::-webkit-scrollbar {
-                background-color: var(--scroll-bg);
-                width: 5px;
-                &-thumb {
-                  background-color: var(--scroll);
-                  border-radius: 6px;
-                }
-              }
-            }
-
-            .input-container {
-              display: inline-block;
-              margin-right: 20px;
-
-              input[type="radio"] {
-                appearance: none;
-                border: 1px solid var(--pagination);
-                display: inline-block;
-                width: 18px;
-                height: 18px;
-                margin-right: 5px;
-                vertical-align: text-top;
-                background-color: transparent;
-                border-radius: 50%;
-                &:checked {
-                  background: url("../../../public/images/checked-icon.svg")
-                    no-repeat center;
-                }
-              }
-
-              label {
-                margin-bottom: 0;
-              }
-            }
           }
         }
       }

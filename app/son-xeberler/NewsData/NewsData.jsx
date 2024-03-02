@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-
 import { formatDate, formatHours, getSlug } from "../../lib/function";
 import "./_newsData.scss";
 import { useEffect, useState } from "react";
@@ -14,59 +13,45 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { getDelete, getUpdate } from "@/app/lib/data";
 
-export const NewsData = ({ posts, category }) => {
+export const NewsData = ({ posts, categories }) => {
   const path = usePathname();
   const [addOpen, setAddOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [updateOpen, setUpdateOpen] = useState(false);
-  const [newsId, setNewsId] = useState("");
-  const [updateNews, setUpdateNews] = useState({});
-  const [subCategory, setSubCategory] = useState([]);
-
-  const [lastData, setLastData] = useState(15);
+  const [subCategories, setSubCategories] = useState([]);
+  const [subCategory, setSubCategory] = useState("");
+  const [post, setPost] = useState(null);
+  const [lastData, setLastData] = useState(10);
   const [scroll, setScroll] = useState();
 
-  const [selected, setSelected] = useState({});
-
-  const handleChange = (e) => {
-    const defaultNewsSubCategory = e.target.value;
-    const subCategoryArr = posts.filter(
-      (element) => element.sub_category === defaultNewsSubCategory
-    );
-    setSelected(subCategoryArr)
-  };
+  const [updateNews, setUpdateNews] = useState({});
 
   const handleSubCategory = (e) => {
     const newsCategory = e.target.value;
     if (newsCategory) {
-      const categoryArr = category.filter(
+      const categoryArr = categories.filter(
         (element) => element.title === newsCategory
       )[0];
-      setSubCategory(categoryArr.sub_categories);
+      setSubCategories(categoryArr.sub_categories);
     }
   };
 
   useEffect(() => {
-    const defaultNewsCategory = document.getElementById("category");
-    const defaultNewsSubCategory = document.getElementById("subCategories");
+    if (post && post.id) {
+      const defaultNewsCategory = document.getElementById("category");
 
-    if (defaultNewsCategory && defaultNewsSubCategory) {
-      const defaultCategoryValue = defaultNewsCategory.value;
-      const defaultSubCategoryValue = defaultNewsSubCategory.value;
+      if (defaultNewsCategory) {
+        const defaultCategoryValue = defaultNewsCategory.value;
 
-      if (defaultCategoryValue) {
-        const categoryArr = category.filter(
-          (element) => element.title === defaultCategoryValue
-        )[0];
-        setSubCategory(categoryArr.sub_categories);
+        if (defaultCategoryValue) {
+          const categoryArr = categories.filter(
+            (element) => element.title === defaultCategoryValue
+          )[0];
+          setSubCategories(categoryArr.sub_categories);
+        }
       }
-
-      const subCategoryArr = posts.filter(
-        (element) => element.sub_category === defaultSubCategoryValue
-      );
-      setSelected(subCategoryArr)
     }
-  }, [newsId]);
+  }, [post]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,6 +76,7 @@ export const NewsData = ({ posts, category }) => {
 
   useEffect(() => {
     const newsBlocks = document.querySelectorAll(".news-item");
+
     const removeActives = () => {
       newsBlocks.forEach((item) => {
         const selectBtnContainer = item.querySelector(".selectbox");
@@ -105,15 +91,21 @@ export const NewsData = ({ posts, category }) => {
       }
     };
 
+    const handleEditDeleteClick = (e, itemId) => {
+      e.stopPropagation();
+      removeActives();
+      const selectedItem = posts.find((item) => item.id === itemId);
+      setPost(selectedItem);
+      setSubCategory(selectedItem.sub_category);
+    };
+
     newsBlocks.forEach((item) => {
       const editDeleteBtn = item.querySelector(".edit-delete-btn");
       const selectBtnContainer = item.querySelector(".selectbox");
-      editDeleteBtn.addEventListener("click", () => {
-        removeActives();
-        if (editDeleteBtn && selectBtnContainer) {
-          selectBtnContainer.classList.add("open");
-          setNewsId(item.dataset.id);
-        }
+      editDeleteBtn.addEventListener("click", (e) => {
+        const itemId = item.dataset.id;
+        handleEditDeleteClick(e, itemId);
+        selectBtnContainer.classList.add("open");
       });
     });
 
@@ -121,8 +113,12 @@ export const NewsData = ({ posts, category }) => {
 
     return () => {
       window.removeEventListener("click", handleClickOutside);
+      newsBlocks.forEach((item) => {
+        const editDeleteBtn = item.querySelector(".edit-delete-btn");
+        editDeleteBtn.removeEventListener("click", handleEditDeleteClick);
+      });
     };
-  }, [lastData]);
+  }, [post]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -131,19 +127,17 @@ export const NewsData = ({ posts, category }) => {
         setAddOpen(false);
         setUpdateOpen(false);
         setDeleteOpen(false);
+        setPost(null);
+        setSubCategory("");
       }
     };
 
     const deleteData = async () => {
-      if (newsId) {
-        await getDelete(newsId);
-      }
+      post && (await getDelete(post.id));
     };
 
     const updateData = async () => {
-      if (newsId) {
-        await getUpdate(newsId, updateNews);
-      }
+      post && (await getUpdate(post.id, updateNews));
     };
 
     const deleteBtn = document.querySelector(".delete-modal .yes-btn");
@@ -162,7 +156,7 @@ export const NewsData = ({ posts, category }) => {
       }
       window.removeEventListener("click", handleClickOutside);
     };
-  }, [newsId]);
+  }, [post]);
 
   return (
     <>
@@ -176,7 +170,10 @@ export const NewsData = ({ posts, category }) => {
                   <button
                     type="button"
                     className="add-news-btn sub-category-btn"
-                    onClick={() => setAddOpen((prev) => !prev)}
+                    onClick={() => {
+                      setAddOpen((prev) => !prev);
+                      setSubCategory("");
+                    }}
                   >
                     Xəbər əlavə et
                   </button>
@@ -297,164 +294,166 @@ export const NewsData = ({ posts, category }) => {
       </div>
 
       <div
-        className={`update-modal data-modal ${updateOpen ? "show-modal" : ""}`}
+        className={`form-modal data-modal ${updateOpen ? "show-modal" : ""}`}
       >
         <div className="modal">
           <div className="modal-inner">
-            {posts
-              .filter((item) => item.id === newsId)
-              .map((item) => (
-                <form key={item.id}>
-                  <div className="form-scroll">
-                    <div className="form-input">
-                      <label htmlFor="title">Xəbər başlığı</label>
-                      <input
-                        type="text"
-                        id="title"
-                        className="news-heading"
-                        defaultValue={item.title}
-                        onChange={(e) => {
-                          const newTitle = e.target.value;
-                          setUpdateNews({
-                            ...updateNews,
-                            title: newTitle,
-                            slug: getSlug(newTitle),
-                          });
-                        }}
-                      />
-                    </div>
+            {post && (
+              <form key={post.id}>
+                <div className="form-scroll">
+                  <div className="form-input">
+                    <label htmlFor="title">Xəbər başlığı</label>
+                    <input
+                      type="text"
+                      id="title"
+                      className="news-heading"
+                      defaultValue={post.title}
+                      onChange={(e) => {
+                        const newTitle = e.target.value;
+                        setUpdateNews({
+                          ...updateNews,
+                          title: newTitle,
+                          slug: getSlug(newTitle),
+                        });
+                      }}
+                    />
+                  </div>
 
-                    <div className="form-input">
-                      <label htmlFor="text">Xəbər Məzmunu</label>
-                      <textarea
-                        id="text"
-                        className="news-text"
-                        cols="30"
-                        rows="15"
-                        defaultValue={item.text}
-                        onChange={(e) => {
-                          const newText = e.target.value;
-                          setUpdateNews({ ...updateNews, text: newText });
-                        }}
-                      />
-                    </div>
+                  <div className="form-input">
+                    <label htmlFor="text">Xəbər Məzmunu</label>
+                    <textarea
+                      id="text"
+                      className="news-text"
+                      cols="30"
+                      rows="15"
+                      defaultValue={post.text}
+                      onChange={(e) => {
+                        const newText = e.target.value;
+                        setUpdateNews({ ...updateNews, text: newText });
+                      }}
+                    />
+                  </div>
 
-                    <div className="form-input">
-                      <label htmlFor="image">Xəbərlə bağlı şəkil</label>
-                      <input type="file" id="image" className="news-image" />
-                    </div>
+                  <div className="form-input">
+                    <label htmlFor="image">Xəbərlə bağlı şəkil</label>
+                    <input type="file" id="image" className="news-image" />
+                  </div>
 
-                    <div className="form-input">
-                      <label htmlFor="category">Xəbərin kateqoriyasi</label>
-                      <select
-                        name="categories"
-                        id="category"
-                        defaultValue={item.category}
-                        onChange={handleSubCategory}
-                      >
-                        {category &&
-                          category.slice(2).map((cat) => (
-                            <option key={cat.url} value={cat.title}>
-                              {cat.title}
-                            </option>
-                          ))}
-                      </select>
-                    </div>
-
-                    <div className="form-input">
-                      <label htmlFor="subCategory">
-                        Xəbərin alt kateqoriyasi
-                      </label>
-                      <select
-                        name="sub-categories"
-                        id="subCategories"
-                        defaultValue={item.sub_category}
-                      >
-                        {subCategory.map((subCat) => (
-                          <option key={subCat.url} value={subCat.title}>
-                            {subCat.title}
+                  <div className="form-input">
+                    <label htmlFor="category">Xəbərin kateqoriyasi</label>
+                    <select
+                      name="categories"
+                      id="category"
+                      defaultValue={post.category}
+                      onChange={handleSubCategory}
+                    >
+                      {categories &&
+                        categories.slice(2).map((cat) => (
+                          <option key={cat.url} value={cat.title}>
+                            {cat.title}
                           </option>
                         ))}
-                      </select>
-                    </div>
+                    </select>
+                  </div>
 
-                    <div className="form-input">
-                      <div>
-                        <p style={{ display: "block" }}>Bu xəbər vacibdir?</p>
+                  <div className="form-input">
+                    <label htmlFor="subCategory">
+                      Xəbərin alt kateqoriyasi
+                    </label>
+                    <select
+                      name="sub-categories"
+                      id="subCategories"
+                      value={subCategory && subCategory}
+                      onChange={(e) => {
+                        console.log(e.target.value);
+                        setSubCategory(e.target.value);
+                      }}
+                    >
+                      {subCategories.map((subCat) => (
+                        <option key={subCat.url} value={subCat.title}>
+                          {subCat.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                        <div className="input-container">
-                          <input
-                            type="radio"
-                            name="news-important"
-                            id="yes"
-                            className="important-check"
-                            value="true"
-                            defaultChecked={item.important}
-                            onChange={(e) => {
-                              const newImportant = e.target.value;
-                              setUpdateNews({
-                                ...updateNews,
-                                important: newImportant,
-                              });
-                            }}
-                          />
-                          <label htmlFor="yes" style={{ fontWeight: "500" }}>
-                            Bəli
-                          </label>
-                        </div>
+                  <div className="form-input">
+                    <div>
+                      <p style={{ display: "block" }}>Bu xəbər vacibdir?</p>
 
-                        <div className="input-container">
-                          <input
-                            type="radio"
-                            name="news-important"
-                            id="no"
-                            className="important-check"
-                            value="false"
-                            defaultChecked={!item.important}
-                            onChange={(e) => {
-                              const newImportant = e.target.checked;
-                              setUpdateNews({
-                                ...updateNews,
-                                important: newImportant,
-                              });
-                            }}
-                          />
-                          <label htmlFor="yes" style={{ fontWeight: "500" }}>
-                            Xeyr
-                          </label>
-                        </div>
+                      <div className="input-container">
+                        <input
+                          type="radio"
+                          name="news-important"
+                          id="yes"
+                          className="important-check"
+                          value="true"
+                          defaultChecked={post.important}
+                          onChange={(e) => {
+                            const newImportant = e.target.value;
+                            setUpdateNews({
+                              ...updateNews,
+                              important: newImportant,
+                            });
+                          }}
+                        />
+                        <label htmlFor="yes" style={{ fontWeight: "500" }}>
+                          Bəli
+                        </label>
+                      </div>
+
+                      <div className="input-container">
+                        <input
+                          type="radio"
+                          name="news-important"
+                          id="no"
+                          className="important-check"
+                          value="false"
+                          defaultChecked={!post.important}
+                          onChange={(e) => {
+                            const newImportant = e.target.checked;
+                            setUpdateNews({
+                              ...updateNews,
+                              important: newImportant,
+                            });
+                          }}
+                        />
+                        <label htmlFor="yes" style={{ fontWeight: "500" }}>
+                          Xeyr
+                        </label>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <div className="buttons">
-                    <button
-                      type="submit"
-                      className="yes-btn"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setUpdateOpen(false);
-                      }}
-                    >
-                      Redaktə et
-                    </button>
-                    <button
-                      className="no-btn"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setUpdateOpen(false);
-                      }}
-                    >
-                      Ləğv et
-                    </button>
-                  </div>
-                </form>
-              ))}
+                <div className="buttons">
+                  <button
+                    type="submit"
+                    className="yes-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setUpdateOpen(false);
+                    }}
+                  >
+                    Redaktə et
+                  </button>
+                  <button
+                    className="no-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setUpdateOpen(false);
+                    }}
+                  >
+                    Ləğv et
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>
 
-      <div className={`add-modal data-modal ${addOpen ? "show-modal" : ""}`}>
+      <div className={`form-modal data-modal ${addOpen ? "show-modal" : ""}`}>
         <div className="modal">
           <div className="modal-inner">
             <form action="">
@@ -481,15 +480,36 @@ export const NewsData = ({ posts, category }) => {
 
                 <div className="form-input">
                   <label htmlFor="category">Xəbərin kateqoriyasi</label>
-                  <select name="categories" id="category">
-                    <option value=""></option>
+                  <select
+                    name="categories"
+                    id="category"
+                    defaultValue={categories[2].title}
+                    onChange={handleSubCategory}
+                  >
+                    {categories &&
+                      categories.slice(2).map((cat) => (
+                        <option key={cat.url} value={cat.title}>
+                          {cat.title}
+                        </option>
+                      ))}
                   </select>
                 </div>
 
                 <div className="form-input">
                   <label htmlFor="subCategory">Xəbərin alt kateqoriyasi</label>
-                  <select name="sub-categories" id="subCategory">
-                    <option value=""></option>
+                  <select
+                    name="sub-categories"
+                    id="subCategory"
+                    value={subCategory || ""}
+                    onChange={(e) => {
+                      setSubCategory(e.target.value);
+                    }}
+                  >
+                    {subCategories.map((subCat) => (
+                      <option key={subCat.url} value={subCat.title}>
+                        {subCat.title}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
