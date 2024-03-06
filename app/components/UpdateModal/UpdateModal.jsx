@@ -26,9 +26,9 @@ export const UpdateModal = ({
       userId: post ? post.userId : "",
       image: post ? post.image : "",
       slug: post ? post.slug : "",
-      date: date.toISOString()
+      date: date.toISOString(),
     });
-  }, [post])
+  }, [post]);
 
   const subCategoriesForUpdate = (e) => {
     const newsCategory = e.target.value;
@@ -100,7 +100,7 @@ export const UpdateModal = ({
                       setUpdateNews({
                         ...updateNews,
                         title: newTitle,
-                        slug: getSlug(newTitle),
+                        slug: getSlug(newTitle).slice(1),
                       });
                     }}
                   />
@@ -193,7 +193,7 @@ export const UpdateModal = ({
                             important: true,
                           });
 
-                          console.log(updateNews)
+                          console.log(updateNews);
                         }}
                       />
                       <label htmlFor="yes" style={{ fontWeight: "500" }}>

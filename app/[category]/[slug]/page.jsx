@@ -41,6 +41,7 @@ const SingleNews = async ({ params: { slug } }) => {
   const news = await getNews();
   const user = await getUser(posts[0].userId);
 
+
   return (
     <main>
       <section id="single-news" className="page-section">
