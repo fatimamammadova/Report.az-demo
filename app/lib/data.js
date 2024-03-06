@@ -125,3 +125,20 @@ export async function getUpdate(id, newsDetails) {
     console.log("Data Fetch error!", err);
   }
 }
+
+export async function addNewsFunction(newsDetails) {
+  try {
+    const res = await fetch(`http://localhost:4000/news`, {
+      method: "POST",
+      body: JSON.stringify(newsDetails),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to add news: " + res.statusText);
+    }
+
+  } catch (err) {
+    console.error("Error adding news:", err);
+  }
+}
+

@@ -6,16 +6,17 @@ import "./styles/_globals.scss";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: [ "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
+
 export const metadata = {
   title: {
-    template: '%s | Report.az',
-    default: 'Azərbaycanın aparıcı xəbər saytı | Report.az' 
+    template: "%s | Report.az",
+    default: "Azərbaycanın aparıcı xəbər saytı | Report.az",
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
-        <GoToTop/>
+        <GoToTop />
       </body>
     </html>
   );
