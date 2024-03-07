@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getUpdate } from "@/app/lib/data";
-import { getSlug } from "../../lib/function";
+import { getSlug, resetInputs } from "../../lib/function";
 
 export const UpdateModal = ({
   post,
@@ -69,6 +69,7 @@ export const UpdateModal = ({
           )[0];
 
           setSubCategories(categoryArr.sub_categories);
+          setSubCategory(post && post.sub_category);
         }
       }
     }
@@ -93,7 +94,7 @@ export const UpdateModal = ({
                   <input
                     type="text"
                     id="title-update"
-                    className="news-heading"
+                    className="news-heading input"
                     defaultValue={post.title}
                     onChange={(e) => {
                       const newTitle = e.target.value;
@@ -110,7 +111,7 @@ export const UpdateModal = ({
                   <label htmlFor="text">Xəbər Məzmunu</label>
                   <textarea
                     id="text-update"
-                    className="news-text"
+                    className="news-text input"
                     cols="30"
                     rows="15"
                     defaultValue={post.text}
@@ -126,7 +127,7 @@ export const UpdateModal = ({
                   <input
                     type="text"
                     id="image-update"
-                    className="news-image"
+                    className="news-image input"
                     defaultValue={post.image}
                     onChange={(e) => {
                       const newsImage = e.target.value;
@@ -140,6 +141,7 @@ export const UpdateModal = ({
                   <select
                     name="categories"
                     id="category-update"
+                    className="input"
                     defaultValue={post.category}
                     onChange={subCategoriesForUpdate}
                   >
@@ -157,6 +159,7 @@ export const UpdateModal = ({
                   <select
                     name="sub-categories"
                     id="subCategories-update"
+                    className="input"
                     defaultValue={subCategory}
                     onChange={(e) => {
                       const newsSubCategory = e.target.value;
@@ -192,7 +195,6 @@ export const UpdateModal = ({
                             ...updateNews,
                             important: true,
                           });
-
                           console.log(updateNews);
                         }}
                       />
@@ -237,10 +239,25 @@ export const UpdateModal = ({
                   Redaktə et
                 </button>
                 <button
+                  type="button"
                   className="no-btn"
                   onClick={(e) => {
                     e.preventDefault();
                     setUpdateOpen(false);
+                    resetInputs();
+                    setSubCategories(categories[2]?.sub_categories);
+                    setSubCategory(categories[2]?.sub_categories[0]?.title);
+                    setUpdateNews({
+                      title: "",
+                      text: "",
+                      important: false,
+                      category: "",
+                      sub_category: "",
+                      userId: "",
+                      image: "",
+                      slug: "",
+                      date: date.toISOString(),
+                    });
                   }}
                 >
                   Ləğv et

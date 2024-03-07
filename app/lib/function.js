@@ -155,3 +155,21 @@ export function setTextHtml(text) {
   return html;
 }
 
+export const resetInputs = () => {
+  const inputs = document.querySelectorAll(".form-modal .input");
+  const radios = document.querySelectorAll(".form-modal .important-check");
+
+  inputs.forEach((input) => {
+    if (input.tagName === "INPUT") {
+      input.value = "";
+    } else if (input.tagName === "TEXTAREA") {
+      input.value = "";
+    } else if (input.tagName === "SELECT") {
+      input.value = input.options[0]?.value;
+    }
+  });
+
+  radios.forEach((radio) => {
+    radio.checked = false;
+  });
+};

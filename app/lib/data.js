@@ -133,10 +133,6 @@ export async function addNewsFunction(newsDetails) {
       body: JSON.stringify(newsDetails),
     });
 
-    if (!res.ok) {
-      throw new Error("Failed to add news: " + res.statusText);
-    }
-
   } catch (err) {
     console.error("Error adding news:", err);
   }

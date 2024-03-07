@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { addNewsFunction } from "@/app/lib/data";
-import { getSlug } from "../../lib/function";
+import { getSlug, resetInputs } from "../../lib/function";
 
 export const AddModal = ({
   categories,
@@ -23,37 +23,6 @@ export const AddModal = ({
         ? categories[2].sub_categories[0]?.title
         : "",
   });
-  const resetInputs = () => {
-    const inputs = document.querySelectorAll(".add-modal .input");
-    const radios = document.querySelectorAll(".add-modal .important-check");
-
-    inputs.forEach((input) => {
-      if (input.tagName === "INPUT") {
-        input.value = "";
-      } else if (input.tagName === "TEXTAREA") {
-        input.value = "";
-      }
-      else if (input.tagName === "SELECT") {
-        input.value = input.options[0]?.value;
-      }
-    });
-
-    radios.forEach((radio) => {
-      radio.checked = false;
-    });
-
-    setSubCategories(categories[2]?.sub_categories);
-    setSubCategory(categories[2]?.sub_categories[0]?.title);
-
-    setAddNews({
-      important: false,
-      category: categories?.length >= 3 ? categories[2]?.title : "",
-      sub_category:
-        categories?.length >= 3 && categories[2]?.sub_categories?.length > 0
-          ? categories[2].sub_categories[0]?.title
-          : "",
-    });
-  };
 
   const handleAddNews = async () => {
     if (addNews) {
@@ -260,6 +229,18 @@ export const AddModal = ({
                   e.preventDefault();
                   setAddOpen(false);
                   resetInputs();
+                  setSubCategories(categories[2]?.sub_categories);
+                  setSubCategory(categories[2]?.sub_categories[0]?.title);
+                  setAddNews({
+                    important: false,
+                    category:
+                      categories?.length >= 3 ? categories[2]?.title : "",
+                    sub_category:
+                      categories?.length >= 3 &&
+                      categories[2]?.sub_categories?.length > 0
+                        ? categories[2].sub_categories[0]?.title
+                        : "",
+                  });
                 }}
               >
                 Ləğv et
