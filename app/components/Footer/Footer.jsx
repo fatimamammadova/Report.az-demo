@@ -116,7 +116,7 @@ export const Footer = async () => {
                     },
                   ].map((social, index) => (
                     <li key={index} className={social.bg ? "bg-color" : ""}>
-                      <Link href={social.url}>
+                      <Link href={social.url} target="_blank">
                         <FontAwesomeIcon icon={social.icon} />
                       </Link>
                     </li>

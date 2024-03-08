@@ -206,15 +206,30 @@ const Header = () => {
                   </div>
                   <ul className="socials">
                     {[
-                      { icon: faFacebookF },
-                      { icon: faInstagram },
-                      { icon: faPaperPlane },
-                      { icon: faTwitter },
-                      { icon: faLinkedinIn },
-                      { icon: faYoutube },
+                      {
+                        icon: faFacebookF,
+                        url: "https://www.facebook.com/www.report.az/",
+                      },
+                      {
+                        icon: faInstagram,
+                        url: "https://www.instagram.com/report.az/",
+                      },
+                      { icon: faPaperPlane, url: "https://t.me/reportnewsaz" },
+                      {
+                        icon: faTwitter,
+                        url: "https://twitter.com/reportaznews",
+                      },
+                      {
+                        icon: faLinkedinIn,
+                        url: "https://linkedin.com/company/report-news-agency",
+                      },
+                      {
+                        icon: faYoutube,
+                        url: "https://www.youtube.com/channel/UCPSpgPJwGhr5uB0Uui8Lj8g",
+                      },
                     ].map((social, index) => (
                       <li key={index}>
-                        <Link href="/">
+                        <Link href={social.url} target="_blank">
                           <FontAwesomeIcon icon={social.icon} />
                         </Link>
                       </li>

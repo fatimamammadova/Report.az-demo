@@ -110,6 +110,7 @@ export function getHighlightedWord(title, query) {
 }
 
 export function isHighlightedWord(text, query) {
+  if (!query) return false;
   const words = text.split(" ");
   const queryWords = query.split(" ");
 
@@ -133,6 +134,20 @@ export function isHighlightedWord(text, query) {
   }
 
   return false;
+}
+
+export function highlightedSentece(text, query) {
+  const sentences = text.split(".");
+  let highlightedSentence = "";
+
+  for (let sentence of sentences) {
+    if (isHighlightedWord(sentence, query)) {
+      highlightedSentence = sentence;
+      break;
+    }
+  }
+
+  return getHighlightedWord(highlightedSentence, query);
 }
 
 export function setTextHtml(text) {
