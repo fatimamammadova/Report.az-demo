@@ -1,4 +1,4 @@
-@import '../../../styles/partials/mixin';
+@import "../../../styles/partials/mixin";
 #video-swiper {
   padding-top: 20px;
   margin: 15px 0;
@@ -11,8 +11,8 @@
           width: 100%;
           height: 0;
           padding-bottom: 56.25%;
-          background-color: red;
           iframe {
+            @include Position($pos: absolute, $top: 0, $left: 0);
             width: 100%;
             height: 100%;
           }
@@ -20,7 +20,7 @@
       }
     }
     .swiper-pagination {
-      @include Position($left:0,$bottom:0 !important);
+      @include Position($left: 0, $bottom: 0 !important);
       width: 100%;
       .swiper-pagination-bullet {
         width: 10px;

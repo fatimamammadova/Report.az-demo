@@ -13,8 +13,7 @@ export const VideoSwiper =  ({videoNews}) => {
       <Swiper pagination={{ clickable: true }} modules={[Pagination]} className="mainSwiper3">
         {videoNews.map((item, index) => (
           <SwiperSlide key={index}>
-            <div></div>
-             {/* <div key={item.id} dangerouslySetInnerHTML={{ __html: item.src }} /> */}
+             <div key={item.id} dangerouslySetInnerHTML={{ __html: item.src }} />
           </SwiperSlide>
         ))}
       </Swiper>
