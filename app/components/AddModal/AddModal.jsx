@@ -1,7 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { addNewsFunction } from "@/app/lib/data";
-import { getSlug, resetInputs } from "../../lib/function";
+import {
+  getSlug,
+  resetInputs,
+  removeAllALerts,
+  removeInputAlert,
+  removeRadioInputAlert,
+} from "../../lib/function";
 
 export const AddModal = ({
   categories,
@@ -52,17 +58,6 @@ export const AddModal = ({
         }
       });
     }
-  };
-
-  const removeInputAlert = (input) => {
-    input.classList.remove("alert");
-  };
-
-  const removeRadioInputAlert = () => {
-    const radios = document.querySelectorAll(".form-modal .important-check");
-    radios.forEach((radio) => {
-      radio.classList.remove("alert");
-    });
   };
 
   const handleAddNews = async () => {
@@ -272,6 +267,7 @@ export const AddModal = ({
                   e.preventDefault();
                   setAddOpen(false);
                   resetInputs();
+                  removeAllALerts();
                   setSubCategories(categories[2]?.sub_categories);
                   setSubCategory(categories[2]?.sub_categories[0]?.title);
                   setAddNews({

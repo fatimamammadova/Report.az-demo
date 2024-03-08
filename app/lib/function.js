@@ -173,3 +173,27 @@ export const resetInputs = () => {
     radio.checked = false;
   });
 };
+
+export const removeInputAlert = (input) => {
+  input.classList.remove("alert");
+};
+
+export const removeRadioInputAlert = () => {
+  const radios = document.querySelectorAll(".form-modal .important-check");
+  radios.forEach((radio) => {
+    radio.classList.remove("alert");
+  });
+};
+
+export const removeAllALerts = () => {
+  const inputs = document.querySelectorAll(".form-modal .input");
+  const radios = document.querySelectorAll(".form-modal .important-check");
+
+  inputs.forEach((input) => {
+    input.classList.remove("alert");
+  });
+
+  radios.forEach((radio) => {
+    radio.classList.remove("alert");
+  });
+};

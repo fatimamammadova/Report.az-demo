@@ -127,22 +127,27 @@ const Header = () => {
     }
   });
 
-  // useEffect(() => {
-  //   async function getWeather() {
-  //     const res = await fetch(
-  //       `https://api.openweathermap.org/data/2.5/weather?q=baku&appid=daf23bcd6e2a7097959c3849d264e8be&units=metric`,
-  //       {
-  //         next: { revalidate: 300 },
-  //       }
-  //     );
-  //     const data = await res.json();
-      
-  //     setCelsius(Math.round(data.main.temp));
-  //     setWindSpeed(Math.round(data.wind.speed));
-  //   }
-
-  //   getWeather();
-  // });
+  useEffect(() => {
+    async function getWeather() {
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=baku&appid=daf23bcd6e2a7097959c3849d264e8be&units=metric`,
+          {
+            next: { revalidate: 500 },
+          }
+        );
+        if (!res.ok) {
+          throw new Error("Weather data cannot be fetched.");
+        }
+        const data = await res.json();
+        setCelsius(Math.round(data.main.temp));
+        setWindSpeed(Math.round(data.wind.speed));
+      } catch (error) {
+        console.error("Error fetching weather data:", error.message);
+      }
+    }
+    getWeather();
+  }, []);
 
   return (
     <>
