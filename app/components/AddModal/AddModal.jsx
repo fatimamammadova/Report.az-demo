@@ -30,8 +30,6 @@ export const AddModal = ({
   });
 
   const handleAddNews = async () => {
-    console.log("Handling add news...");
-    console.log("Add news data:", addNews);
     try {
       if (addNews) {
         await addNewsFunction(addNews);
@@ -43,9 +41,6 @@ export const AddModal = ({
   };
 
   const controlInputs = () => {
-    console.log("Checking inputs...");
-    console.log("addNews:", addNews);
-
     if (
       addNews.important !== undefined &&
       addNews.title !== undefined &&
@@ -56,7 +51,7 @@ export const AddModal = ({
       addNews.text !== "" &&
       addNews.image !== ""
     ) {
-      console.log("All inputs are present, calling handleAddNews...");
+     
       handleAddNews();
     } else {
       const inputs = document.querySelectorAll(".form-modal .input");
