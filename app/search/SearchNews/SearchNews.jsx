@@ -35,6 +35,7 @@ export const SearchNews = ({ posts, query }) => {
 
     return () => clearInterval(interval);
   }, [scroll]);
+  
   return (
     <main>
       <section id="search" className="page-section">
