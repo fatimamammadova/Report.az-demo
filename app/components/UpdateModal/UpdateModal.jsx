@@ -69,7 +69,7 @@ export const UpdateModal = ({
           )[0];
 
           setSubCategories(categoryArr.sub_categories);
-          setSubCategory(post && post.sub_category);
+          setSubCategory(post.sub_category);
         }
       }
     }
@@ -160,7 +160,7 @@ export const UpdateModal = ({
                     name="sub-categories"
                     id="subCategories-update"
                     className="input"
-                    defaultValue={subCategory}
+                    value={subCategory}
                     onChange={(e) => {
                       const newsSubCategory = e.target.value;
                       setSubCategory(newsSubCategory);

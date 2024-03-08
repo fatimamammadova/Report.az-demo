@@ -68,7 +68,7 @@ export const NewsData = ({ posts, categories }) => {
       removeActives();
       const selectedItem = posts.find((item) => item.id === itemId);
       setPost(selectedItem);
-      setSubCategory(selectedItem.sub_category);
+      setSubCategory(selectedItem.sub_category && selectedItem.sub_category);
     };
 
     newsBlocks.forEach((item) => {
