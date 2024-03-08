@@ -265,3 +265,12 @@ a.main-title {
 .page-section {
   padding-top: 20px;
 }
+
+input,
+textarea,
+select {
+  transition: 0.2s ease;
+  &.alert {
+    border-color: $red !important;
+  }
+}

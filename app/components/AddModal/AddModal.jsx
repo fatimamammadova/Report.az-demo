@@ -14,7 +14,6 @@ export const AddModal = ({
 }) => {
   const date = new Date();
   const [addNews, setAddNews] = useState({
-    important: false,
     category: categories?.length >= 3 ? categories[2]?.title : "",
     userId: "65bd4808f1e5999380b13c97",
     date: date.toISOString(),
@@ -23,6 +22,48 @@ export const AddModal = ({
         ? categories[2].sub_categories[0]?.title
         : "",
   });
+
+  const controlInputs = () => {
+    if (addNews.important && addNews.title && addNews.text && addNews.image) {
+      handleAddNews();
+    } else {
+      const inputs = document.querySelectorAll(".form-modal .input");
+      const radios = document.querySelectorAll(".form-modal .important-check");
+
+      inputs.forEach((input) => {
+        if (input.value === "") {
+          input.classList.add("alert");
+        } else {
+          input.classList.remove("alert");
+        }
+      });
+
+      const removeRadioAlert = () => {
+        radios.forEach((radio) => {
+          radio.classList.remove("alert");
+        });
+      };
+
+      radios.forEach((radio) => {
+        if (!radio.checked) {
+          radio.classList.add("alert");
+        } else {
+          removeRadioAlert();
+        }
+      });
+    }
+  };
+
+  const removeInputAlert = (input) => {
+    input.classList.remove("alert");
+  };
+
+  const removeRadioInputAlert = () => {
+    const radios = document.querySelectorAll(".form-modal .important-check");
+    radios.forEach((radio) => {
+      radio.classList.remove("alert");
+    });
+  };
 
   const handleAddNews = async () => {
     if (addNews) {
@@ -89,7 +130,7 @@ export const AddModal = ({
                   defaultValue={""}
                   onChange={(e) => {
                     const newsTitle = e.target.value;
-
+                    removeInputAlert(e.target);
                     setAddNews({
                       ...addNews,
                       title: newsTitle,
@@ -110,6 +151,7 @@ export const AddModal = ({
                   onChange={(e) => {
                     const newsText = e.target.value;
                     setAddNews({ ...addNews, text: newsText });
+                    removeInputAlert(e.target);
                   }}
                 />
               </div>
@@ -124,6 +166,7 @@ export const AddModal = ({
                   onChange={(e) => {
                     const newsImage = e.target.value;
                     setAddNews({ ...addNews, image: newsImage });
+                    removeInputAlert(e.target);
                   }}
                 />
               </div>
@@ -184,7 +227,7 @@ export const AddModal = ({
                       className="important-check"
                       onClick={() => {
                         setAddNews({ ...addNews, important: true });
-                        console.log(addNews);
+                        removeRadioInputAlert();
                       }}
                     />
                     <label htmlFor="yes" style={{ fontWeight: "500" }}>
@@ -201,7 +244,7 @@ export const AddModal = ({
                       className="important-check"
                       onClick={() => {
                         setAddNews({ ...addNews, important: false });
-                        console.log(addNews);
+                        removeRadioInputAlert();
                       }}
                     />
                     <label htmlFor="no" style={{ fontWeight: "500" }}>
@@ -218,7 +261,7 @@ export const AddModal = ({
                 className="yes-btn"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleAddNews();
+                  controlInputs();
                 }}
               >
                 Əlavə et
