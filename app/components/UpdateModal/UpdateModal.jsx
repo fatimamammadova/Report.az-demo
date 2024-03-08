@@ -28,7 +28,7 @@ export const UpdateModal = ({
       slug: post ? post.slug : "",
       date: date.toISOString(),
     });
-  }, [post]);
+  }, [post, subCategory, updateOpen]);
 
   const subCategoriesForUpdate = (e) => {
     const newsCategory = e.target.value;
@@ -73,7 +73,7 @@ export const UpdateModal = ({
         }
       }
     }
-  }, [post]);
+  }, [post, subCategory, updateOpen]);
 
   const handleUpdate = async () => {
     if (post && updateNews) {
@@ -83,10 +83,14 @@ export const UpdateModal = ({
   };
 
   return (
-    <div className={`form-modal data-modal ${updateOpen ? "show-modal" : ""}`}>
+    <div
+      className={`update-modal form-modal data-modal ${
+        updateOpen ? "show-modal" : ""
+      }`}
+    >
       <div className="modal">
         <div className="modal-inner">
-          {post && (
+          {updateOpen && (
             <form key={post.id}>
               <div className="form-scroll">
                 <div className="form-input">
@@ -244,7 +248,6 @@ export const UpdateModal = ({
                   onClick={(e) => {
                     e.preventDefault();
                     setUpdateOpen(false);
-                    resetInputs();
                     setSubCategories(categories[2]?.sub_categories);
                     setSubCategory(categories[2]?.sub_categories[0]?.title);
                     setUpdateNews({

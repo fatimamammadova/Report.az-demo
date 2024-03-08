@@ -194,15 +194,15 @@ export const removeInputAlert = (input) => {
 };
 
 export const removeRadioInputAlert = () => {
-  const radios = document.querySelectorAll(".form-modal .important-check");
+  const radios = document.querySelectorAll(".add-modal .important-check");
   radios.forEach((radio) => {
     radio.classList.remove("alert");
   });
 };
 
 export const removeAllALerts = () => {
-  const inputs = document.querySelectorAll(".form-modal .input");
-  const radios = document.querySelectorAll(".form-modal .important-check");
+  const inputs = document.querySelectorAll(".add-modal .input");
+  const radios = document.querySelectorAll(".add-modal .important-check");
 
   inputs.forEach((input) => {
     input.classList.remove("alert");

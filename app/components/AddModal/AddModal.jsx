@@ -54,8 +54,8 @@ export const AddModal = ({
      
       handleAddNews();
     } else {
-      const inputs = document.querySelectorAll(".form-modal .input");
-      const radios = document.querySelectorAll(".form-modal .important-check");
+      const inputs = document.querySelectorAll(".add-modal .input");
+      const radios = document.querySelectorAll(".add-modal .important-check");
 
       inputs.forEach((input) => {
         if (input.value === "") {
@@ -208,7 +208,7 @@ export const AddModal = ({
                   name="sub-categories"
                   id="subCategory"
                   className="input"
-                  defaultValue={subCategory}
+                  value={subCategory}
                   onChange={(e) => {
                     const newsSubCategory = e.target.value;
                     setSubCategory(e.target.value);
