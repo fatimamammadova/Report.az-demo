@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { addNewsFunction } from "@/app/lib/data";
+import { addNewsFunction } from "../../lib/data";
 import {
   getSlug,
   resetInputs,
@@ -29,8 +29,34 @@ export const AddModal = ({
         : "",
   });
 
+  const handleAddNews = async () => {
+    console.log("Handling add news...");
+    console.log("Add news data:", addNews);
+    try {
+      if (addNews) {
+        await addNewsFunction(addNews);
+        setAddOpen(false);
+      }
+    } catch (error) {
+      console.error("Error adding news:", error);
+    }
+  };
+
   const controlInputs = () => {
-    if (addNews.important && addNews.title && addNews.text && addNews.image) {
+    console.log("Checking inputs...");
+    console.log("addNews:", addNews);
+
+    if (
+      addNews.important !== undefined &&
+      addNews.title !== undefined &&
+      addNews.text !== undefined &&
+      addNews.image !== undefined &&
+      addNews.important !== "" &&
+      addNews.title !== "" &&
+      addNews.text !== "" &&
+      addNews.image !== ""
+    ) {
+      console.log("All inputs are present, calling handleAddNews...");
       handleAddNews();
     } else {
       const inputs = document.querySelectorAll(".form-modal .input");
@@ -57,13 +83,6 @@ export const AddModal = ({
           removeRadioAlert();
         }
       });
-    }
-  };
-
-  const handleAddNews = async () => {
-    if (addNews) {
-      await addNewsFunction(addNews);
-      setAddOpen(false);
     }
   };
 
@@ -252,7 +271,7 @@ export const AddModal = ({
 
             <div className="buttons">
               <button
-                type="button"
+                type="submit"
                 className="yes-btn"
                 onClick={(e) => {
                   e.preventDefault();

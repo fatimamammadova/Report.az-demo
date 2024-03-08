@@ -26,12 +26,13 @@ export const UrgentSwiper = async ({ posts }) => {
           modules={[Navigation, Scrollbar, Autoplay]}
           spaceBetween={50}
           loop={true}
-          autoplay={{
-            delay: 20000,
-          }}
           navigation={{
             nextEl: ".swiper-controls .next-button",
             prevEl: ".swiper-controls .prev-button",
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
           }}
           className="mainSwiper4"
         >

@@ -853,12 +853,6 @@
       "slug": "oguzda-yollar-buz-baglayib-neqliyyatin-hereketi-cetinlesib"
     },
     {
-      "id": "a551",
-      "important": true,
-      "category": "Siyasət",
-      "sub_category": "Milli Məclis"
-    },
-    {
       "id": "d8c5",
       "important": false,
       "category": "İqtisadiyyat",
@@ -917,6 +911,18 @@
       "slug": "azerbaycan-parataekvondocusu-lisenziya-turnirine-yollanib",
       "date": "2024-03-06T14:33:28.339Z",
       "id": "22f0"
+    },
+    {
+      "id": "22d5",
+      "category": "İdman",
+      "userId": "65bd4808f1e5999380b13c97",
+      "date": "2024-03-08T10:42:04.523Z",
+      "sub_category": "Futbol",
+      "title": "\"Bayer 04\"ün futbolçusu: \"Qarabağ\" qələbə qazana da bilərdi",
+      "slug": "bayer-04un-futbolcusu-qarabag-qelebe-qazana-da-bilerdi",
+      "text": "\"Qarabağ\" matça çox yaxşı hazırlaşmışdı. Hətta qələbə qazana da bilərdilər.\n\n\"Report\" xəbər verir ki, bunu UEFA Avropa Liqasının 1/8 final mərhələsində keçirilən \"Qarabağ\" - \"Bayer\" matçından sonra qonaqların üzvü Florian Virtz almaniyalı jurnalistlərə açıqlamasında bildirib.\n\nAlmaniya millisinin üzvü Ağdam təmsilçisinin çox inamlı oynadığını vurğulayıb: \"Qarabağ\" ilk hissədə möhtəşəm oyun sərgilədi. Layiq olduqları 2 qolu vurdular. İkinci hissədə şanslarımızdan istifadə etdik. Son dəqiqələrdə qələbə qolunu da vura bilərdik\".\n\nQeyd edək ki, \"Qarabağ\" Avropa Liqasının pley-off mərhələsində Almaniyanın \"Bayer 04\" klubu ilə heç-heçə (2:2) edib. Komandalar arasında cavab oyunu martın 14-də Leverkuzen şəhərində gerçəkləşəcək.",
+      "image": "https://static.report.az/photo/6fe0520f-aad3-3cd5-8cc9-96a70525a093_850.jpg",
+      "important": false
     }
   ],
   "videoNews": [
