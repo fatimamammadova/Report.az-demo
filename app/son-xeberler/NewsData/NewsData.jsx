@@ -15,7 +15,7 @@ import DeleteModal from "@/app/components/DeleteModal/DeleteModal";
 import "./_newsData.scss";
 import UpdateModal from "@/app/components/UpdateModal/UpdateModal";
 
-export const NewsData = ({ posts, categories }) => {
+const NewsData = ({ posts, categories }) => {
   const path = usePathname();
   const [post, setPost] = useState(null);
 

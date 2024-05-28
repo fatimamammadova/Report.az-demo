@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import "./_sideNews.scss";
 
-export const SideNews = async ({ posts }) => {
+const SideNews = async ({ posts }) => {
   return (
     <div className="latest-news">
       <Link className="main-title" href="/son-xeberler">

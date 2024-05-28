@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import "./_categoryNews.scss";
 
-export const CategoryNews = ({ posts }) => {
+const CategoryNews = ({ posts }) => {
   const [lastData, setLastData] = useState(15);
   const [scroll, setScroll] = useState();
 

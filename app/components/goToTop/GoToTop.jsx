@@ -4,7 +4,7 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import "./_goToTop.scss";
 
-export const GoToTop = () => {
+const GoToTop = () => {
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {

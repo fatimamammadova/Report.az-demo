@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import NewsData from "../NewsData/NewsData";
 import { getNews } from "@/app/lib/data";
 
-export const FilterDateNews = ({ params: { filteredDate } }) => {
+const FilterDateNews = ({ params: { filteredDate } }) => {
   const [filterData, setFilterData] = useState();
   const [posts, setPosts] = useState();
 

@@ -14,7 +14,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./_importantSwiper.scss";
 
-export const ImportantSwiper = ({ posts }) => {
+const ImportantSwiper = ({ posts }) => {
   return (
     <div className="important-swiper">
       <h2 className="main-title">Ən vacib xəbərlər</h2>

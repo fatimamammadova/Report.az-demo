@@ -14,7 +14,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./_urgentSwiper.scss";
 
-export const UrgentSwiper = async ({ posts }) => {
+const UrgentSwiper = async ({ posts }) => {
   return (
     <div className="breaking-news-swiper">
       <div className="label">

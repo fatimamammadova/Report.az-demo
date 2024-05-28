@@ -9,7 +9,7 @@ import {
   removeRadioInputAlert,
 } from "../../lib/function";
 
-export const AddModal = ({
+const AddModal = ({
   categories,
   addOpen,
   setAddOpen,

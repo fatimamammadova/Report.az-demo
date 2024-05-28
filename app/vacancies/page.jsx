@@ -7,7 +7,7 @@ export const generateMetadata = () => {
   };
 };
 
-export const Vacancies = () => {
+const Vacancies = () => {
   return (
     <main>
       <section id="vacancies" className="page-section">

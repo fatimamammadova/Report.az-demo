@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "./_mainSwiper.scss";
 
-export const MainSwiper = ({ posts }) => {
+const MainSwiper = ({ posts }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (

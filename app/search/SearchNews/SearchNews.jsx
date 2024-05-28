@@ -12,7 +12,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import "./_searchNews.scss";
 
-export const SearchNews = ({ posts, query }) => {
+const SearchNews = ({ posts, query }) => {
   const [lastData, setLastData] = useState(15);
   const [scroll, setScroll] = useState();
 

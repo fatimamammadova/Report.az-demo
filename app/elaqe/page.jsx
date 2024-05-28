@@ -7,7 +7,7 @@ export const generateMetadata = () => {
   };
 };
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <main>
       <section id="contact" className="page-section">

@@ -6,7 +6,7 @@ export const generateMetadata = () => {
   };
 };
 
-export const About = () => {
+const About = () => {
   return (
     <main>
       <section id="about" className="page-section">

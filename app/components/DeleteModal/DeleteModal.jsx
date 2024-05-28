@@ -1,7 +1,7 @@
 import { getDelete } from "@/app/lib/data";
 import "./_deleteModal.scss";
 
-export const DeleteModal = ({post, deleteOpen, setDeleteOpen}) => {
+const DeleteModal = ({post, deleteOpen, setDeleteOpen}) => {
   const handleDelete = async () => {
     if (post && post.id) {
       await getDelete(post.id);

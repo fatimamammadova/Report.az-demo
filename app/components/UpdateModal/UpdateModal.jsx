@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getUpdate } from "@/app/lib/data";
 import { getSlug, resetInputs } from "../../lib/function";
 
-export const UpdateModal = ({
+const UpdateModal = ({
   post,
   categories,
   updateOpen,

@@ -7,7 +7,7 @@ export const generateMetadata = ({ searchParams: { query } }) => {
   };
 };
 
-export const Search = async ({ searchParams: { query } }) => {
+const Search = async ({ searchParams: { query } }) => {
   const posts = await getNews();
 
   return <SearchNews posts={posts} query={query}/>;

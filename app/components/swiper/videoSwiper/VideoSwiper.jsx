@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./_videoSwiper.scss";
 
-export const VideoSwiper =  ({videoNews}) => {
+const VideoSwiper =  ({videoNews}) => {
  
   return (
     <div id="video-swiper">

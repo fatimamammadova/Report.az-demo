@@ -19,7 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./_footer.scss";
 
-export const Footer = async () => {
+const Footer = async () => {
   const links = await getCategory();
   return (
     <footer>
@@ -54,7 +54,7 @@ export const Footer = async () => {
                   ))}
                 </ul>
                 <ul>
-                  {links.slice(2).map((item, index) => (
+                  {links?.slice(2).map((item, index) => (
                     <li key={index}>
                       <Link href={item.url}>{item.title}</Link>
                     </li>

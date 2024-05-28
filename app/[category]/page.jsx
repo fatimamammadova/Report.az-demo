@@ -31,7 +31,7 @@ export const generateMetadata = async ({ params: { category } }) => {
   }
 };
 
-export const SingleCategory = async ({ params: { category } }) => {
+const SingleCategory = async ({ params: { category } }) => {
   let categoryArr;
   let categoryNewsArr;
   let subCategoryArr = [];
